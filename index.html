@@ -225,6 +225,48 @@
         }
         .editable-time:focus { background: #fff7e6; }
 
+        .editable-title {
+            border-bottom: 1px dashed #c1992e;
+            outline: none;
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+        .editable-title:focus { background: #fff7e6; }
+
+        .item-delete {
+            margin-left: auto;
+            align-self: flex-start;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #ccc;
+            font-size: 1.05em;
+            line-height: 1;
+            padding: 4px 8px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        .item-delete:hover { color: #fff; background: #c0392b; }
+
+        .add-activity-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            padding: 10px 18px;
+            background: #0e6b35;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95em;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        .add-activity-btn:hover { background: #157a3c; transform: translateY(-1px); }
+
         .timeline-time {
             font-weight: 700;
             color: #c1992e;
@@ -973,7 +1015,7 @@
                 <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Venezia+Italia">🗺️ Abrir no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
-                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar as atividades e clique no <strong>horário</strong> para editar. Suas mudanças ficam salvas no navegador.</p>
+                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar, clique no <strong>horário</strong> para editar, use <strong style="color:#c0392b;">✕</strong> para excluir e <strong style="color:#0e6b35;">➕ Adicionar atividade</strong> para criar uma nova. Tudo fica salvo no navegador.</p>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">3 OUT (Quarta) — CHEGADA</div>
@@ -1174,7 +1216,7 @@
                 <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ortisei+Val+Gardena">🗺️ Abrir no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
-                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar as atividades e clique no <strong>horário</strong> para editar. Suas mudanças ficam salvas no navegador.</p>
+                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar, clique no <strong>horário</strong> para editar, use <strong style="color:#c0392b;">✕</strong> para excluir e <strong style="color:#0e6b35;">➕ Adicionar atividade</strong> para criar uma nova. Tudo fica salvo no navegador.</p>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">5 OUT (Segunda) — CHEGADA ORTISEI</div>
@@ -1383,7 +1425,7 @@
                 <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Alba+Langhe+Piemonte">🗺️ Abrir no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
-                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar as atividades e clique no <strong>horário</strong> para editar. Suas mudanças ficam salvas no navegador.</p>
+                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar, clique no <strong>horário</strong> para editar, use <strong style="color:#c0392b;">✕</strong> para excluir e <strong style="color:#0e6b35;">➕ Adicionar atividade</strong> para criar uma nova. Tudo fica salvo no navegador.</p>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">8 OUT (Terça) — CHEGADA ALBA</div>
@@ -1970,66 +2012,170 @@
                 .replace(/[^a-z0-9]+/g, '-')
                 .replace(/^-+|-+$/g, '').slice(0, 40);
         }
+        // helpers de storage
+        function getArr(key) { try { const v = JSON.parse(localStorage.getItem(key) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } }
+        function setArr(key, arr) { localStorage.setItem(key, JSON.stringify(arr)); }
+        function cssEsc(k) { return (window.CSS && CSS.escape) ? CSS.escape(k) : k; }
+        function dayById(dayId) { return document.querySelector('.timeline-day[data-day-id="' + cssEsc(dayId) + '"]'); }
+
+        function saveOrder(dayId) {
+            const day = dayById(dayId);
+            if (!day) return;
+            setArr('roteiro_order_' + dayId, [...day.querySelectorAll('.timeline-item')].map(x => x.dataset.key));
+        }
+        function saveCustom(dayId) {
+            const day = dayById(dayId);
+            if (!day) return;
+            const arr = [...day.querySelectorAll('.timeline-item[data-custom]')].map(it => ({
+                key: it.dataset.key,
+                title: (it.querySelector('.timeline-content strong')?.textContent || '').trim()
+            }));
+            setArr('roteiro_custom_' + dayId, arr);
+        }
+
+        function deleteItem(it, dayId) {
+            if (!confirm('Excluir esta atividade?')) return;
+            const key = it.dataset.key;
+            if (it.dataset.custom) {
+                localStorage.removeItem('roteiro_time_' + dayId + '_' + key);
+                it.remove();
+                saveCustom(dayId);
+            } else {
+                const del = getArr('roteiro_deleted_' + dayId);
+                if (!del.includes(key)) { del.push(key); setArr('roteiro_deleted_' + dayId, del); }
+                it.remove();
+            }
+            saveOrder(dayId);
+        }
+
+        function wireItem(it, dayId) {
+            // alça de arrastar
+            if (!it.querySelector('.drag-handle')) {
+                const h = document.createElement('span');
+                h.className = 'drag-handle';
+                h.title = 'Arraste para reordenar';
+                h.textContent = '⠿';
+                it.insertBefore(h, it.firstChild);
+            }
+            // horário editável
+            const time = it.querySelector('.timeline-time');
+            if (time && !time.classList.contains('editable-time')) {
+                time.classList.add('editable-time');
+                time.setAttribute('contenteditable', 'true');
+                time.setAttribute('title', 'Clique para editar o horário');
+                const tkey = 'roteiro_time_' + dayId + '_' + it.dataset.key;
+                const savedT = localStorage.getItem(tkey);
+                if (savedT !== null) time.textContent = savedT;
+                time.addEventListener('blur', () => localStorage.setItem(tkey, time.textContent.trim()));
+                time.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); time.blur(); } });
+            }
+            // título editável (apenas itens adicionados pelo usuário)
+            if (it.dataset.custom) {
+                const strong = it.querySelector('.timeline-content strong');
+                if (strong && !strong.classList.contains('editable-title')) {
+                    strong.classList.add('editable-title');
+                    strong.setAttribute('contenteditable', 'true');
+                    strong.setAttribute('title', 'Clique para editar');
+                    strong.addEventListener('blur', () => saveCustom(dayId));
+                    strong.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); strong.blur(); } });
+                }
+            }
+            // botão excluir
+            if (!it.querySelector('.item-delete')) {
+                const del = document.createElement('button');
+                del.type = 'button';
+                del.className = 'item-delete';
+                del.title = 'Excluir atividade';
+                del.textContent = '✕';
+                del.addEventListener('click', () => deleteItem(it, dayId));
+                it.appendChild(del);
+            }
+        }
+
+        function addItem(dayId) {
+            const day = dayById(dayId);
+            if (!day) return;
+            const key = 'custom-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+            const it = document.createElement('div');
+            it.className = 'timeline-item';
+            it.dataset.key = key;
+            it.dataset.custom = '1';
+            it.innerHTML = '<span class="timeline-time">12:00</span>'
+                + '<div class="timeline-content"><strong>Nova atividade</strong><p>Toque no texto para editar</p></div>';
+            const addBtn = day.querySelector('.add-activity-btn');
+            day.insertBefore(it, addBtn);
+            localStorage.setItem('roteiro_time_' + dayId + '_' + key, '12:00');
+            wireItem(it, dayId);
+            saveCustom(dayId);
+            saveOrder(dayId);
+            const strong = it.querySelector('.timeline-content strong');
+            strong.focus();
+            const r = document.createRange();
+            r.selectNodeContents(strong);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(r);
+        }
+
         function initTimelines() {
             document.querySelectorAll('.timeline-day').forEach((day, di) => {
                 const hdr = day.querySelector('.timeline-day-header')?.textContent || ('dia-' + di);
                 const dayId = (slugify(hdr) || ('dia-' + di));
-                const items = [...day.querySelectorAll('.timeline-item')];
+                day.dataset.dayId = dayId;
 
-                // chaves únicas por item
+                // chaves estáveis para itens originais (todos presentes no HTML)
                 const seen = {};
-                items.forEach((it, ii) => {
+                [...day.querySelectorAll('.timeline-item')].forEach((it, ii) => {
                     const t = it.querySelector('.timeline-content strong')?.textContent || ('item-' + ii);
                     let k = slugify(t) || ('item-' + ii);
                     if (seen[k]) { seen[k]++; k = k + '-' + seen[k]; } else { seen[k] = 1; }
                     it.dataset.key = k;
-
-                    // alça de arrastar
-                    if (!it.querySelector('.drag-handle')) {
-                        const h = document.createElement('span');
-                        h.className = 'drag-handle';
-                        h.title = 'Arraste para reordenar';
-                        h.textContent = '⠿';
-                        it.insertBefore(h, it.firstChild);
-                    }
-
-                    // horário editável (clique para mudar)
-                    const time = it.querySelector('.timeline-time');
-                    if (time && !time.classList.contains('editable-time')) {
-                        time.classList.add('editable-time');
-                        time.setAttribute('contenteditable', 'true');
-                        time.setAttribute('title', 'Clique para editar o horário');
-                        const tkey = 'roteiro_time_' + dayId + '_' + k;
-                        const savedT = localStorage.getItem(tkey);
-                        if (savedT !== null) time.textContent = savedT;
-                        time.addEventListener('blur', () => localStorage.setItem(tkey, time.textContent.trim()));
-                        time.addEventListener('keydown', e => {
-                            if (e.key === 'Enter') { e.preventDefault(); time.blur(); }
-                        });
-                    }
                 });
 
+                // remove itens originais excluídos pelo usuário
+                getArr('roteiro_deleted_' + dayId).forEach(k => {
+                    const el = day.querySelector('.timeline-item[data-key="' + cssEsc(k) + '"]:not([data-custom])');
+                    if (el) el.remove();
+                });
+
+                // recria itens adicionados pelo usuário
+                getArr('roteiro_custom_' + dayId).forEach(c => {
+                    const it = document.createElement('div');
+                    it.className = 'timeline-item';
+                    it.dataset.key = c.key;
+                    it.dataset.custom = '1';
+                    it.innerHTML = '<span class="timeline-time">12:00</span><div class="timeline-content"><strong></strong></div>';
+                    it.querySelector('strong').textContent = c.title || 'Atividade';
+                    day.appendChild(it);
+                });
+
+                // conecta todos os itens (alça, horário, título, excluir)
+                [...day.querySelectorAll('.timeline-item')].forEach(it => wireItem(it, dayId));
+
                 // restaura ordem salva
-                const orderKey = 'roteiro_order_' + dayId;
-                let saved = null;
-                try { saved = JSON.parse(localStorage.getItem(orderKey) || 'null'); } catch (e) {}
-                if (Array.isArray(saved)) {
-                    saved.forEach(k => {
-                        const el = day.querySelector('.timeline-item[data-key="' + (window.CSS && CSS.escape ? CSS.escape(k) : k) + '"]');
-                        if (el) day.appendChild(el);
-                    });
+                const saved = getArr('roteiro_order_' + dayId);
+                saved.forEach(k => {
+                    const el = day.querySelector('.timeline-item[data-key="' + cssEsc(k) + '"]');
+                    if (el) day.appendChild(el);
+                });
+
+                // botão "adicionar atividade" (sempre por último)
+                if (!day.querySelector('.add-activity-btn')) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'add-activity-btn';
+                    btn.textContent = '➕ Adicionar atividade';
+                    btn.addEventListener('click', () => addItem(dayId));
+                    day.appendChild(btn);
                 }
 
-                // habilita drag-and-drop
+                // habilita arrastar para reordenar
                 if (window.Sortable) {
                     Sortable.create(day, {
                         handle: '.drag-handle',
                         draggable: '.timeline-item',
                         animation: 150,
-                        onEnd: () => {
-                            const order = [...day.querySelectorAll('.timeline-item')].map(x => x.dataset.key);
-                            localStorage.setItem(orderKey, JSON.stringify(order));
-                        }
+                        onEnd: () => saveOrder(dayId)
                     });
                 }
             });
