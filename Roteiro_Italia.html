@@ -193,17 +193,37 @@
 
         .timeline-item {
             display: flex;
-            margin-bottom: 20px;
-            padding-left: 25px;
+            align-items: flex-start;
+            margin-bottom: 14px;
+            padding: 6px 6px 6px 4px;
             position: relative;
+            border-radius: 8px;
+            transition: background 0.2s ease;
         }
 
-        .timeline-item::before {
-            content: '🕐';
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
+        .drag-handle {
+            cursor: grab;
+            color: #c1992e;
+            font-size: 1.25em;
+            line-height: 1.3;
+            padding: 0 10px 0 2px;
+            user-select: none;
+            flex-shrink: 0;
+            touch-action: none;
         }
+        .drag-handle:active { cursor: grabbing; }
+        .timeline-item.sortable-chosen { background: #fff7e6; }
+        .timeline-item.sortable-ghost { opacity: 0.35; }
+        .timeline-item.sortable-drag { background: #fffdf8; box-shadow: 0 6px 18px rgba(0,0,0,0.18); }
+
+        .editable-time {
+            border-bottom: 1px dashed #c1992e;
+            cursor: text;
+            outline: none;
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+        .editable-time:focus { background: #fff7e6; }
 
         .timeline-time {
             font-weight: 700;
@@ -697,6 +717,7 @@
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -946,12 +967,13 @@
                     <strong>📍 Chegada:</strong> 3 out 09:55 (voo UX1081 de Madri) | <strong>Saída:</strong> 5 out 09:30 | <strong>Hospedagem:</strong> 2 noites | <strong>Tema:</strong> Cidade flutuante, história, gondolas
                 </div>
 
-                <h3>🗺️ Mapa do Roteiro — Veneza</h3>
-                <p style="color:#666;">Rota a pé pelo centro: hospedagem (Cannaregio) → Basílica San Marco → Ponte di Rialto → almoço Antiche Carampane.</p>
+                <h3>🗺️ Pontos de Interesse — Veneza</h3>
+                <p style="color:#666;">Toque em cada pino para ver o local.</p>
                 <div class="route-map" id="map-veneza"></div>
-                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Cannaregio,+Venezia/Basilica+di+San+Marco,+Venezia/Ponte+di+Rialto,+Venezia/Antiche+Carampane,+Venezia">🗺️ Abrir rota no Google Maps</a>
+                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Venezia+Italia">🗺️ Abrir no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
+                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar as atividades e clique no <strong>horário</strong> para editar. Suas mudanças ficam salvas no navegador.</p>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">3 OUT (Quarta) — CHEGADA</div>
@@ -1146,12 +1168,13 @@
                     <strong>📍 Base:</strong> Ortisei | <strong>Chegada:</strong> 5 out 14:30 | <strong>Saída:</strong> 7 out 18:00 | <strong>Hospedagem:</strong> 3 noites | <strong>Tema:</strong> Montanha, teleféricos, Tre Cime épica
                 </div>
 
-                <h3>🗺️ Mapa do Roteiro — Dia Épico (6 out)</h3>
-                <p style="color:#666;">Rota de carro: Ortisei → Tre Cime di Lavaredo (Rifugio Auronzo) → Passo Falzarego/Lagazuoi → Lago di Carezza → Ortisei.</p>
+                <h3>🗺️ Pontos de Interesse — Dolomitas</h3>
+                <p style="color:#666;">Toque em cada pino para ver o local.</p>
                 <div class="route-map" id="map-ortisei"></div>
-                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Ortisei+BZ/Rifugio+Auronzo+Tre+Cime+di+Lavaredo/Passo+Falzarego/Lago+di+Carezza/Ortisei+BZ">🗺️ Abrir rota no Google Maps</a>
+                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ortisei+Val+Gardena">🗺️ Abrir no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
+                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar as atividades e clique no <strong>horário</strong> para editar. Suas mudanças ficam salvas no navegador.</p>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">5 OUT (Segunda) — CHEGADA ORTISEI</div>
@@ -1354,12 +1377,13 @@
                     <strong>📍 Base:</strong> Alba | <strong>Chegada:</strong> 8 out 21:00 | <strong>Saída:</strong> 12 out ~09:00 (voo 13:00 em Milão) | <strong>Hospedagem:</strong> 3 noites | <strong>Tema:</strong> Vinho, trufas, gastronomia Piemontese
                 </div>
 
-                <h3>🗺️ Mapa do Roteiro — Rota dos Vinhos</h3>
-                <p style="color:#666;">Rota de carro pelas Langhe: Alba → La Morra → Barolo → Monforte d'Alba → Barbaresco → Alba.</p>
+                <h3>🗺️ Pontos de Interesse — Langhe</h3>
+                <p style="color:#666;">Toque em cada pino para ver o local.</p>
                 <div class="route-map" id="map-langhe"></div>
-                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Alba+CN/La+Morra+CN/Barolo+CN/Monforte+d'Alba+CN/Barbaresco+CN/Alba+CN">🗺️ Abrir rota no Google Maps</a>
+                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Alba+Langhe+Piemonte">🗺️ Abrir no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
+                <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar as atividades e clique no <strong>horário</strong> para editar. Suas mudanças ficam salvas no navegador.</p>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">8 OUT (Terça) — CHEGADA ALBA</div>
@@ -1744,26 +1768,30 @@
 
         /* ===== MAPAS DAS ROTAS (Leaflet + OpenStreetMap, sem chave) ===== */
         const ROUTES = {
-            'map-veneza': { mode: 'walk', points: [
-                ['Hospedagem · Cannaregio', 45.4445, 12.3265],
-                ['Basílica San Marco', 45.4345, 12.3397],
-                ['Ponte di Rialto', 45.4380, 12.3358],
-                ['Almoço · Antiche Carampane', 45.4378, 12.3290]
+            'map-veneza': { points: [
+                ['🏨 Hospedagem · Cannaregio', 45.4445, 12.3265],
+                ['⛪ Basílica San Marco', 45.4345, 12.3397],
+                ['🏛️ Palazzo Ducale', 45.4337, 12.3401],
+                ['🌉 Ponte di Rialto', 45.4380, 12.3358],
+                ['🛍️ Mercato di Rialto', 45.4399, 12.3343],
+                ['🍝 Antiche Carampane', 45.4378, 12.3290],
+                ['🍴 Osteria al Timon', 45.4447, 12.3270]
             ]},
-            'map-ortisei': { mode: 'drive', points: [
-                ['Ortisei (saída)', 46.5766, 11.6713],
-                ['Tre Cime · Rifugio Auronzo', 46.6132, 12.2952],
-                ['Passo Falzarego / Lagazuoi', 46.5197, 12.0097],
-                ['Lago di Carezza', 46.4090, 11.5765],
-                ['Volta a Ortisei', 46.5766, 11.6713]
+            'map-ortisei': { points: [
+                ['🏔️ Ortisei (centro)', 46.5766, 11.6713],
+                ['📸 Tre Cime · Rifugio Auronzo', 46.6132, 12.2952],
+                ['🏔️ Passo Falzarego / Lagazuoi', 46.5197, 12.0097],
+                ['🏞️ Lago di Carezza', 46.4090, 11.5765],
+                ['🚡 Alpe di Siusi (Mont Sëuc)', 46.5408, 11.6190],
+                ['🛣️ Passo Gardena', 46.5466, 11.8127]
             ]},
-            'map-langhe': { mode: 'drive', points: [
-                ['Alba (base)', 44.7009, 8.0353],
-                ['La Morra', 44.6360, 7.9460],
-                ['Barolo', 44.6110, 7.9430],
-                ["Monforte d'Alba", 44.5860, 7.9740],
-                ['Barbaresco', 44.7230, 8.0840],
-                ['Volta a Alba', 44.7009, 8.0353]
+            'map-langhe': { points: [
+                ['🍷 Alba (base)', 44.7009, 8.0353],
+                ['🍇 La Morra', 44.6360, 7.9460],
+                ['🏰 Barolo', 44.6110, 7.9430],
+                ["🍷 Monforte d'Alba", 44.5860, 7.9740],
+                ['🍇 Barbaresco', 44.7230, 8.0840],
+                ['🍝 La Ciau del Tornavento (Treiso)', 44.6880, 8.0470]
             ]}
         };
         const mapInstances = {};
@@ -1778,12 +1806,6 @@
                     attribution: '© OpenStreetMap'
                 }).addTo(map);
                 const latlngs = route.points.map(p => [p[1], p[2]]);
-                L.polyline(latlngs, {
-                    color: '#0e6b35',
-                    weight: 4,
-                    opacity: 0.85,
-                    dashArray: route.mode === 'walk' ? '6,8' : null
-                }).addTo(map);
                 route.points.forEach((p, i) => {
                     const icon = L.divIcon({
                         className: 'route-pin',
@@ -1941,11 +1963,84 @@
             }
         }
 
+        /* ===== TIMELINE: ARRASTAR PARA REORDENAR + EDITAR HORÁRIO ===== */
+        function slugify(s) {
+            return (s || '').toLowerCase()
+                .normalize('NFD').replace(/[̀-ͯ]/g, '')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '').slice(0, 40);
+        }
+        function initTimelines() {
+            document.querySelectorAll('.timeline-day').forEach((day, di) => {
+                const hdr = day.querySelector('.timeline-day-header')?.textContent || ('dia-' + di);
+                const dayId = (slugify(hdr) || ('dia-' + di));
+                const items = [...day.querySelectorAll('.timeline-item')];
+
+                // chaves únicas por item
+                const seen = {};
+                items.forEach((it, ii) => {
+                    const t = it.querySelector('.timeline-content strong')?.textContent || ('item-' + ii);
+                    let k = slugify(t) || ('item-' + ii);
+                    if (seen[k]) { seen[k]++; k = k + '-' + seen[k]; } else { seen[k] = 1; }
+                    it.dataset.key = k;
+
+                    // alça de arrastar
+                    if (!it.querySelector('.drag-handle')) {
+                        const h = document.createElement('span');
+                        h.className = 'drag-handle';
+                        h.title = 'Arraste para reordenar';
+                        h.textContent = '⠿';
+                        it.insertBefore(h, it.firstChild);
+                    }
+
+                    // horário editável (clique para mudar)
+                    const time = it.querySelector('.timeline-time');
+                    if (time && !time.classList.contains('editable-time')) {
+                        time.classList.add('editable-time');
+                        time.setAttribute('contenteditable', 'true');
+                        time.setAttribute('title', 'Clique para editar o horário');
+                        const tkey = 'roteiro_time_' + dayId + '_' + k;
+                        const savedT = localStorage.getItem(tkey);
+                        if (savedT !== null) time.textContent = savedT;
+                        time.addEventListener('blur', () => localStorage.setItem(tkey, time.textContent.trim()));
+                        time.addEventListener('keydown', e => {
+                            if (e.key === 'Enter') { e.preventDefault(); time.blur(); }
+                        });
+                    }
+                });
+
+                // restaura ordem salva
+                const orderKey = 'roteiro_order_' + dayId;
+                let saved = null;
+                try { saved = JSON.parse(localStorage.getItem(orderKey) || 'null'); } catch (e) {}
+                if (Array.isArray(saved)) {
+                    saved.forEach(k => {
+                        const el = day.querySelector('.timeline-item[data-key="' + (window.CSS && CSS.escape ? CSS.escape(k) : k) + '"]');
+                        if (el) day.appendChild(el);
+                    });
+                }
+
+                // habilita drag-and-drop
+                if (window.Sortable) {
+                    Sortable.create(day, {
+                        handle: '.drag-handle',
+                        draggable: '.timeline-item',
+                        animation: 150,
+                        onEnd: () => {
+                            const order = [...day.querySelectorAll('.timeline-item')].map(x => x.dataset.key);
+                            localStorage.setItem(orderKey, JSON.stringify(order));
+                        }
+                    });
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             initChecklists();
             initStatusSelects();
             loadWeather();
             initMaps();
+            initTimelines();
         });
     </script>
 </body>
