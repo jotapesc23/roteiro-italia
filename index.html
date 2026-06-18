@@ -562,7 +562,84 @@
         .weather-day .wd-temp .min { opacity: 0.75; font-weight: 500; }
         .weather-loading { font-style: italic; opacity: 0.9; }
 
+        /* === MAPA EMBEDADO (rota do dia) === */
+        .route-map {
+            position: relative;
+            width: 100%;
+            height: 440px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin: 15px 0 10px 0;
+            border: 2px solid #f0f0f0;
+        }
+        .route-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+        .route-pin .pin {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #1f4e78;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+        }
+        .leaflet-container { font: inherit; }
+
+        /* === VOOS === */
+        .flight-card {
+            background: #f8f9fa;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 0;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .flight-card .flight-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #eef2f8;
+            padding: 18px 24px;
+        }
+        .flight-card .flight-head .ico { font-size: 1.6em; }
+        .flight-card .flight-head h4 {
+            margin: 0;
+            color: #1f4e78;
+            font-size: 1.25em;
+        }
+        .flight-card .flight-legs {
+            padding: 18px 24px;
+        }
+        .flight-card .flight-legs .leg {
+            color: #444;
+            font-size: 1em;
+            line-height: 1.7;
+            padding: 6px 0;
+        }
+        .flight-card .flight-legs .leg strong { color: #1f4e78; }
+        .flight-card .flight-legs .leg .code {
+            display: inline-block;
+            background: #1f4e78;
+            color: #fff;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-left: 6px;
+        }
+
         @media (max-width: 768px) {
+            .route-map { height: 320px; }
             header h1 {
                 font-size: 1.8em;
             }
@@ -594,6 +671,8 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <div class="container">
@@ -665,6 +744,29 @@
                     </tr>
                 </table>
 
+                <h3>✈️ Voos <span style="font-size:0.6em; color:#006100;">✓ COMPRADOS</span></h3>
+                <div class="flight-card">
+                    <div class="flight-head">
+                        <span class="ico">🛫</span>
+                        <h4>São Paulo → Veneza</h4>
+                    </div>
+                    <div class="flight-legs">
+                        <div class="leg">02/10/26 | <strong>São Paulo (13:50)</strong> → Madri (05:00) <span class="code">UX0058</span></div>
+                        <div class="leg">03/10/26 | Madri (07:30) → <strong>Veneza (09:55)</strong> <span class="code">UX1081</span></div>
+                        <div class="leg" style="color:#006100; font-weight:600;">Chega em Veneza na manhã de 3 out 🎉</div>
+                    </div>
+                </div>
+                <div class="flight-card">
+                    <div class="flight-head">
+                        <span class="ico">🛬</span>
+                        <h4>Milão → São Paulo</h4>
+                    </div>
+                    <div class="flight-legs">
+                        <div class="leg">12/10/26 | <strong>Milão · Malpensa MXP (13:00)</strong> → São Paulo · Guarulhos GRU (20:00) <span class="code">LA8073</span></div>
+                        <div class="leg">Voo direto | Latam Airlines Brasil | Boeing 777 | Duração 12h</div>
+                    </div>
+                </div>
+
                 <h3>🚗 Logística</h3>
                 <p style="color:#666; margin-bottom:10px;">Use o seletor de status para marcar o que já foi resolvido. Fica salvo no seu navegador. ✅</p>
                 <table>
@@ -674,19 +776,19 @@
                         <th>Status</th>
                     </tr>
                     <tr>
-                        <td><strong>Voo GYN → VCE</strong></td>
-                        <td>2 out noite | Chega 3 out 15:00</td>
-                        <td><select class="status-select" data-persist="log-voo-ida"></select></td>
+                        <td><strong>✈️ Voo ida (GRU → VCE via Madri)</strong></td>
+                        <td>2 out 13:50 GRU → 3 out 09:55 Veneza | UX0058 + UX1081</td>
+                        <td><select class="status-select" data-persist="log-voo-ida" data-default="done"></select></td>
                     </tr>
                     <tr>
-                        <td><strong>Aluguel carro</strong></td>
-                        <td>Mestre 5 out até Turim/Milão 12 out</td>
+                        <td><strong>✈️ Voo volta (MXP → GRU)</strong></td>
+                        <td>12 out 13:00 Milão → 20:00 São Paulo | LA8073 (direto)</td>
+                        <td><select class="status-select" data-persist="log-voo-volta" data-default="done"></select></td>
+                    </tr>
+                    <tr>
+                        <td><strong>🚗 Aluguel carro</strong></td>
+                        <td>Mestre 5 out até Milão Malpensa 12 out</td>
                         <td><select class="status-select" data-persist="log-carro"></select></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Voo Itália → GYN</strong></td>
-                        <td>12 out 07:00 | Chega 12 out 23:00 BRT</td>
-                        <td><select class="status-select" data-persist="log-voo-volta"></select></td>
                     </tr>
                     <tr>
                         <td><strong>Seguro Schengen</strong></td>
@@ -817,18 +919,23 @@
                 <h2>🏙️ Veneza (3-5 Outubro)</h2>
 
                 <div class="info-box">
-                    <strong>📍 Chegada:</strong> 3 out 15:00 CET | <strong>Saída:</strong> 5 out 09:00 | <strong>Hospedagem:</strong> 2 noites | <strong>Tema:</strong> Cidade flutuante, história, gondolas
+                    <strong>📍 Chegada:</strong> 3 out 09:55 (voo UX1081 de Madri) | <strong>Saída:</strong> 5 out 09:30 | <strong>Hospedagem:</strong> 2 noites | <strong>Tema:</strong> Cidade flutuante, história, gondolas
                 </div>
+
+                <h3>🗺️ Mapa do Roteiro — Veneza</h3>
+                <p style="color:#666;">Rota a pé pelo centro: hospedagem (Cannaregio) → Basílica San Marco → Ponte di Rialto → almoço Antiche Carampane.</p>
+                <div class="route-map" id="map-veneza"></div>
+                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Cannaregio,+Venezia/Basilica+di+San+Marco,+Venezia/Ponte+di+Rialto,+Venezia/Antiche+Carampane,+Venezia">🗺️ Abrir rota no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">3 OUT (Quarta) — CHEGADA</div>
                     <div class="timeline-item">
-                        <span class="timeline-time">14:00</span>
+                        <span class="timeline-time">09:55</span>
                         <div class="timeline-content">
-                            <strong>✈️ Voo pousa Marco Polo (VCE)</strong>
-                            <p>Chega à tarde | Imigração + bagagem</p>
+                            <strong>✈️ Voo pousa Marco Polo (VCE) — UX1081</strong>
+                            <p>Chega de manhã! | Imigração + bagagem | Dia inteiro livre 🎉</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1014,6 +1121,11 @@
                 <div class="info-box">
                     <strong>📍 Base:</strong> Ortisei | <strong>Chegada:</strong> 5 out 14:30 | <strong>Saída:</strong> 7 out 18:00 | <strong>Hospedagem:</strong> 3 noites | <strong>Tema:</strong> Montanha, teleféricos, Tre Cime épica
                 </div>
+
+                <h3>🗺️ Mapa do Roteiro — Dia Épico (6 out)</h3>
+                <p style="color:#666;">Rota de carro: Ortisei → Tre Cime di Lavaredo (Rifugio Auronzo) → Passo Falzarego/Lagazuoi → Lago di Carezza → Ortisei.</p>
+                <div class="route-map" id="map-ortisei"></div>
+                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Ortisei+BZ/Rifugio+Auronzo+Tre+Cime+di+Lavaredo/Passo+Falzarego/Lago+di+Carezza/Ortisei+BZ">🗺️ Abrir rota no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
 
@@ -1215,8 +1327,13 @@
                 <h2>🍷 Langhe/Alba (8-11 Outubro)</h2>
 
                 <div class="info-box">
-                    <strong>📍 Base:</strong> Alba | <strong>Chegada:</strong> 8 out 21:00 | <strong>Saída:</strong> 12 out 05:30 | <strong>Hospedagem:</strong> 3 noites | <strong>Tema:</strong> Vinho, trufas, gastronomia Piemontese
+                    <strong>📍 Base:</strong> Alba | <strong>Chegada:</strong> 8 out 21:00 | <strong>Saída:</strong> 12 out ~09:00 (voo 13:00 em Milão) | <strong>Hospedagem:</strong> 3 noites | <strong>Tema:</strong> Vinho, trufas, gastronomia Piemontese
                 </div>
+
+                <h3>🗺️ Mapa do Roteiro — Rota dos Vinhos</h3>
+                <p style="color:#666;">Rota de carro pelas Langhe: Alba → La Morra → Barolo → Monforte d'Alba → Barbaresco → Alba.</p>
+                <div class="route-map" id="map-langhe"></div>
+                <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Alba+CN/La+Morra+CN/Barolo+CN/Monforte+d'Alba+CN/Barbaresco+CN/Alba+CN">🗺️ Abrir rota no Google Maps</a>
 
                 <h3>📅 Dia a Dia</h3>
 
@@ -1341,26 +1458,33 @@
                 </div>
 
                 <div class="timeline-day">
-                    <div class="timeline-day-header">12 OUT (Sábado) — SAÍDA</div>
+                    <div class="timeline-day-header">12 OUT (Segunda) — SAÍDA</div>
                     <div class="timeline-item">
-                        <span class="timeline-time">05:30</span>
+                        <span class="timeline-time">08:30</span>
                         <div class="timeline-content">
                             <strong>✅ Check-out + SAÍDA hotel</strong>
-                            <p>Café rápido no carro</p>
+                            <p>Café antes de sair | Devolução do carro em Malpensa</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">07:00</span>
+                        <span class="timeline-time">09:00</span>
                         <div class="timeline-content">
-                            <strong>🚗 Drive para aeroporto</strong>
-                            <p>Turim (1.5h) OU Milão (2.5h)</p>
+                            <strong>🚗 Drive Alba → Milão Malpensa (MXP)</strong>
+                            <p>~150km | ~2h | Chegar ~11:00 para check-in</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">18:00+</span>
+                        <span class="timeline-time">13:00</span>
                         <div class="timeline-content">
-                            <strong>✈️ VOO Itália → Goiânia</strong>
-                            <p>Chega 12 out 23:00 BRT</p>
+                            <strong>✈️ VOO Milão (MXP) → São Paulo (GRU) — LA8073</strong>
+                            <p>Voo direto Latam | Boeing 777 | Duração 12h</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20:00</span>
+                        <div class="timeline-content">
+                            <strong>🛬 Chegada São Paulo · Guarulhos (GRU)</strong>
+                            <p>12 out 20:00 horário de Brasília</p>
                         </div>
                     </div>
                 </div>
@@ -1491,7 +1615,7 @@
                 <div class="option-group">
                     <h4>Aluguel</h4>
                     <p><strong>Pega:</strong> Mestre (perto Veneza) | 5 out</p>
-                    <p><strong>Devolve:</strong> Turim OU Milão | 12 out manhã</p>
+                    <p><strong>Devolve:</strong> Milão Malpensa (MXP) | 12 out ~11:00</p>
                     <p><strong>Documentos:</strong> RG original + CNH + Passaporte</p>
                 </div>
                 <div class="option-group">
@@ -1591,6 +1715,76 @@
             evt.currentTarget.classList.add('active');
 
             window.scrollTo(0, 0);
+            refreshMapsIn(tabName);
+        }
+
+        /* ===== MAPAS DAS ROTAS (Leaflet + OpenStreetMap, sem chave) ===== */
+        const ROUTES = {
+            'map-veneza': { mode: 'walk', points: [
+                ['Hospedagem · Cannaregio', 45.4445, 12.3265],
+                ['Basílica San Marco', 45.4345, 12.3397],
+                ['Ponte di Rialto', 45.4380, 12.3358],
+                ['Almoço · Antiche Carampane', 45.4378, 12.3290]
+            ]},
+            'map-ortisei': { mode: 'drive', points: [
+                ['Ortisei (saída)', 46.5766, 11.6713],
+                ['Tre Cime · Rifugio Auronzo', 46.6132, 12.2952],
+                ['Passo Falzarego / Lagazuoi', 46.5197, 12.0097],
+                ['Lago di Carezza', 46.4090, 11.5765],
+                ['Volta a Ortisei', 46.5766, 11.6713]
+            ]},
+            'map-langhe': { mode: 'drive', points: [
+                ['Alba (base)', 44.7009, 8.0353],
+                ['La Morra', 44.6360, 7.9460],
+                ['Barolo', 44.6110, 7.9430],
+                ["Monforte d'Alba", 44.5860, 7.9740],
+                ['Barbaresco', 44.7230, 8.0840],
+                ['Volta a Alba', 44.7009, 8.0353]
+            ]}
+        };
+        const mapInstances = {};
+        function initMaps() {
+            if (typeof L === 'undefined') return;
+            Object.entries(ROUTES).forEach(([id, route]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const map = L.map(id, { scrollWheelZoom: false });
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap'
+                }).addTo(map);
+                const latlngs = route.points.map(p => [p[1], p[2]]);
+                L.polyline(latlngs, {
+                    color: '#1f4e78',
+                    weight: 4,
+                    opacity: 0.85,
+                    dashArray: route.mode === 'walk' ? '6,8' : null
+                }).addTo(map);
+                route.points.forEach((p, i) => {
+                    const icon = L.divIcon({
+                        className: 'route-pin',
+                        html: '<div class="pin">' + (i + 1) + '</div>',
+                        iconSize: [28, 28],
+                        iconAnchor: [14, 14]
+                    });
+                    L.marker([p[1], p[2]], { icon }).addTo(map)
+                        .bindPopup('<b>' + (i + 1) + '. ' + p[0] + '</b>');
+                });
+                map.fitBounds(latlngs, { padding: [30, 30] });
+                mapInstances[id] = map;
+            });
+        }
+        function refreshMapsIn(tabName) {
+            setTimeout(() => {
+                document.querySelectorAll('#' + tabName + ' .route-map').forEach(el => {
+                    const m = mapInstances[el.id];
+                    if (m) {
+                        m.invalidateSize();
+                        const r = ROUTES[el.id];
+                        if (r) m.fitBounds(r.points.map(p => [p[1], p[2]]), { padding: [30, 30] });
+                    }
+                });
+            }, 160);
         }
 
         /* ===== FILTRO DE DESTAQUES POR CIDADE ===== */
@@ -1635,7 +1829,7 @@
                     sel.appendChild(o);
                 });
                 const key = 'roteiro_' + sel.dataset.persist;
-                const saved = localStorage.getItem(key) || 'todo';
+                const saved = localStorage.getItem(key) || sel.dataset.default || 'todo';
                 sel.value = saved;
                 const paint = () => {
                     sel.classList.remove('st-todo', 'st-progress', 'st-done');
@@ -1727,6 +1921,7 @@
             initChecklists();
             initStatusSelects();
             loadWeather();
+            initMaps();
         });
     </script>
 </body>
