@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇮🇹 Roteiro Itália 2026 - João Coutinho</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1f4e78 0%, #2d5a96 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 3px solid #e9ecef;
+            overflow-x: auto;
+            padding: 0;
+        }
+        
+        .nav-tabs button {
+            flex: 1;
+            padding: 18px 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 120px;
+        }
+        
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #1f4e78;
+        }
+        
+        .nav-tabs button.active {
+            color: white;
+            background: #1f4e78;
+            border-bottom-color: #667eea;
+        }
+        
+        .content {
+            padding: 40px 50px;
+        }
+        
+        .tab-panel {
+            display: none;
+        }
+        
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #1f4e78;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #667eea;
+        }
+        
+        h3 {
+            color: #2d5a96;
+            font-size: 1.5em;
+            margin: 35px 0 20px 0;
+            padding-top: 20px;
+        }
+        
+        h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin: 15px 0 10px 0;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+            text-align: center;
+        }
+        
+        .summary-card .number {
+            font-size: 2.5em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .summary-card .label {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+        
+        .timeline-day {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .timeline-day-header {
+            font-weight: 700;
+            color: #1f4e78;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '🕐';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        .timeline-time {
+            font-weight: 700;
+            color: #667eea;
+            min-width: 90px;
+            font-size: 0.95em;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding-left: 20px;
+        }
+        
+        .timeline-content strong {
+            color: #1f4e78;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content p {
+            color: #666;
+            font-size: 0.95em;
+            margin: 5px 0;
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+        
+        .info-box strong {
+            color: #1565c0;
+        }
+        
+        .option-group {
+            background: white;
+            border: 2px solid #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .option-group:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .option-group h4 {
+            margin-top: 0;
+        }
+        
+        .option-group .meta {
+            font-size: 0.9em;
+            color: #666;
+            margin: 8px 0;
+        }
+        
+        .option-group .meta strong {
+            color: #667eea;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin: 8px 8px 8px 0;
+            white-space: nowrap;
+        }
+        
+        .badge-critical {
+            background: #ffcccc;
+            color: #c00000;
+        }
+        
+        .badge-confirmed {
+            background: #c6efce;
+            color: #006100;
+        }
+        
+        .badge-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .badge-option {
+            background: #e2efda;
+            color: #375623;
+        }
+        
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .restaurant-card {
+            background: white;
+            border: 2px solid #f0f0f0;
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .restaurant-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .restaurant-card h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        
+        .restaurant-card .meta {
+            font-size: 0.9em;
+            color: #666;
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .restaurant-card .description {
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        table th {
+            background: #1f4e78;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .attention-box {
+            background: #ffe6e6;
+            border: 2px solid #ff6b6b;
+            color: #c00000;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+        
+        ul {
+            margin: 15px 0 15px 25px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        ul li {
+            margin-bottom: 8px;
+        }
+        
+        ul li strong {
+            color: #1f4e78;
+        }
+        
+        .city-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .nav-tabs button {
+                flex: 0 0 auto;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+            
+            .restaurant-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇮🇹 Roteiro Itália 2026</h1>
+            <p class="subtitle">João Pedro Coutinho | 3-12 Outubro | Veneza → Dolomitas → Langhe</p>
+        </header>
+        
+        <div class="nav-tabs">
+            <button class="nav-btn active" onclick="openTab(event, 'resumo')">📋 Resumo</button>
+            <button class="nav-btn" onclick="openTab(event, 'veneza')">🏙️ Veneza</button>
+            <button class="nav-btn" onclick="openTab(event, 'ortisei')">⛰️ Ortisei</button>
+            <button class="nav-btn" onclick="openTab(event, 'langhe')">🍷 Langhe</button>
+            <button class="nav-btn" onclick="openTab(event, 'pratico')">ℹ️ Prático</button>
+        </div>
+        
+        <div class="content">
+            
+            <!-- RESUMO -->
+            <div id="resumo" class="tab-panel active">
+                <h2>📋 Resumo Executivo</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <span class="number">10</span>
+                        <span class="label">Dias Totais</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="number">3</span>
+                        <span class="label">Cidades</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="number">~500km</span>
+                        <span class="label">Distância</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="number">3</span>
+                        <span class="label">Hotéis</span>
+                    </div>
+                </div>
+                
+                <h3>🗺️ Roteiro por Período</h3>
+                <table>
+                    <tr>
+                        <th>Data</th>
+                        <th>Cidade</th>
+                        <th>Noites</th>
+                        <th>Atividade Principal</th>
+                    </tr>
+                    <tr>
+                        <td><strong>3-5 out</strong></td>
+                        <td>🏙️ Veneza</td>
+                        <td>2</td>
+                        <td>Basílica São Marcos, Gondolas, Museus</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5-8 out</strong></td>
+                        <td>⛰️ Ortisei</td>
+                        <td>3</td>
+                        <td>Tre Cime, Alpe di Siusi, Teleféricos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8-11 out</strong></td>
+                        <td>🍷 Alba/Langhe</td>
+                        <td>3</td>
+                        <td>Cantinas vinho, Truffle hunting, Gastronomia</td>
+                    </tr>
+                </table>
+                
+                <h3>⭐ Destaques</h3>
+                <div class="restaurant-grid">
+                    <div class="option-group">
+                        <h4>🎯 Tre Cime di Lavaredo (6 out)</h4>
+                        <p><strong>Tipo:</strong> Hiking + paisagem WOW</p>
+                        <p>2.999m | Trilha circular 10km | Rifugio almoço | ÉPICO</p>
+                        <span class="badge badge-critical">⭐⭐⭐</span>
+                    </div>
+                    <div class="option-group">
+                        <h4>🌰 Truffle Hunting (11 out)</h4>
+                        <p><strong>Tipo:</strong> Experiência + caçador</p>
+                        <p>10h-14h30 | Trilha com caçador | Almoço campestre | CLÍMAX</p>
+                        <span class="badge badge-critical">⭐⭐⭐</span>
+                    </div>
+                    <div class="option-group">
+                        <h4>🪂 Alpe di Siusi (7 out)</h4>
+                        <p><strong>Tipo:</strong> Teleférico + trilha</p>
+                        <p>Maior platô europeu | Recovery day | Fácil/relaxo</p>
+                        <span class="badge badge-option">⭐⭐</span>
+                    </div>
+                </div>
+                
+                <h3>✅ Checklist Crítico</h3>
+                <ul>
+                    <li><span style="color: #006100; font-weight: 700;">✓ CONFIRMADO:</span> Antiche Carampane (Veneza, 4 out)</li>
+                    <li><span style="color: #006100; font-weight: 700;">✓ CONFIRMADO:</span> La Ciau del Tornavento (Alba, 9 out 13:00)</li>
+                    <li><span style="color: #006100; font-weight: 700;">✓ CONFIRMADO:</span> Rifugio Auronzo almoço (6 out)</li>
+                    <li><span style="color: #856404; font-weight: 700;">⏳ AGUARDANDO:</span> GAJA Barbaresco (cantina vinho)</li>
+                    <li><span style="color: #856404; font-weight: 700;">⏳ AGUARDANDO:</span> CONTERNO FANTINO (cantina Barolo)</li>
+                    <li><span style="color: #856404; font-weight: 700;">⏳ AGUARDANDO:</span> LA TARTUFAIA (truffle hunting)</li>
+                </ul>
+                
+                <h3>🚗 Logística</h3>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quando</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Voo GYN → VCE</strong></td>
+                        <td>2 out noite | Chega 3 out 15:00</td>
+                        <td><span class="badge badge-option">🔍 Pesquisar</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aluguel carro</strong></td>
+                        <td>Mestre 5 out até Turim/Milão 12 out</td>
+                        <td><span class="badge badge-option">🔍 Pesquisar</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Voo Itália → GYN</strong></td>
+                        <td>12 out 07:00 | Chega 12 out 23:00 BRT</td>
+                        <td><span class="badge badge-option">🔍 Pesquisar</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Seguro Schengen</strong></td>
+                        <td>€30k obrigatório (~€8/dia)</td>
+                        <td><span class="badge badge-option">⏳ Marcar</span></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- VENEZA -->
+            <div id="veneza" class="tab-panel">
+                <h2>🏙️ Veneza (3-5 Outubro)</h2>
+                
+                <div class="info-box">
+                    <strong>📍 Chegada:</strong> 3 out 15:00 CET | <strong>Saída:</strong> 5 out 09:00 | <strong>Hospedagem:</strong> 2 noites | <strong>Tema:</strong> Cidade flutuante, história, gondolas
+                </div>
+                
+                <h3>📅 Dia a Dia</h3>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">3 OUT (Quarta) — CHEGADA</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">14:00</span>
+                        <div class="timeline-content">
+                            <strong>✈️ Voo pousa Marco Polo (VCE)</strong>
+                            <p>Chega à tarde | Imigração + bagagem</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">16:00</span>
+                        <div class="timeline-content">
+                            <strong>🚗 Aluguel carro em Mestre</strong>
+                            <p>Docs: RG, CNH, Passaporte</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">17:00</span>
+                        <div class="timeline-content">
+                            <strong>✅ Check-in Hotel</strong>
+                            <p>Hotel Abbazia ou Airbnb Cannaregio</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">18:00</span>
+                        <div class="timeline-content">
+                            <strong>🚶 Passeio rápido Piazza</strong>
+                            <p>Aclimatação, foto Basílica, gelato</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20:00</span>
+                        <div class="timeline-content">
+                            <strong>🍴 Jantar Osteria al Timon</strong>
+                            <p>Casual, Cannaregio 2754, sem reserva</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">4 OUT (Quinta) — VENEZA INTEIRO</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">09:00</span>
+                        <div class="timeline-content">
+                            <strong>⛪ Basílica São Marcos + Piazza</strong>
+                            <p>Fotos, história, sem trilhas</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">11:00</span>
+                        <div class="timeline-content">
+                            <strong>🚣 Gondola ou Vaporetto</strong>
+                            <p>30-40 min | Múltiplos cais</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">13:00</span>
+                        <div class="timeline-content">
+                            <strong>🍝 Almoço Antiche Carampane ⭐</strong>
+                            <p>✅ RESERVADO | Seafood Venetian premium</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15:00</span>
+                        <div class="timeline-content">
+                            <strong>🏛️ Museu Correr ou Palazzo Dogi</strong>
+                            <p>Arte, história Veneza</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">18:00</span>
+                        <div class="timeline-content">
+                            <strong>☕ Café + lojas</strong>
+                            <p>Praça, descanso, gelato</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20:00</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ Jantar light</strong>
+                            <p>Recuperação para viagem carro amanhã</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">5 OUT (Segunda) — CHECK-OUT + SAÍDA</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">09:00</span>
+                        <div class="timeline-content">
+                            <strong>✅ Check-out Hotel</strong>
+                            <p>Breakfast antes de sair</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">09:30</span>
+                        <div class="timeline-content">
+                            <strong>🚗 SAÍDA Veneza → Ortisei</strong>
+                            <p>Via A4/SP125 | 60km | 1h30 + paradas</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">11:30</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ Pausa Piazzola sul Brenta</strong>
+                            <p>Lunch spot | Café rápido</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">13:30</span>
+                        <div class="timeline-content">
+                            <strong>📸 PASSO GARDENA parada</strong>
+                            <p>Estrada montanha famosa | Foto 10 min</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">14:30</span>
+                        <div class="timeline-content">
+                            <strong>✅ Check-in ORTISEI</strong>
+                            <p>Hotel Raffl | Cansaço normal</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>🏨 Hospedagem — Opções</h3>
+                <div class="restaurant-grid">
+                    <div class="restaurant-card">
+                        <h4>Hotel Abbazia 4★</h4>
+                        <div class="meta">⭐ 8.7/10 | €90-140/noite</div>
+                        <div class="meta">📍 Cannaregio 68</div>
+                        <div class="meta">🌐 booking.com</div>
+                        <div class="description">Excelente localização próximo gondolas e passeios pedestres. Café bom.</div>
+                        <span class="badge badge-confirmed">✓ Recomendado</span>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>Airbnb Cannaregio</h4>
+                        <div class="meta">⭐ 4.8+/5 | €80-130/noite</div>
+                        <div class="meta">📍 Bairro Cannaregio</div>
+                        <div class="meta">🌐 airbnb.com</div>
+                        <div class="description">Apartamento local com cozinha. Mais autêntico. Menos roupa suja = +1 dia antes lavar.</div>
+                        <span class="badge badge-option">Opção</span>
+                    </div>
+                </div>
+                
+                <h3>🍽️ Restaurantes</h3>
+                <div class="restaurant-grid">
+                    <div class="restaurant-card">
+                        <h4>Antiche Carampane ⭐</h4>
+                        <div class="meta"><strong>Data:</strong> 4 out 19:30</div>
+                        <div class="meta"><strong>Tipo:</strong> Seafood Venetian premium</div>
+                        <div class="meta"><strong>Contato:</strong> +39 041 524 0165</div>
+                        <div class="meta">⭐ 4.4/5</div>
+                        <div class="description">Melhor de Veneza para peixe fresco. Ambiente elegante. Pratos marisco impecáveis.</div>
+                        <span class="badge badge-confirmed">✅ CONFIRMADO</span>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>Osteria al Timon</h4>
+                        <div class="meta"><strong>Data:</strong> 3 out 20:00 (chegada)</div>
+                        <div class="meta"><strong>Tipo:</strong> Casual local</div>
+                        <div class="meta"><strong>Local:</strong> Cannaregio 2754</div>
+                        <div class="description">Refeição simples pós-voo. Sem reserva. Ambiente amigo, comida honesta.</div>
+                        <span class="badge badge-pending">✓ Sem reserva</span>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>Osteria Ca' d'Oro</h4>
+                        <div class="meta"><strong>Tipo:</strong> Casual local</div>
+                        <div class="meta"><strong>Local:</strong> San Polo 3912</div>
+                        <div class="description">Alternativa se Antiche Carampane cheio. Dica: vá 19h ou 21h30+ (menos fila).</div>
+                        <span class="badge badge-option">Opção</span>
+                    </div>
+                </div>
+                
+                <h3>🎯 Atrações</h3>
+                <ul>
+                    <li><strong>Basílica di San Marco</strong> — Icônica dentro Piazza. Mosaicos, história, fila normal.</li>
+                    <li><strong>Palazzo dei Dogi</strong> — Palácio histórico com vistas terraço</li>
+                    <li><strong>Museu Correr</strong> — Arte Veneza medieval/renascimento</li>
+                    <li><strong>Gondola/Vaporetto</strong> — Essencial experiência. 30 min = suficiente</li>
+                    <li><strong>Mercado Rialto</strong> — Ambiente local, vendedores, cores. Sem trilhas.</li>
+                </ul>
+            </div>
+            
+            <!-- ORTISEI -->
+            <div id="ortisei" class="tab-panel">
+                <h2>⛰️ Ortisei - Val Gardena (5-8 Outubro)</h2>
+                
+                <div class="info-box">
+                    <strong>📍 Base:</strong> Ortisei | <strong>Chegada:</strong> 5 out 14:30 | <strong>Saída:</strong> 7 out 18:00 | <strong>Hospedagem:</strong> 3 noites | <strong>Tema:</strong> Montanha, teleféricos, Tre Cime épica
+                </div>
+                
+                <h3>📅 Dia a Dia</h3>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">5 OUT (Segunda) — CHEGADA ORTISEI</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">14:30</span>
+                        <div class="timeline-content">
+                            <strong>✅ CHECK-IN ORTISEI</strong>
+                            <p>Hotel Raffl | Cansaço normal do dia dirigindo</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15:30</span>
+                        <div class="timeline-content">
+                            <strong>🚶 Passeio centro pedestrianizado</strong>
+                            <p>Ortisei é linda! Lojas, cafés, charme Alpes</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">18:00</span>
+                        <div class="timeline-content">
+                            <strong>☕ Café sunset</strong>
+                            <p>Praça principal | Vinho local Pinot</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20:00</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ Jantar local</strong>
+                            <p>Val Gardena especialidade (knödel, spätzle)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">6 OUT (Terça) — 🌟 ÉPICA TRE CIME DI LAVAREDO</div>
+                    <div class="attention-box">⚠️ DIA LONGO MAS VALE A PENA — Vistas épicas garantidas | Saída 07:45, retorno 18:30</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">07:30</span>
+                        <div class="timeline-content">
+                            <strong>☕ Café rápido</strong>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">07:45</span>
+                        <div class="timeline-content">
+                            <strong>🚗 SAÍDA Ortisei → Tre Cime</strong>
+                            <p>60km | 1h carro até Auronzo</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">09:30</span>
+                        <div class="timeline-content">
+                            <strong>📸 TRE CIME VISTA MILAGRE ⭐⭐⭐</strong>
+                            <p>2.999m | 3 picos icônicos | MUST-HAVE FOTO</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10:00-12:30</span>
+                        <div class="timeline-content">
+                            <strong>🥾 Trilha circular OU meia</strong>
+                            <p><strong>Opção A:</strong> Loop completo 10km, 4h total</p>
+                            <p><strong>Opção B:</strong> Meio loop 1.5h (criança cansada)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">12:30</span>
+                        <div class="timeline-content">
+                            <strong>🍝 ALMOÇO Rifugio Auronzo</strong>
+                            <p>✅ MARQUE +39 0436 4263 | Canederli, Spätzle, Strudel</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">13:30</span>
+                        <div class="timeline-content">
+                            <strong>🚗 DRIVE Auronzo → Passo Falzarego</strong>
+                            <p>40km | 1h15 | Via Cortina</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">14:45</span>
+                        <div class="timeline-content">
+                            <strong>🏔️ PASSO FALZAREGO parada</strong>
+                            <p>2.105m | Estrada montanha | Foto 15min</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15:20</span>
+                        <div class="timeline-content">
+                            <strong>📸 LAGAZUOI VISTA WOW ⭐⭐⭐</strong>
+                            <p>2.752m (teleférico +10min opcional) | Views 360°</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">16:30</span>
+                        <div class="timeline-content">
+                            <strong>🏞️ LAGO CAREZZA parada</strong>
+                            <p>Cores hipnotizantes (se céu azul)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">18:30</span>
+                        <div class="timeline-content">
+                            <strong>✅ VOLTA ORTISEI</strong>
+                            <p>60km | 1h15 | Exausto mas feliz</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20:00</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ Jantar leve</strong>
+                            <p>Pizza ou salada = recovery</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">7 OUT (Quarta) — ALPE DI SIUSI RELAXO</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">08:30</span>
+                        <div class="timeline-content">
+                            <strong>🚡 Teleférico Mont Sëuc SOBE</strong>
+                            <p>A PÉ do hotel (5 min!) | Alpe di Siusi entry</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">09:00</span>
+                        <div class="timeline-content">
+                            <strong>🥾 ESCOLHER:</strong>
+                            <p><strong>A)</strong> Trilha Puflatsch circuit: 2.5h, vistas + flores</p>
+                            <p><strong>B)</strong> Passeio relax + Rifugio: 1.5h, café/strudel</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">11:30</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ ALMOÇO Rifugio</strong>
+                            <p>Spätzle | Strudel | Vistas montanha</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">14:30</span>
+                        <div class="timeline-content">
+                            <strong>🚡 Teleférico DESCE</strong>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15:30</span>
+                        <div class="timeline-content">
+                            <strong>🧳 PACKING leve</strong>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">18:00</span>
+                        <div class="timeline-content">
+                            <strong>🚗 DRIVE Ortisei → Alba (3h)</strong>
+                            <p>Saída para Langhe | Check-in 21:00 (noite)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>🏨 Hospedagem</h3>
+                <div class="restaurant-card">
+                    <h4>Hotel Raffl 4★ — ⭐ RECOMENDADO</h4>
+                    <div class="meta">⭐ 8.5/10 | €120-180/noite</div>
+                    <div class="meta">📍 Centro Ortisei, Val Gardena</div>
+                    <div class="meta">🌐 hotelraffl.com</div>
+                    <div class="description">✅ Teleféricos a pé | Centro pedestrianizado | Refeições autênticas. Dono super atencioso com criança.</div>
+                    <span class="badge badge-confirmed">✓ TOP CHOICE</span>
+                </div>
+                
+                <h3>🎯 Atrações & Teleféricos</h3>
+                <div class="restaurant-grid">
+                    <div class="option-group">
+                        <h4>🚡 Mont Sëuc (Alpe di Siusi)</h4>
+                        <div class="meta">⏱️ Operação: Mid-May até Early November ✅</div>
+                        <div class="meta">🕐 Horário: 8:30 AM - 5:00 PM (6 PM mid-junho/mid-outubro)</div>
+                        <p>Maior platô europeu | Trilhas fáceis | Vistas 360°</p>
+                    </div>
+                    <div class="option-group">
+                        <h4>📸 Tre Cime di Lavaredo</h4>
+                        <div class="meta">📍 60km de Ortisei (1h carro)</div>
+                        <p>2.999m | Trilha circular 10km | Rifugio almoço | ÉPICO</p>
+                    </div>
+                    <div class="option-group">
+                        <h4>🏔️ Passo Gardena</h4>
+                        <div class="meta">📍 ~10km de Ortisei</div>
+                        <p>Estrada famosa | Vistas 360° Dolomitas | Foto parada</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LANGHE/ALBA -->
+            <div id="langhe" class="tab-panel">
+                <h2>🍷 Langhe/Alba (8-11 Outubro)</h2>
+                
+                <div class="info-box">
+                    <strong>📍 Base:</strong> Alba | <strong>Chegada:</strong> 8 out 21:00 | <strong>Saída:</strong> 12 out 05:30 | <strong>Hospedagem:</strong> 3 noites | <strong>Tema:</strong> Vinho, trufas, gastronomia Piemontese
+                </div>
+                
+                <h3>📅 Dia a Dia</h3>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">8 OUT (Terça) — CHEGADA ALBA</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">18:00</span>
+                        <div class="timeline-content">
+                            <strong>🚗 Saída Ortisei</strong>
+                            <p>~200km | 3h drive</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">21:00</span>
+                        <div class="timeline-content">
+                            <strong>✅ Check-in Alba</strong>
+                            <p>Hotel Langhe ou Foresteria</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">21:30</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ Jantar Fuoco&Farina</strong>
+                            <p>✓ Sem reserva necessária | Modern Alba</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">9 OUT (Quarta) — CANTINA BARBARESCO + REPOUSO</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10:00</span>
+                        <div class="timeline-content">
+                            <strong>🍷 GAJA Barbaresco (OU BACKUP)</strong>
+                            <p>⏳ Aguardando confirmação | Tasting vinho</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">13:00</span>
+                        <div class="timeline-content">
+                            <strong>🍝 ALMOÇO La Ciau del Tornavento ⭐</strong>
+                            <p>✅ CONFIRMADO | +39 0173 638 333 | La Morra | CRÍTICO</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15:00</span>
+                        <div class="timeline-content">
+                            <strong>🧘 Tarde livre</strong>
+                            <p>Passeio vinhedos OU hotel repouso</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">19:30</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ Jantar leve</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">10 OUT (Quinta) — CANTINAS BAROLO + OPÇÕES MÚLTIPLAS</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10:00</span>
+                        <div class="timeline-content">
+                            <strong>🍷 CONTERNO FANTINO OU VIETTI</strong>
+                            <p>⏳ Aguardando confirmação | Barolo tasting visita</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">13:00</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ ALMOÇO — ESCOLHER UMA:</strong>
+                            <p><strong>A)</strong> Trattoria dai Bercau (Castiglione) — No menu, prato do dia, family-run</p>
+                            <p><strong>B)</strong> Bar Barolo Enoteca (Monforte) — Vinho + charcutaria local</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">14:30</span>
+                        <div class="timeline-content">
+                            <strong>🍷 BORGOGNO Enoteca</strong>
+                            <p>⏳ Aguardando confirmação | Barolo + queijo/frios</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">19:30</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ JANTAR — ESCOLHER UMA:</strong>
+                            <p><strong>A)</strong> Bar Barolo Enoteca — Vinho local casual</p>
+                            <p><strong>B)</strong> Osteria La Cantinella — Homecooked Barolo</p>
+                            <p><strong>C)</strong> Per Bacco Pizza — Pizza + beer | La Morra</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">11 OUT (Sexta) — 🌰 CLÍMAX TRUFFLE HUNTING</div>
+                    <div class="attention-box">⭐⭐⭐ DIA CLÍMAX — La Tartufaia truffle hunting + opções jantar | 10h-14h30 + 20h30</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10:00-14:30</span>
+                        <div class="timeline-content">
+                            <strong>🌰 LA TARTUFAIA TRUFFLE HUNTING</strong>
+                            <p>⏳ Aguardando confirmação | tartufaia@giulianegri.com</p>
+                            <p><strong>Inclui:</strong> Caçador + trilha + demonstração | Almoço campestre</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15:00</span>
+                        <div class="timeline-content">
+                            <strong>🧘 Repouso</strong>
+                            <p>Recovery pós-truffle hunting</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20:30</span>
+                        <div class="timeline-content">
+                            <strong>🍽️ JANTAR — ESCOLHER UMA:</strong>
+                            <p><strong>A)</strong> VIETTI Fine Dining (se cantina confirmar) — Barolo premium</p>
+                            <p><strong>B)</strong> Osteria La Cantinella — Homecooked tradicional</p>
+                            <p><strong>C)</strong> Bar Barolo Enoteca — Vinho casual | Monforte</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-day">
+                    <div class="timeline-day-header">12 OUT (Sábado) — SAÍDA</div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">05:30</span>
+                        <div class="timeline-content">
+                            <strong>✅ Check-out + SAÍDA hotel</strong>
+                            <p>Café rápido no carro</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">07:00</span>
+                        <div class="timeline-content">
+                            <strong>🚗 Drive para aeroporto</strong>
+                            <p>Turim (1.5h) OU Milão (2.5h)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">18:00+</span>
+                        <div class="timeline-content">
+                            <strong>✈️ VOO Itália → Goiânia</strong>
+                            <p>Chega 12 out 23:00 BRT</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>🏨 Hospedagem</h3>
+                <div class="restaurant-card">
+                    <h4>Hotel Langhe 4★ — ⭐ RECOMENDADO</h4>
+                    <div class="meta">⭐ 8.5/10 | €110-170/noite</div>
+                    <div class="meta">📍 Alba, Langhe</div>
+                    <div class="meta">🌐 booking.com</div>
+                    <div class="description">✅ Dono Nico muito atencioso | Centro histórico | Café excelente. Criança adora.</div>
+                    <span class="badge badge-confirmed">✓ TOP CHOICE</span>
+                </div>
+                
+                <h3>🍷 Cantinas Vinho — STATUS</h3>
+                <div class="restaurant-grid">
+                    <div class="option-group">
+                        <h4>GAJA Barbaresco</h4>
+                        <div class="meta">⏳ Email enviado | Aguardando resposta</div>
+                        <div class="meta">🌐 www.gaja.com/contact</div>
+                        <p>Tasting vinho Barbaresco | Visita cantina | Ambiente elegante</p>
+                        <span class="badge badge-critical">PRINCIPAL</span>
+                    </div>
+                    <div class="option-group">
+                        <h4>CONTERNO FANTINO</h4>
+                        <div class="meta">⏳ Email enviado | Aguardando resposta</div>
+                        <div class="meta">📧 conterno-fantino.it</div>
+                        <p>Visita guiada + tasting Barolo | Produtor tradicional</p>
+                        <span class="badge badge-critical">PRINCIPAL</span>
+                    </div>
+                    <div class="option-group">
+                        <h4>BORGOGNO</h4>
+                        <div class="meta">⏳ Email enviado | Aguardando resposta</div>
+                        <div class="meta">🌐 visit.borgogno.com</div>
+                        <p>Enoteca Barolo + queijo/frios local</p>
+                        <span class="badge badge-critical">PRINCIPAL</span>
+                    </div>
+                    <div class="option-group">
+                        <h4>LA TARTUFAIA Truffle Hunt</h4>
+                        <div class="meta">⏳ Email enviado | Aguardando resposta</div>
+                        <div class="meta">📧 tartufaia@giulianegri.com</div>
+                        <p>Caçador de trufas + almoço campestre | CLÍMAX</p>
+                        <span class="badge badge-critical">CLÍMAX</span>
+                    </div>
+                </div>
+                
+                <h3>🍽️ Restaurantes — OPÇÕES (Flexibilidade)</h3>
+                <div class="restaurant-grid">
+                    <div class="restaurant-card">
+                        <h4>🟢 Trattoria dai Bercau</h4>
+                        <div class="meta"><strong>Local:</strong> Castiglione Falletto</div>
+                        <div class="meta"><strong>Tipo:</strong> Rustic family-run</div>
+                        <div class="meta"><strong>Contato:</strong> Sem reserva (no menu)</div>
+                        <div class="description">Prato do dia | Antipasti contínuos | 3h refeição | Outdoor casual | Ambiente amigo.</div>
+                        <span class="badge badge-option">OPÇÃO ALMOÇO</span>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>🟢 Bar Barolo Enoteca</h4>
+                        <div class="meta"><strong>Local:</strong> Monforte d'Alba</div>
+                        <div class="meta"><strong>Tipo:</strong> Wine bar local</div>
+                        <div class="meta"><strong>Contato:</strong> Sem reserva</div>
+                        <div class="description">Charcutaria + queijos Piemontese | Barolo/Barbaresco | Casual terrace | Staff excelente.</div>
+                        <span class="badge badge-option">ALMOÇO + JANTAR</span>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>🟢 Osteria La Cantinella</h4>
+                        <div class="meta"><strong>Local:</strong> Barolo centro histórico</div>
+                        <div class="meta"><strong>Tipo:</strong> Homecooked local</div>
+                        <div class="meta"><strong>Contato:</strong> Sem reserva (ligue 19h)</div>
+                        <div class="description">Pratos tradicionais Langhe | Casa Nella Cravero | Autentico | Perfeito para jantares.</div>
+                        <span class="badge badge-option">OPÇÃO JANTAR</span>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>🟢 Per Bacco Pizza</h4>
+                        <div class="meta"><strong>Local:</strong> La Morra</div>
+                        <div class="meta"><strong>Tipo:</strong> Pizza + beer</div>
+                        <div class="meta"><strong>Contato:</strong> +39 0173 50609</div>
+                        <div class="description">Patio + indoor | Vinho local | Alternativa leve | Ótimo para criança.</div>
+                        <span class="badge badge-option">OPÇÃO JANTAR</span>
+                    </div>
+                </div>
+                
+                <h3>🎯 Atrações Langhe</h3>
+                <ul>
+                    <li><strong>Alba:</strong> Centro histórico medieval, Piazza Risorgimento, Ferrero museum (chocolate!)</li>
+                    <li><strong>Barolo:</strong> Castelo medieval, WiMu museu vinho, vistas vinhedos</li>
+                    <li><strong>La Morra:</strong> Paisagem vinhedo espetacular, Belvedere views</li>
+                    <li><strong>Monforte d'Alba:</strong> Castelo ruínas, views, vibes local</li>
+                    <li><strong>Passeios vinhedos:</strong> A pé ou bicicleta entre vinhedos (sem guia necessário)</li>
+                    <li><strong>🎪 Feria del Tartufo:</strong> Alba 11-18 outubro (vocês saem 12 out manhã = PODEM PEGAR ABERTURA!)</li>
+                </ul>
+            </div>
+            
+            <!-- INFORMAÇÕES PRÁTICAS -->
+            <div id="pratico" class="tab-panel">
+                <h2>ℹ️ Informações Práticas</h2>
+                
+                <h3>⏰ Fuso Horário & Clima</h3>
+                <div class="option-group">
+                    <h4>Fuso Horário</h4>
+                    <p><strong>Itália:</strong> +5h vs Goiânia (CEST até 25 outubro)</p>
+                </div>
+                <div class="option-group">
+                    <h4>Clima Outubro</h4>
+                    <p><strong>Dia:</strong> 15-20°C | <strong>Noite:</strong> 5-10°C | <strong>⚠️ LEVE CASACO! Montanhas = frio!</strong></p>
+                    <p><strong>Previsão:</strong> Setembro/outubro = melhor estação | Menos chuva que agosto | Cores mudança folhas</p>
+                </div>
+                
+                <h3>💰 Moeda & Pagamento</h3>
+                <div class="option-group">
+                    <h4>Euro (€)</h4>
+                    <p><strong>Câmbio:</strong> 1 EUR ≈ R$ 5.50 (junho 2026)</p>
+                    <p><strong>Dinheiro:</strong> Leve €300-500 cash + cartão débito/crédito</p>
+                    <p><strong>⚠️ Alguns rifúgios montanha = só cash!</strong></p>
+                </div>
+                
+                <h3>🚗 Aluguel Carro & Dirigir</h3>
+                <div class="option-group">
+                    <h4>Aluguel</h4>
+                    <p><strong>Pega:</strong> Mestre (perto Veneza) | 5 out</p>
+                    <p><strong>Devolve:</strong> Turim OU Milão | 12 out manhã</p>
+                    <p><strong>Documentos:</strong> RG original + CNH + Passaporte</p>
+                </div>
+                <div class="option-group">
+                    <h4>Dirigir na Itália</h4>
+                    <p><strong>Lado:</strong> Direita (como Brasil)</p>
+                    <p><strong>Autoestrada:</strong> Paga vignette €10-15</p>
+                    <p><strong>Passos montanha:</strong> Livres | Estradas excelentes</p>
+                    <p><strong>💡 GPS offline = essencial (Google Maps download antes!)</strong></p>
+                </div>
+                
+                <h3>📱 Comunicação</h3>
+                <div class="option-group">
+                    <h4>Maps & GPS</h4>
+                    <p><strong>Google Maps:</strong> Download offline Itália inteira ANTES de sair Brasil</p>
+                    <p><strong>Waze:</strong> Funciona bem</p>
+                </div>
+                <div class="option-group">
+                    <h4>Telefone & Emergência</h4>
+                    <p><strong>Emergência:</strong> 112 (polícia/ambulância)</p>
+                    <p><strong>Celular:</strong> Roaming funciona OU compre SIM local</p>
+                </div>
+                
+                <h3>🍷 Comida & Vinho Piedmont</h3>
+                <div class="option-group">
+                    <h4>Vinho Piemontese</h4>
+                    <p><strong>Nebbiolo:</strong> Uva nobre | Barolo (corpulento) vs Barbaresco (elegante)</p>
+                    <p><strong>Barolo:</strong> "Rei dos vinhos" | 20-30 anos aging | Sério business</p>
+                    <p><strong>Barbaresco:</strong> Primo elegante | Mais acessível | Excelente</p>
+                </div>
+                <div class="option-group">
+                    <h4>Comida Local</h4>
+                    <p><strong>Tajarin:</strong> Massa fresca com trufa branca (CLÁSSICO OUTONO)</p>
+                    <p><strong>Agnolotti del plin:</strong> Ravioli pequeno | Manteiga/queijo</p>
+                    <p><strong>Vitello tonnato:</strong> Veal frio + atum</p>
+                    <p><strong>Tartufo branco:</strong> Ouro liquid | Setembro-outubro = season</p>
+                    <p><strong>Bonet:</strong> Sobremesa chocolate + amaretti (ESPETACULAR)</p>
+                </div>
+                
+                <h3>👶 Criança (6 anos) — Montanha</h3>
+                <div class="attention-box">⚠️ O2 baixo = hidrate contínuamente! Descanse primeiros dias</div>
+                <div class="info-box">
+                    <strong>Trilhas:</strong> Alpe di Siusi = IDEAL (fácil, planas)<br>
+                    <strong>Tre Cime:</strong> Sinta energia — se cansado, meia trilha<br>
+                    <strong>Pacing:</strong> Lento melhor | Muitas paradas = normal<br>
+                    <strong>Refeições:</strong> Rifúgios = rápido | Merienda obrigatória
+                </div>
+                
+                <h3>✨ Dicas Finais</h3>
+                <ul>
+                    <li><strong>Fotos:</strong> Tre Cime amanhecer/anoitecer = MELHOR | Lago Carezza late afternoon</li>
+                    <li><strong>Postos gasolina:</strong> Abrem 08:30-12:00 + 15:30-19:30 (fechado dom tarde)</li>
+                    <li><strong>Seguro Schengen:</strong> €30k obrigatório (~€8/dia)</li>
+                    <li><strong>Feria del Tartufo:</strong> Alba 11-18 outubro — PODEM PEGAR ABERTURA 12 out manhã!</li>
+                </ul>
+                
+                <h3>📋 Checklist Final</h3>
+                <div class="info-box">
+                    ✓ Google Maps download offline (Itália inteira)<br>
+                    ✓ Passaporte + visto (Brasil = 90 dias visa-free)<br>
+                    ✓ CNH (dirigir)<br>
+                    ✓ Seguro Schengen (€30k)<br>
+                    ✓ Roupas quentes (casaco, meias)<br>
+                    ✓ Bloqueador solar + óculos (Alpes = UV intenso)<br>
+                    ✓ Remédios básicos
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>🇮🇹 Roteiro Itália 2026 — João Pedro Coutinho</p>
+            <p style="margin-top: 10px;">Última atualização: Junho 2026 | HTML interativo com abas | Sem planilha necessária</p>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #999;">Preferência: Opções ao invés de roteiro travado | Flexibilidade = melhor experiência</p>
+        </footer>
+    </div>
+    
+    <script>
+        function openTab(evt, tabName) {
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
