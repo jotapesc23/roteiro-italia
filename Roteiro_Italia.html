@@ -363,6 +363,38 @@
             color: #375623;
         }
 
+        .badge-easy { background: #d4edda; color: #155724; }
+        .badge-mod { background: #fff3cd; color: #856404; }
+        .badge-hard { background: #f8d7da; color: #721c24; }
+
+        .trail-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0 12px;
+        }
+        .trail-stats span {
+            background: #f3ecdd;
+            color: #5a4a2a;
+            border: 1px solid #e6dcc6;
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 0.82em;
+            font-weight: 600;
+        }
+        .trail-card .obj { color: #0e6b35; font-weight: 600; margin: 8px 0; }
+        .trail-card .pros { color: #155724; font-size: 0.92em; margin: 4px 0; }
+        .trail-card .cons { color: #9a3b32; font-size: 0.92em; margin: 4px 0; }
+        .trail-card .oct {
+            background: #fff7e6;
+            border-left: 3px solid #c1992e;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin: 10px 0 4px;
+            line-height: 1.5;
+        }
+
         .restaurant-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1365,11 +1397,18 @@
                 </div>
 
                 <div class="timeline-day">
-                    <div class="timeline-day-header">7 OUT (Quarta) — ALPE DI SIUSI RELAXO</div>
+                    <div class="timeline-day-header">7 OUT (Quarta) — ⭐ SECEDA + ALPE DI SIUSI</div>
                     <div class="timeline-item">
                         <span class="timeline-time">08:30</span>
                         <div class="timeline-content">
-                            <strong>🚡 Teleférico Mont Sëuc SOBE</strong>
+                            <strong>⭐ MANHÃ: Seceda (cabine Ortisei–Furnes–Seceda)</strong>
+                            <p>A vista diferente: crista das Odle a 2.500m | Fácil no topo | ⏳ Confirmar operação (out) | Detalhes na lista de trilhas abaixo</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">13:30</span>
+                        <div class="timeline-content">
+                            <strong>🚡 TARDE: Teleférico Mont Sëuc SOBE</strong>
                             <p>A PÉ do hotel (5 min!) | Alpe di Siusi entry</p>
                         </div>
                     </div>
@@ -1440,6 +1479,182 @@
                         <p>Estrada famosa | Vistas 360° Dolomitas | Foto parada</p>
                         <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Passo+Gardena+Grodner+Joch">🗺️ Abrir no Maps</a>
                     </div>
+                </div>
+
+                <h3>🥾 Trilhas & Roteiros — Lista Completa</h3>
+
+                <div class="attention-box">
+                    🍂 <strong>OUTUBRO — leia antes de planejar:</strong><br>
+                    • <strong>Teleféricos/cabines</strong> (Seceda, Mont Sëuc, Resciesa) costumam operar até ~meados de outubro — as datas exatas de 2026 saem perto da viagem. <strong>Confirmar antes</strong> (vocês vão dias 5-8/out, no limite da temporada).<br>
+                    • <strong>Refúgios (rifugi)</strong> em geral fecham fim de set / início de out — pode não haver almoço na montanha. Levem lanche/água.<br>
+                    • <strong>Estrada de pedágio do Tre Cime</strong> (até Rifugio Auronzo) e o próprio refúgio fecham com a primeira neve — risco real em out.<br>
+                    • <strong>Neve/gelo acima de ~2.300 m</strong> é possível; manhãs frias (pode dar -2 a 5°C no alto). Levem camadas, luva, gorro.<br>
+                    • <strong>Dias mais curtos:</strong> sol ~07:15–18:30. Comecem cedo.<br>
+                    • <strong>O lado bom 🍁:</strong> larícios dourados (cor de outono espetacular), muito menos gente e luz linda para fotos.
+                </div>
+
+                <div class="info-box">
+                    <strong>🗺️ Mapeamento sugerido (2 dias inteiros + 2 meios-dias):</strong><br>
+                    <strong>5/out (meia-tarde, chegada):</strong> aclimatação leve — funicular Resciesa OU centro de Ortisei.<br>
+                    <strong>6/out (dia inteiro):</strong> Tre Cime (giro) + parada histórica no Lagazuoi/Falzarego — <em>se</em> estrada/refúgios abertos; senão plano B = Seceda + Adolf Munkel.<br>
+                    <strong>7/out (dia inteiro):</strong> Seceda (a vista diferente) de manhã + Alpe di Siusi à tarde.<br>
+                    <strong>8/out (meia-manhã, antes de Alba):</strong> Vallunga — vale plano e dourado, fácil p/ a criança.
+                </div>
+
+                <div class="restaurant-grid">
+
+                    <div class="restaurant-card trail-card">
+                        <h4>📸 Tre Cime di Lavaredo — Giro delle Tre Cime</h4>
+                        <span class="badge badge-mod">Moderada</span>
+                        <div class="trail-stats">
+                            <span>📏 ~10 km (loop)</span>
+                            <span>⏱️ 3h30–4h</span>
+                            <span>⛰️ +350 m</span>
+                            <span>🏔️ 2.320–2.450 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: os 3 picos icônicos por todos os ângulos + Rifugio Locatelli com a vista-cartão-postal.</p>
+                        <p class="pros">👍 Trilha larga e bem marcada; vista épica o tempo todo; dá p/ fazer só metade com a criança.</p>
+                        <p class="cons">👎 Estrada com pedágio caro (~€30+) até Auronzo; exposto ao vento; trecho alto.</p>
+                        <div class="oct">🍂 Outubro: estrada de pedágio e Rifugio Auronzo/Locatelli fecham no início do mês com a 1ª neve — CONFIRMAR antes. Pode ter gelo acima de 2.300 m.</div>
+                        <span class="badge badge-confirmed">📅 Dia 6</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rifugio+Auronzo+Tre+Cime+di+Lavaredo">🗺️ Maps</a>
+                    </div>
+
+                    <div class="restaurant-card trail-card">
+                        <h4>⭐ Seceda — Crista das Odle/Geisler <em>(o diferente)</em></h4>
+                        <span class="badge badge-easy">Fácil (no topo)</span>
+                        <div class="trail-stats">
+                            <span>📏 1–2 km (mirantes)</span>
+                            <span>⏱️ 1–2h</span>
+                            <span>⛰️ mínimo (sobe de cabine)</span>
+                            <span>🏔️ 2.500 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: a crista serrilhada mais famosa dos Alpes (Odle/Geisler) — a foto de cartão-postal das Dolomitas.</p>
+                        <p class="pros">👍 Esforço mínimo p/ a vista máxima; perfeita p/ a criança no topo; descida opcional a pé p/ quem quer trilhar.</p>
+                        <p class="cons">👎 Cabine cara; cheia no meio-dia (bem menos em out); fecha no inverno.</p>
+                        <div class="oct">🍂 Outubro: a cabine Ortisei–Furnes–Seceda costuma rodar até ~meados de out — CONFIRMAR datas 2026. Larícios dourados deixam a paisagem ainda mais bonita.</div>
+                        <span class="badge badge-confirmed">📅 Dia 7 (ou 8)</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Seceda+Ortisei">🗺️ Maps</a>
+                    </div>
+
+                    <div class="restaurant-card trail-card">
+                        <h4>🌲 Adolf-Munkel-Weg — sob as faces das Odle</h4>
+                        <span class="badge badge-mod">Moderada</span>
+                        <div class="trail-stats">
+                            <span>📏 ~9–10 km</span>
+                            <span>⏱️ 3–4h</span>
+                            <span>⛰️ +400 m</span>
+                            <span>🏔️ ~1.900–2.100 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: caminhar na base das paredes verticais das Geisler/Odle, atravessando bosques de larício dourados.</p>
+                        <p class="pros">👍 Uma das trilhas mais bonitas da região; outono espetacular; vistas o tempo todo.</p>
+                        <p class="cons">👎 Precisa de carro até Zannes/Ranui (Val di Funes); rifúgios do caminho podem estar fechados em out.</p>
+                        <div class="oct">🍂 Outubro: trilha em si fica ótima (cor de outono), só conte com refúgios fechados — leve lanche.</div>
+                        <span class="badge badge-option">📅 Plano B dia 6/7</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Adolf+Munkel+Weg+Zannes">🗺️ Maps</a>
+                    </div>
+
+                    <div class="restaurant-card trail-card">
+                        <h4>🌅 Alpe di Siusi (Seiser Alm) — maior platô alpino da Europa</h4>
+                        <span class="badge badge-easy">Fácil</span>
+                        <div class="trail-stats">
+                            <span>📏 5–10 km (circuitos)</span>
+                            <span>⏱️ 1h30–3h</span>
+                            <span>⛰️ pouco</span>
+                            <span>🏔️ 1.850–2.000 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: prados ondulados infinitos com o Sassolungo e o Sciliar de fundo (ex.: circuito Puflatsch ~6 km).</p>
+                        <p class="pros">👍 Plano e fácil — ideal p/ a criança; teleférico Mont Sëuc a pé do hotel; vistas amplas e relaxantes.</p>
+                        <p class="cons">👎 Menos "dramático" que Seceda; o lift fecha mais cedo na baixa temporada.</p>
+                        <div class="oct">🍂 Outubro: Mont Sëuc costuma operar até início de novembro, mas confirme horário (fecha ~17h). Prados podem amanhecer com geada.</div>
+                        <span class="badge badge-confirmed">📅 Dia 7</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Alpe+di+Siusi+Seiser+Alm">🗺️ Maps</a>
+                    </div>
+
+                    <div class="restaurant-card trail-card">
+                        <h4>🍂 Vallunga (Langental) — vale glacial plano</h4>
+                        <span class="badge badge-easy">Muito fácil</span>
+                        <div class="trail-stats">
+                            <span>📏 ~4–6 km (ida/volta)</span>
+                            <span>⏱️ 1h30–2h</span>
+                            <span>⛰️ quase plano</span>
+                            <span>🏔️ ~1.650 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: vale tranquilo cercado de paredes, riacho e larícios dourados — natureza sem esforço.</p>
+                        <p class="pros">👍 Plano, sem teleférico, perfeito p/ a criança e p/ uma meia-manhã; lindo no outono; em Selva (perto).</p>
+                        <p class="cons">👎 Menos panorâmico/"uau"; fica na sombra e frio de manhã em out.</p>
+                        <div class="oct">🍂 Outubro: uma das melhores opções do mês — sempre acessível (sem depender de lift) e dourada.</div>
+                        <span class="badge badge-confirmed">📅 Dia 8 (meia-manhã)</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vallunga+Selva+di+Val+Gardena">🗺️ Maps</a>
+                    </div>
+
+                    <div class="restaurant-card trail-card">
+                        <h4>🪖 Lagazuoi — túneis da 1ª Guerra + vista 360° <em>(diferente/histórico)</em></h4>
+                        <span class="badge badge-easy">Fácil (cabine)</span>
+                        <span class="badge badge-hard">Túneis: difícil</span>
+                        <div class="trail-stats">
+                            <span>📏 descida túneis ~1h</span>
+                            <span>⏱️ 1–2h</span>
+                            <span>🏔️ 2.778 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: vista 360° das Dolomitas do topo + galerias e túneis escavados na rocha na 1ª Guerra Mundial.</p>
+                        <p class="pros">👍 História única + vista do topo; cabine sai do Passo Falzarego (no caminho do Tre Cime).</p>
+                        <p class="cons">👎 Túneis exigem lanterna/capacete e cuidado; degraus estreitos.</p>
+                        <div class="oct">🍂 Outubro: cuidado com gelo nos túneis (ficam escuros e úmidos); cabine fecha cedo. Topo só pela vista já vale.</div>
+                        <span class="badge badge-option">📅 Dia 6 (parada)</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rifugio+Lagazuoi+Passo+Falzarego">🗺️ Maps</a>
+                    </div>
+
+                    <div class="restaurant-card trail-card">
+                        <h4>⚔️ Cinque Torri — museu a céu aberto da 1ª Guerra <em>(diferente)</em></h4>
+                        <span class="badge badge-easy">Fácil</span>
+                        <div class="trail-stats">
+                            <span>📏 ~2–3 km (loop)</span>
+                            <span>⏱️ 1–1h30</span>
+                            <span>⛰️ pouco</span>
+                            <span>🏔️ ~2.250 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: torres de rocha + trincheiras e posições restauradas da 1ª Guerra (trilha temática ao ar livre).</p>
+                        <p class="pros">👍 Fácil e histórico — ótimo p/ a criança; perto de Falzarego (combina com o dia 6).</p>
+                        <p class="cons">👎 O lift pode fechar em out (dá p/ subir a pé, ~30-40 min).</p>
+                        <div class="oct">🍂 Outubro: trilha acessível a pé mesmo com lift fechado; vista melhor com céu limpo.</div>
+                        <span class="badge badge-option">📅 Alternativa dia 6</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cinque+Torri+Cortina">🗺️ Maps</a>
+                    </div>
+
+                    <div class="restaurant-card trail-card">
+                        <h4>🚠 Resciesa (Raschötz) — funicular de Ortisei</h4>
+                        <span class="badge badge-easy">Fácil</span>
+                        <div class="trail-stats">
+                            <span>📏 passeios curtos no topo</span>
+                            <span>⏱️ 1–2h</span>
+                            <span>🏔️ ~2.100 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: vista tranquila sobre o Val Gardena e as Odle, sem multidão — pôr do sol bonito.</p>
+                        <p class="pros">👍 Funicular sai do centro de Ortisei (a pé do hotel); sossegado; ideal p/ a meia-tarde da chegada.</p>
+                        <p class="cons">👎 Menos icônico que Seceda; funicular sazonal.</p>
+                        <div class="oct">🍂 Outubro: confirmar operação; ótima opção leve de aclimatação no dia 5.</div>
+                        <span class="badge badge-confirmed">📅 Dia 5 (meia-tarde)</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Resciesa+Raschotz+Ortisei">🗺️ Maps</a>
+                    </div>
+
+                    <div class="restaurant-card trail-card">
+                        <h4>💧 Lago di Sorapis — lago turquesa <em>(⚠️ não recomendo em out)</em></h4>
+                        <span class="badge badge-hard">Difícil em out</span>
+                        <div class="trail-stats">
+                            <span>📏 ~12 km (ida/volta)</span>
+                            <span>⏱️ 4–5h</span>
+                            <span>⛰️ +500 m</span>
+                            <span>🏔️ ~1.900 m</span>
+                        </div>
+                        <p class="obj">🎯 O que ver: lago de cor turquesa leitosa — um dos mais fotografados das Dolomitas.</p>
+                        <p class="pros">👍 Cor única; paisagem espetacular na temporada certa.</p>
+                        <p class="cons">👎 Trechos expostos com cabos de aço; longo; não indicado p/ criança.</p>
+                        <div class="oct">🍂 Outubro: os trechos com cabo ficam com gelo = PERIGOSO, e o lago pode já estar sem a cor/congelando. Deixo listado, mas <strong>não recomendo nesta época</strong>.</div>
+                        <span class="badge badge-pending">📅 Evitar em out</span>
+                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lago+di+Sorapis+trailhead">🗺️ Maps</a>
+                    </div>
+
                 </div>
             </div>
 
@@ -1948,10 +2163,15 @@
             ]},
             'map-ortisei': { points: [
                 ['🏔️ Ortisei (centro)', 46.5766, 11.6713],
-                ['📸 Tre Cime · Rifugio Auronzo', 46.6132, 12.2952],
-                ['🏔️ Passo Falzarego / Lagazuoi', 46.5197, 12.0097],
-                ['🏞️ Lago di Carezza', 46.4090, 11.5765],
+                ['⭐ Seceda (crista Odle)', 46.6068, 11.7250],
                 ['🚡 Alpe di Siusi (Mont Sëuc)', 46.5408, 11.6190],
+                ['🚠 Resciesa (Raschötz)', 46.5905, 11.6760],
+                ['🍂 Vallunga (Selva)', 46.5530, 11.7780],
+                ['🌲 Adolf-Munkel-Weg (Val di Funes)', 46.6310, 11.7000],
+                ['📸 Tre Cime · Rifugio Auronzo', 46.6132, 12.2952],
+                ['🪖 Passo Falzarego / Lagazuoi', 46.5197, 12.0097],
+                ['⚔️ Cinque Torri', 46.5230, 12.0470],
+                ['🏞️ Lago di Carezza', 46.4090, 11.5765],
                 ['🛣️ Passo Gardena', 46.5466, 11.8127]
             ]},
             'map-langhe': { points: [
