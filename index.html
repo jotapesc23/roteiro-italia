@@ -2541,31 +2541,68 @@
             });
         }
 
-        /* ===== IMAGEM DE PREVIEW EM CADA CARD (LoremFlickr, por palavra-chave) ===== */
-        const IMG_CTX = { veneza: 'venezia', ortisei: 'dolomiti', langhe: 'piemonte' };
-        function imgKeywords(card) {
-            const h = card.querySelector('h4');
-            if (!h) return null;
-            let t = h.textContent.split(/—|\(|\||·|:/)[0];           // corta no 1º separador
-            t = t.normalize('NFD').replace(/[̀-ͯ]/g, '');            // remove acentos
-            t = t.replace(/[^a-zA-Z0-9 ]/g, ' ');                    // remove emoji/símbolos
-            t = t.replace(/\b(ou|backup|recomendado|opcao|opcoes|status|enoteca|truffle|hunt)\b/gi, ' ');
-            t = t.replace(/\s+/g, ' ').trim().toLowerCase();
-            const panel = card.closest('.tab-panel');
-            const ctx = (panel && IMG_CTX[panel.id]) ? IMG_CTX[panel.id] : 'italia';
-            const words = t.split(' ').filter(Boolean).slice(0, 3);
-            words.push(ctx);
-            return words;
+        /* ===== IMAGEM DE PREVIEW EM CADA CARD (curada — Wikimedia, única por lugar) ===== */
+        const CARD_IMG = [
+            ['basilica di san marco', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Venezia_Basilica_di_San_Marco_Fassade_2.jpg/960px-Venezia_Basilica_di_San_Marco_Fassade_2.jpg'],
+            ['bar barolo enoteca', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Enoteca_.jpg/960px-Enoteca_.jpg'],
+            ['antiche carampane', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cicchetti_tipici_veneziani.jpg/960px-Cicchetti_tipici_veneziani.jpg'],
+            ['airbnb cannaregio', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Ghetto_%28Venice%29_Panorama.jpg/960px-Ghetto_%28Venice%29_Panorama.jpg'],
+            ['piercarlo culasso', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Vigneti_a_Picedo.jpg/960px-Vigneti_a_Picedo.jpg'],
+            ['feria del tartufo', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/PmAlba01.jpg/960px-PmAlba01.jpg'],
+            ['osteria al timon', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Spritz01.jpg/960px-Spritz01.jpg'],
+            ['conterno fantino', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Castiglione_falletto_veduta.JPG/960px-Castiglione_falletto_veduta.JPG'],
+            ['vinho piemontese', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Uva_Nebbiolo.jpg/960px-Uva_Nebbiolo.jpg'],
+            ['truffle hunting', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Tuber_magnatum.jpg/960px-Tuber_magnatum.jpg'],
+            ['cantinas barolo', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bottiglia_di_Barolo_Selezione_Ufficiale_dell%27Enoteca_Regionale_del_Barolo.jpg/960px-Bottiglia_di_Barolo_Selezione_Ufficiale_dell%27Enoteca_Regionale_del_Barolo.jpg'],
+            ['hotel abbazia', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Santa_Maria_degli_Scalzi_%28Venice%29.jpg/960px-Santa_Maria_degli_Scalzi_%28Venice%29.jpg'],
+            ['alpe di siusi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mont_de_Seuc_Fabian_2012_017_01.JPG/960px-Mont_de_Seuc_Fabian_2012_017_01.JPG'],
+            ['passo gardena', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/20130702_03_Passo_Gardena_%289230184794%29.jpg/960px-20130702_03_Passo_Gardena_%289230184794%29.jpg'],
+            ['more e macine', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Vitello_tonnato_%287169906567%29.jpg/960px-Vitello_tonnato_%287169906567%29.jpg'],
+            ['adolf munkel', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Odle_di_Funes.jpg/960px-Odle_di_Funes.jpg'],
+            ['cinque torri', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cortina_%2850162425826%29.jpg/960px-Cortina_%2850162425826%29.jpg'],
+            ['hotel langhe', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/View_of_Langhe_from_La_Morra.JPG/960px-View_of_Langhe_from_La_Morra.JPG'],
+            ['giulia negri', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/La_Morra_seen_from_south.JPG/960px-La_Morra_seen_from_south.JPG'],
+            ['comida local', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Taglioni_side.png/960px-Taglioni_side.png'],
+            ['hotel raffl', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Val_Gardena_dall%27alto.JPG/960px-Val_Gardena_dall%27alto.JPG'],
+            ['cantinella', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/R_Bistro_-_Nov_2012_-_01.jpg/960px-R_Bistro_-_Nov_2012_-_01.jpg'],
+            ['aromatario', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Neive_Panorama.JPG/960px-Neive_Panorama.JPG'],
+            ['tartufaia', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Tuber_magnatum.jpg/960px-Tuber_magnatum.jpg'],
+            ['per bacco', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/960px-Eq_it-na_pizza-margherita_sep2005_sml.jpg'],
+            ['petricore', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Photo_Barbera_vineyard_1960_-_Touring_Club_Italiano_1.2992.jpg/960px-Photo_Barbera_vineyard_1960_-_Touring_Club_Italiano_1.2992.jpg'],
+            ['ca d oro', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Ca%27_d%27Oro_facciata.jpg/960px-Ca%27_d%27Oro_facciata.jpg'],
+            ['tre cime', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Tre_Cime_di_Lavaredo1.jpg/960px-Tre_Cime_di_Lavaredo1.jpg'],
+            ['lagazuoi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Lagazuoi_03.jpg/960px-Lagazuoi_03.jpg'],
+            ['vallunga', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Val_longia_da_Ciampinoi.jpg/960px-Val_longia_da_Ciampinoi.jpg'],
+            ['resciesa', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Innerrasch%C3%B6tz.JPG/960px-Innerrasch%C3%B6tz.JPG'],
+            ['borgogno', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Barolo_-_view_from_La_Morra_in_Piemonte%2C_Italy.jpg/960px-Barolo_-_view_from_La_Morra_in_Piemonte%2C_Italy.jpg'],
+            ['tre case', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Serralungadalba_veduta.jpg/960px-Serralungadalba_veduta.jpg'],
+            ['gondola', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gondole_Venezia.JPG/960px-Gondole_Venezia.JPG'],
+            ['sorapis', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Sorapis_055.jpg/960px-Sorapis_055.jpg'],
+            ['la ciau', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Treiso_near_alba_italy.jpg/960px-Treiso_near_alba_italy.jpg'],
+            ['dirigir', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Italia_-_mappa_autostrada_A4.svg/960px-Italia_-_mappa_autostrada_A4.svg.png'],
+            ['seceda', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Geisler_and_Sec%C3%ABda_from_Resciesa.JPG/960px-Geisler_and_Sec%C3%ABda_from_Resciesa.JPG'],
+            ['bercau', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Verduno2.jpg/960px-Verduno2.jpg'],
+            ['petti', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Bonet.jpg/960px-Bonet.jpg'],
+            ['gaja', 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Barbaresco_2016.jpg'],
+            ['euro', 'https://upload.wikimedia.org/wikipedia/it/0/06/1_%E2%82%AC_2007.jpg']
+        ];
+        function normTitle(s) {
+            return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+                .replace(/[^a-zA-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
         }
         function addCardImages() {
-            document.querySelectorAll('.restaurant-card, .option-group').forEach((card, i) => {
+            document.querySelectorAll('.restaurant-card, .option-group').forEach(card => {
                 if (card.querySelector('.card-img')) return;
-                const words = imgKeywords(card);
-                if (!words || !words.length) return;
+                const h = card.querySelector('h4');
+                if (!h) return;
+                const t = normTitle(h.textContent);
+                const hit = CARD_IMG.find(([key]) => t.includes(key));
+                if (!hit) return;
                 const img = document.createElement('img');
                 img.className = 'card-img';
-                img.alt = words.join(' ');
-                img.dataset.src = 'https://loremflickr.com/600/300/' + words.map(encodeURIComponent).join(',') + '?lock=' + (i + 1);
+                img.alt = h.textContent.replace(/[^a-zA-Z0-9 ]/g, ' ').trim();
+                img.referrerPolicy = 'no-referrer';
+                img.dataset.src = hit[1];
                 img.addEventListener('error', function () { this.remove(); });
                 card.insertBefore(img, card.firstChild);
             });
