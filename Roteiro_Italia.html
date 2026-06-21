@@ -395,6 +395,16 @@
             line-height: 1.5;
         }
 
+        .card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            display: block;
+            background: #ece5da;
+        }
+
         .restaurant-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -2148,6 +2158,7 @@
 
             window.scrollTo(0, 0);
             refreshMapsIn(tabName);
+            revealImages(document.getElementById(tabName));
         }
 
         /* ===== MAPAS DAS ROTAS (Leaflet + OpenStreetMap, sem chave) ===== */
@@ -2530,12 +2541,51 @@
             });
         }
 
+        /* ===== IMAGEM DE PREVIEW EM CADA CARD (LoremFlickr, por palavra-chave) ===== */
+        const IMG_CTX = { veneza: 'venezia', ortisei: 'dolomiti', langhe: 'piemonte' };
+        function imgKeywords(card) {
+            const h = card.querySelector('h4');
+            if (!h) return null;
+            let t = h.textContent.split(/—|\(|\||·|:/)[0];           // corta no 1º separador
+            t = t.normalize('NFD').replace(/[̀-ͯ]/g, '');            // remove acentos
+            t = t.replace(/[^a-zA-Z0-9 ]/g, ' ');                    // remove emoji/símbolos
+            t = t.replace(/\b(ou|backup|recomendado|opcao|opcoes|status|enoteca|truffle|hunt)\b/gi, ' ');
+            t = t.replace(/\s+/g, ' ').trim().toLowerCase();
+            const panel = card.closest('.tab-panel');
+            const ctx = (panel && IMG_CTX[panel.id]) ? IMG_CTX[panel.id] : 'italia';
+            const words = t.split(' ').filter(Boolean).slice(0, 3);
+            words.push(ctx);
+            return words;
+        }
+        function addCardImages() {
+            document.querySelectorAll('.restaurant-card, .option-group').forEach((card, i) => {
+                if (card.querySelector('.card-img')) return;
+                const words = imgKeywords(card);
+                if (!words || !words.length) return;
+                const img = document.createElement('img');
+                img.className = 'card-img';
+                img.alt = words.join(' ');
+                img.dataset.src = 'https://loremflickr.com/600/300/' + words.map(encodeURIComponent).join(',') + '?lock=' + (i + 1);
+                img.addEventListener('error', function () { this.remove(); });
+                card.insertBefore(img, card.firstChild);
+            });
+        }
+        function revealImages(panel) {
+            if (!panel) return;
+            panel.querySelectorAll('img.card-img[data-src]').forEach(img => {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             initChecklists();
             initStatusSelects();
             loadWeather();
             initMaps();
             initTimelines();
+            addCardImages();
+            revealImages(document.querySelector('.tab-panel.active'));
         });
     </script>
 </body>
