@@ -405,6 +405,27 @@
             background: #ece5da;
         }
 
+        /* === FRASEÁRIO === */
+        .phrase-cat { display: none; }
+        .phrase-cat.active { display: block; animation: fadeIn 0.3s ease; }
+        .phrase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 14px;
+            margin: 16px 0 10px;
+        }
+        .phrase {
+            background: #fffdf8;
+            border: 2px solid #f0e6d2;
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: all 0.2s ease;
+        }
+        .phrase:hover { border-color: #c1992e; box-shadow: 0 6px 16px rgba(14,107,53,0.10); }
+        .phrase .it { font-size: 1.12em; font-weight: 700; color: #0e6b35; margin-bottom: 4px; }
+        .phrase .pt { color: #555; font-size: 0.97em; line-height: 1.45; }
+        .phrase .tip { margin-top: 8px; font-style: italic; color: #b5872a; font-size: 0.85em; line-height: 1.4; }
+
         .restaurant-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -817,6 +838,7 @@
             <button class="nav-btn" onclick="openTab(event, 'veneza')">🏙️ Veneza</button>
             <button class="nav-btn" onclick="openTab(event, 'ortisei')">⛰️ Ortisei</button>
             <button class="nav-btn" onclick="openTab(event, 'langhe')">🍷 Langhe</button>
+            <button class="nav-btn" onclick="openTab(event, 'frases')">🗣️ Frases</button>
             <button class="nav-btn" onclick="openTab(event, 'pratico')">ℹ️ Prático</button>
         </div>
 
@@ -2029,6 +2051,171 @@
                 </ul>
             </div>
 
+            <!-- FRASEÁRIO -->
+            <div id="frases" class="tab-panel">
+                <h2>🗣️ Frases — Italiano da Viagem</h2>
+                <p style="color:#666;">Escolha um tema. Italiano em destaque, tradução abaixo e dicas quando úteis.</p>
+                <div class="city-filter phrase-tabs" id="phrase-tabs">
+                    <button data-cat="basico" onclick="showPhraseCat(event,'basico')">👋 Básico</button>
+                    <button data-cat="restaurante" onclick="showPhraseCat(event,'restaurante')">🍽️ Restaurante</button>
+                    <button data-cat="vinho" onclick="showPhraseCat(event,'vinho')">🍷 Vinho</button>
+                    <button data-cat="trufa" onclick="showPhraseCat(event,'trufa')">🌰 Trufa</button>
+                    <button data-cat="hotel" onclick="showPhraseCat(event,'hotel')">🏨 Hotel</button>
+                    <button data-cat="transporte" onclick="showPhraseCat(event,'transporte')">🚗 Transporte</button>
+                    <button data-cat="veneza" onclick="showPhraseCat(event,'veneza')">🏙️ Veneza</button>
+                </div>
+
+                <!-- BÁSICO -->
+                <div class="phrase-cat" data-cat="basico">
+                    <h3>Cumprimentos</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Buongiorno</div><div class="pt">Bom dia (até ~13h)</div></div>
+                        <div class="phrase"><div class="it">Buonasera</div><div class="pt">Boa tarde / Boa noite (depois do meio-dia)</div></div>
+                        <div class="phrase"><div class="it">Ciao</div><div class="pt">Oi / Tchau (informal)</div></div>
+                        <div class="phrase"><div class="it">Arrivederci</div><div class="pt">Até logo (formal)</div></div>
+                        <div class="phrase"><div class="it">Prego</div><div class="pt">De nada / Por favor / Pode entrar</div><div class="tip">💡 palavra curinga</div></div>
+                        <div class="phrase"><div class="it">Grazie mille</div><div class="pt">Muito obrigado/a</div></div>
+                        <div class="phrase"><div class="it">Mi scusi</div><div class="pt">Com licença / Desculpe (formal)</div></div>
+                        <div class="phrase"><div class="it">Non capisco</div><div class="pt">Não entendo</div></div>
+                        <div class="phrase"><div class="it">Parla inglese?</div><div class="pt">Você fala inglês?</div></div>
+                        <div class="phrase"><div class="it">Può ripetere, per favore?</div><div class="pt">Pode repetir, por favor?</div></div>
+                    </div>
+                    <h3>Números e essenciais</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">uno, due, tre, quattro, cinque, sei, sette, otto, nove, dieci</div><div class="pt">1 a 10</div></div>
+                        <div class="phrase"><div class="it">Quanto costa?</div><div class="pt">Quanto custa?</div></div>
+                        <div class="phrase"><div class="it">Dov'è il bagno?</div><div class="pt">Onde é o banheiro?</div></div>
+                    </div>
+                </div>
+
+                <!-- RESTAURANTE -->
+                <div class="phrase-cat" data-cat="restaurante">
+                    <h3>Chegando</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Buonasera, abbiamo una prenotazione per due.</div><div class="pt">Boa noite, temos uma reserva para dois.</div></div>
+                        <div class="phrase"><div class="it">Un tavolo per due, per favore.</div><div class="pt">Uma mesa para dois, por favor.</div></div>
+                        <div class="phrase"><div class="it">Possiamo sederci fuori?</div><div class="pt">Podemos sentar do lado de fora?</div></div>
+                    </div>
+                    <h3>Pedindo</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Ci porta il menu, per favore?</div><div class="pt">Pode trazer o cardápio, por favor?</div></div>
+                        <div class="phrase"><div class="it">Cosa ci consiglia?</div><div class="pt">O que você recomenda?</div></div>
+                        <div class="phrase"><div class="it">Vorrei il tajarin al ragù.</div><div class="pt">Eu gostaria do tajarin ao ragù.</div><div class="tip">💡 massa típica das Langhe</div></div>
+                        <div class="phrase"><div class="it">Per me, il secondo piatto è...</div><div class="pt">Para mim, o segundo prato é...</div></div>
+                        <div class="phrase"><div class="it">Senz'aglio, per favore. / Senza glutine?</div><div class="pt">Sem alho, por favor. / Sem glúten?</div></div>
+                        <div class="phrase"><div class="it">È incluso il pane?</div><div class="pt">O pão está incluído?</div></div>
+                    </div>
+                    <h3>Finalizando</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Era tutto ottimo, grazie!</div><div class="pt">Estava tudo ótimo, obrigado!</div></div>
+                        <div class="phrase"><div class="it">Il conto, per favore.</div><div class="pt">A conta, por favor.</div></div>
+                        <div class="phrase"><div class="it">Posso pagare con la carta?</div><div class="pt">Posso pagar com cartão?</div></div>
+                        <div class="phrase"><div class="it">Paghiamo separati.</div><div class="pt">Vamos pagar separado.</div></div>
+                    </div>
+                </div>
+
+                <!-- VINHO -->
+                <div class="phrase-cat" data-cat="vinho">
+                    <h3>Na vinícola</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Buongiorno, ho un appuntamento con Michela.</div><div class="pt">Bom dia, tenho um compromisso com a Michela.</div><div class="tip">💡 visita Piercarlo Culasso</div></div>
+                        <div class="phrase"><div class="it">Siamo venuti dal Brasile apposta per visitarvi.</div><div class="pt">Viemos do Brasil especialmente para visitar vocês.</div></div>
+                        <div class="phrase"><div class="it">Possiamo fare una degustazione?</div><div class="pt">Podemos fazer uma degustação?</div></div>
+                        <div class="phrase"><div class="it">Quanti anni ha questo vino?</div><div class="pt">Quantos anos tem esse vinho?</div></div>
+                        <div class="phrase"><div class="it">Che annata è?</div><div class="pt">Qual é a safra (colheita)?</div></div>
+                    </div>
+                    <h3>Degustação</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Questo Barolo è straordinario.</div><div class="pt">Este Barolo é extraordinário.</div></div>
+                        <div class="phrase"><div class="it">Si sente molto il tannino.</div><div class="pt">Sente-se muito o tanino.</div></div>
+                        <div class="phrase"><div class="it">Ha un bel profumo floreale / fruttato / speziato.</div><div class="pt">Tem um belo aroma floral / frutado / especiado.</div></div>
+                        <div class="phrase"><div class="it">È molto equilibrato.</div><div class="pt">É muito equilibrado.</div></div>
+                        <div class="phrase"><div class="it">Possiamo acquistare qualche bottiglia?</div><div class="pt">Podemos comprar algumas garrafas?</div></div>
+                        <div class="phrase"><div class="it">È possibile spedire in Brasile?</div><div class="pt">É possível enviar para o Brasil?</div></div>
+                    </div>
+                    <h3>No restaurante</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Ci porta la carta dei vini?</div><div class="pt">Pode trazer a carta de vinhos?</div></div>
+                        <div class="phrase"><div class="it">Vorrei un Barbaresco locale.</div><div class="pt">Gostaria de um Barbaresco local.</div></div>
+                        <div class="phrase"><div class="it">Salute! / Cin cin!</div><div class="pt">Saúde!</div></div>
+                    </div>
+                </div>
+
+                <!-- TRUFA -->
+                <div class="phrase-cat" data-cat="trufa">
+                    <h3>Caça à trufa</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Siamo qui per la caccia al tartufo.</div><div class="pt">Estamos aqui para a caça às trufas.</div></div>
+                        <div class="phrase"><div class="it">Come si chiama il cane?</div><div class="pt">Qual é o nome do cão?</div></div>
+                        <div class="phrase"><div class="it">Ha trovato il tartufo!</div><div class="pt">Ele encontrou a trufa!</div></div>
+                        <div class="phrase"><div class="it">Quanto pesa?</div><div class="pt">Quanto pesa?</div></div>
+                        <div class="phrase"><div class="it">Che profumo intenso!</div><div class="pt">Que aroma intenso!</div></div>
+                        <div class="phrase"><div class="it">È un tartufo bianco o nero?</div><div class="pt">É uma trufa branca ou preta?</div></div>
+                    </div>
+                    <h3>Comendo trufas</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Vorrei le tagliatelle con tartufo.</div><div class="pt">Gostaria do tagliatelle com trufa.</div></div>
+                        <div class="phrase"><div class="it">Può aggiungere ancora un po' di tartufo?</div><div class="pt">Pode colocar um pouco mais de trufa?</div></div>
+                        <div class="phrase"><div class="it">Non ho mai mangiato niente di così buono.</div><div class="pt">Nunca comi nada tão bom.</div></div>
+                    </div>
+                </div>
+
+                <!-- HOTEL -->
+                <div class="phrase-cat" data-cat="hotel">
+                    <h3>Check-in / Check-out</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Buongiorno, abbiamo una prenotazione a nome di...</div><div class="pt">Bom dia, temos uma reserva no nome de...</div></div>
+                        <div class="phrase"><div class="it">A che ora è il check-out?</div><div class="pt">A que horas é o check-out?</div></div>
+                        <div class="phrase"><div class="it">Possiamo lasciare i bagagli qui?</div><div class="pt">Podemos deixar as malas aqui?</div></div>
+                        <div class="phrase"><div class="it">La colazione è inclusa?</div><div class="pt">O café da manhã está incluído?</div></div>
+                    </div>
+                    <h3>Quarto</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">C'è il WiFi? Qual è la password?</div><div class="pt">Tem WiFi? Qual é a senha?</div></div>
+                        <div class="phrase"><div class="it">Il riscaldamento non funziona.</div><div class="pt">O aquecimento não funciona.</div><div class="tip">💡 útil nas Dolomitas em outubro</div></div>
+                        <div class="phrase"><div class="it">Avremmo bisogno di asciugamani in più.</div><div class="pt">Precisamos de mais toalhas.</div></div>
+                        <div class="phrase"><div class="it">Ha una camera con vista sulla montagna?</div><div class="pt">Tem quarto com vista para a montanha?</div></div>
+                    </div>
+                </div>
+
+                <!-- TRANSPORTE -->
+                <div class="phrase-cat" data-cat="transporte">
+                    <h3>Geral</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Dov'è la stazione / l'aeroporto?</div><div class="pt">Onde é a estação / o aeroporto?</div></div>
+                        <div class="phrase"><div class="it">Un biglietto per... per favore.</div><div class="pt">Uma passagem para... por favor.</div></div>
+                        <div class="phrase"><div class="it">A che ora parte il treno per Torino?</div><div class="pt">A que horas sai o trem para Turim?</div></div>
+                        <div class="phrase"><div class="it">Devo cambiare?</div><div class="pt">Tenho que fazer baldeação?</div></div>
+                        <div class="phrase"><div class="it">C'è traffico per Alba?</div><div class="pt">Tem trânsito para Alba?</div></div>
+                    </div>
+                    <h3>Táxi / Carro</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Può portarci a... per favore?</div><div class="pt">Pode nos levar a... por favor?</div></div>
+                        <div class="phrase"><div class="it">Ci fermi qui, grazie.</div><div class="pt">Pode parar aqui, obrigado.</div></div>
+                        <div class="phrase"><div class="it">Dov'è il parcheggio?</div><div class="pt">Onde é o estacionamento?</div></div>
+                        <div class="phrase"><div class="it">È lontano a piedi?</div><div class="pt">É longe a pé?</div></div>
+                    </div>
+                </div>
+
+                <!-- VENEZA -->
+                <div class="phrase-cat" data-cat="veneza">
+                    <h3>Navegando em Veneza</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Dov'è il vaporetto per Murano?</div><div class="pt">Onde pega o vaporetto para Murano?</div></div>
+                        <div class="phrase"><div class="it">Quanto costa il biglietto del vaporetto?</div><div class="pt">Quanto custa a passagem do vaporetto?</div></div>
+                        <div class="phrase"><div class="it">Sono perso/a. Dov'è Piazza San Marco?</div><div class="pt">Estou perdido/a. Onde é a Praça São Marcos?</div></div>
+                        <div class="phrase"><div class="it">Vorrei attraversare in traghetto.</div><div class="pt">Quero atravessar de traghetto (góndola pública).</div><div class="tip">💡 ~2€, muito mais barato que gôndola turística</div></div>
+                    </div>
+                    <h3>Experiência veneziana</h3>
+                    <div class="phrase-grid">
+                        <div class="phrase"><div class="it">Vorrei un cicchetto e un'ombra di vino.</div><div class="pt">Quero um petisco e um copo de vinho.</div><div class="tip">💡 ritual de happy hour nos bacari</div></div>
+                        <div class="phrase"><div class="it">Dov'è un bacaro tipico?</div><div class="pt">Onde tem um bar típico veneziano?</div></div>
+                        <div class="phrase"><div class="it">È autentico o è per turisti?</div><div class="pt">É autêntico ou é para turistas?</div></div>
+                        <div class="phrase"><div class="it">Che bella città!</div><div class="pt">Que cidade linda!</div></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- INFORMAÇÕES PRÁTICAS -->
             <div id="pratico" class="tab-panel">
                 <h2>ℹ️ Informações Práticas</h2>
@@ -2243,6 +2430,20 @@
                 const show = (city === 'todas' || card.dataset.city === city);
                 card.setAttribute('data-hidden', show ? 'false' : 'true');
             });
+        }
+
+        /* ===== FRASEÁRIO: sub-tabs com persistência ===== */
+        function showPhraseCat(evt, cat) {
+            document.querySelectorAll('#phrase-tabs button').forEach(b => b.classList.remove('active'));
+            const btn = evt ? evt.currentTarget : document.querySelector('#phrase-tabs button[data-cat="' + cat + '"]');
+            if (btn) btn.classList.add('active');
+            document.querySelectorAll('#frases .phrase-cat').forEach(c => c.classList.toggle('active', c.dataset.cat === cat));
+            localStorage.setItem('roteiro_frase_cat', cat);
+        }
+        function initPhrases() {
+            const saved = localStorage.getItem('roteiro_frase_cat') || 'basico';
+            const exists = document.querySelector('#phrase-tabs button[data-cat="' + saved + '"]');
+            showPhraseCat(null, exists ? saved : 'basico');
         }
 
         /* ===== CHECKLISTS COM PERSISTÊNCIA (localStorage) ===== */
@@ -2623,6 +2824,7 @@
             initTimelines();
             addCardImages();
             revealImages(document.querySelector('.tab-panel.active'));
+            initPhrases();
         });
     </script>
 </body>
