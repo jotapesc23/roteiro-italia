@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-    <meta name="googlebot" content="noindex, nofollow">
-    <meta name="referrer" content="no-referrer">
     <title>🇮🇹 Roteiro Itália 2026 - João Coutinho</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,6 +233,31 @@
         }
         .editable-title:focus { background: #fff7e6; }
 
+        .print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 4px 0 20px;
+            padding: 12px 22px;
+            background: #0e6b35;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+            font-family: inherit;
+        }
+        .print-btn:hover { background: #157a3c; }
+
+        @media print {
+            header, .nav-tabs, .print-btn, .route-map, .place-link, .inline-map,
+            .drag-handle, .item-delete, .add-activity-btn, select.status-select,
+            .city-filter, #weather-grid, .weather-note { display: none !important; }
+            body { background: #fff; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; }
+        }
+
         .item-delete {
             margin-left: auto;
             align-self: flex-start;
@@ -326,11 +348,6 @@
             margin-top: 0;
         }
 
-        .sub {
-            font-size: 0.85em;
-            color: #666;
-            font-weight: 400;
-        }
         .option-group .meta {
             font-size: 0.9em;
             color: #666;
@@ -847,8 +864,8 @@
             <button class="nav-btn" onclick="openTab(event, 'ortisei')">⛰️ Dolomitas</button>
             <button class="nav-btn" onclick="openTab(event, 'langhe')">🍷 Langhe</button>
             <button class="nav-btn" onclick="openTab(event, 'frases')">🗣️ Frases</button>
-            <button class="nav-btn" onclick="openTab(event, 'reservas')">📄 Reservas</button>
             <button class="nav-btn" onclick="openTab(event, 'pratico')">ℹ️ Prático</button>
+            <button class="nav-btn" onclick="openTab(event, 'mala')">🎒 Mala</button>
         </div>
 
         <div class="content">
@@ -946,14 +963,14 @@
                         <td><select class="status-select" data-persist="log-voo-volta" data-default="done"></select></td>
                     </tr>
                     <tr>
-                        <td><strong>🚗 Aluguel carro</strong> — Ecovia (via Rentcars)<br><span style="color:#666; font-size:0.9em;">Voucher ECO-26295958 · Rentcars LA2H487</span></td>
-                        <td>Retirada 5 out 11:00 · <strong>Aeroporto de Veneza (VCE)</strong><br>Devolução 12 out 11:00 · <strong>Malpensa (MXP)</strong></td>
-                        <td><select class="status-select" data-persist="log-carro" data-default="done"></select></td>
+                        <td><strong>🚗 Aluguel carro</strong></td>
+                        <td>Mestre 5 out até Milão Malpensa 12 out</td>
+                        <td><select class="status-select" data-persist="log-carro"></select></td>
                     </tr>
                     <tr>
                         <td><strong>Seguro Schengen</strong></td>
                         <td>€30k obrigatório (~€8/dia)</td>
-                        <td><select class="status-select" data-persist="log-seguro" data-default="done"></select></td>
+                        <td><select class="status-select" data-persist="log-seguro"></select></td>
                     </tr>
                 </table>
             </div>
@@ -1108,7 +1125,6 @@
                             <p>🍷 <strong>Almoço de cicchetti</strong> — petiscos + taça de vinho num bàcaro local</p>
                             <p>🚶 <strong>Perder-se em Cannaregio</strong> — bairro autêntico + Fondamenta della Misericordia <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Fondamenta+della+Misericordia+Venezia">🗺️</a></p>
                             <p>🏛️ <strong>Scuola Grande di San Rocco</strong> (Tintoretto) ou Gallerie dell'Accademia <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Scuola+Grande+di+San+Rocco+Venezia">🗺️</a></p>
-                            <p>⛪ <strong>Basílica de São Marcos</strong> — <strong>hoje é sábado, aberta até 16:45 (último acesso)</strong>. Se conseguirem encaixar, visitem hoje e liberem a tarde de domingo <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Basilica+di+San+Marco+Venezia">🗺️</a></p>
                             <p>🌅 <strong>Vista do alto</strong> — Campanile de San Marco ou terraço do Fondaco dei Tedeschi (grátis, reservar) <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Fondaco+dei+Tedeschi+terrace+Venezia">🗺️</a></p>
                         </div>
                     </div>
@@ -1116,7 +1132,7 @@
                         <span class="timeline-time">17:00</span>
                         <div class="timeline-content">
                             <strong>✅ Check-in Hotel</strong>
-                            <p>Hotel Casa Verardo (Castello 4765) | Check-in a partir das 15:00 — cheguem antes e deixem as malas</p>
+                            <p>Hotel Abbazia ou Airbnb Cannaregio</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1147,17 +1163,11 @@
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">4 OUT (Domingo) — VENEZA INTEIRO</div>
-                    <div class="attention-box">
-                        ⛪ <strong>4 de outubro é DOMINGO — e isso muda a Basílica de São Marcos.</strong><br>
-                        Aos domingos e dias santos, a Basílica <strong>só abre para visita turística às 14:00</strong> (último acesso 16:45). Das 9:30 às 14:00 acontece a missa e <strong>só o Museu fica aberto</strong>.<br>
-                        👉 O roteiro tinha a Basílica marcada para as <strong>09:00 de domingo</strong>, o que não existe. Reorganizamos: <strong>Palazzo Ducale de manhã</strong> (abre 09:00 todos os dias) e <strong>Basílica às 14:00</strong>. Reservem o horário — a janela de domingo é curta e concorrida.
-                    </div>
-
                     <div class="timeline-item">
                         <span class="timeline-time">09:00</span>
                         <div class="timeline-content">
-                            <strong>🏛️ Palazzo Ducale</strong>
-                            <p>Abre 09:00, todos os dias | Ponte dos Suspiros e as prisões | Reservar horário online</p>
+                            <strong>⛪ Basílica São Marcos + Piazza</strong>
+                            <p>Fotos, história, sem trilhas</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1168,33 +1178,31 @@
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">12:30</span>
+                        <span class="timeline-time">13:00</span>
                         <div class="timeline-content">
-                            <strong>🍷 Almoço leve de cicchetti num bàcaro</strong>
-                            <p>Petiscos venezianos + taça de vinho | Deixem espaço: o jantar de hoje é o grande da cidade</p>
+                            <strong>🍝 Almoço Antiche Carampane ⭐</strong>
+                            <p>✅ RESERVADO | Seafood Venetian premium</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">14:00</span>
+                        <span class="timeline-time">15:00</span>
                         <div class="timeline-content">
-                            <strong>⛪ BASÍLICA DE SÃO MARCOS — janela de domingo</strong>
-                            <p>Aberta das <strong>14:00 às 16:45</strong> (último acesso) aos domingos | Pala d'Oro e a Loggia dei Cavalli valem o ingresso extra</p>
-                            <p>🎫 <strong>Reservem horário</strong> em tickets.basilicasanmarco.it — domingo tem menos horários disponíveis que os outros dias.</p>
+                            <strong>🏛️ Museu Correr ou Palazzo Dogi</strong>
+                            <p>Arte, história Veneza</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">17:00</span>
+                        <span class="timeline-time">18:00</span>
                         <div class="timeline-content">
                             <strong>☕ Café + lojas</strong>
-                            <p>Praça, descanso, gelato | Ou o Museu Correr, se ainda tiverem fôlego</p>
+                            <p>Praça, descanso, gelato</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">19:30</span>
+                        <span class="timeline-time">20:00</span>
                         <div class="timeline-content">
-                            <strong>🍝 JANTAR Antiche Carampane ⭐</strong>
-                            <p>✅ <strong>RESERVADO — 19:30</strong> | Seafood veneziano | ☎️ +39 041 524 0165</p>
-                            <p><span class="sub">O roteiro trazia este restaurante como almoço às 13:00, mas a reserva confirmada é o jantar das 19:30 — corrigido.</span></p>
+                            <strong>🍽️ Jantar light</strong>
+                            <p>Recuperação para viagem carro amanhã</p>
                         </div>
                     </div>
                 </div>
@@ -1209,64 +1217,60 @@
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">09:30</span>
+                        <span class="timeline-time">09:15</span>
                         <div class="timeline-content">
-                            <strong>🚤 Transfer até o Aeroporto Marco Polo (VCE)</strong>
-                            <p>Vaporetto/a pé até Piazzale Roma + ônibus ATVO/ACTV (~40-50 min) <em>ou</em> Alilaguna direto (~1h15). Saia com folga — a tolerância da locadora é de só 29 min.</p>
+                            <strong>🚗 Transfer a Mestre + retirada do carro</strong>
+                            <p>Trem/vaporetto até Mestre (~15-20 min) | Docs: RG, CNH, Passaporte</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">10:45</span>
+                        <span class="timeline-time">10:00</span>
                         <div class="timeline-content">
-                            <strong>🚗 Balcão Ecovia — retirada do carro (agendado 11:00)</strong>
-                            <p><strong>Onde:</strong> dentro do aeroporto · Multipiano Park 1, 3º andar (Viale Galileo Galilei 30/1, Tessera) | ☎️ +39 041 269 8405<br>
-                            <strong>Leve na mão:</strong> voucher impresso ECO-26295958, CNH física original, PID, passaporte e o <strong>cartão de crédito internacional físico</strong> (caução de €750).<br>
-                            ⚠️ Não dá pra retirar antes das 11:00, e filme o carro inteiro antes de sair do pátio.</p>
+                            <strong>🚗 SAÍDA Mestre → Ortisei</strong>
+                            <p>Via A4/SP125 | 60km | 1h30 + paradas</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">11:45</span>
+                        <span class="timeline-time">11:30</span>
                         <div class="timeline-content">
-                            <strong>🚗 SAÍDA VCE → Ortisei</strong>
-                            <p>~270km | ~3h por A27/A22 + subida do Val Gardena | Anote o nível do tanque na retirada (devolve no mesmo nível)</p>
+                            <strong>🍽️ Pausa Piazzola sul Brenta</strong>
+                            <p>Lunch spot | Café rápido</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">13:15</span>
-                        <div class="timeline-content">
-                            <strong>🍽️ Pausa almoço no caminho</strong>
-                            <p>Piazzola sul Brenta ou autogrill na A27 | Café rápido</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">15:15</span>
+                        <span class="timeline-time">13:30</span>
                         <div class="timeline-content">
                             <strong>📸 PASSO GARDENA parada</strong>
                             <p>Estrada montanha famosa | Foto 10 min</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">16:00</span>
+                        <span class="timeline-time">14:30</span>
                         <div class="timeline-content">
                             <strong>✅ Check-in ORTISEI</strong>
-                            <p>Hotel Genziana, Via Rezia 111 | Avisar o hotel do horário de chegada</p>
+                            <p>Hotel Raffl | Cansaço normal</p>
                         </div>
                     </div>
                 </div>
 
-                <h3>🏨 Hospedagem — ✅ RESERVADO</h3>
-                <div class="restaurant-card">
-                    <h4>Hotel Casa Verardo — Residenza d'Epoca</h4>
-                    <div class="meta">📍 Campo Ss. Filippo e Giacomo, Castello 4765 — 30122 Veneza</div>
-                    <div class="meta">☎️ +39 041 528 6138</div>
-                    <div class="meta"><strong>Check-in:</strong> 3/out, sáb · 15:00–00:00 | <strong>Check-out:</strong> 5/out, seg · 07:00–11:00</div>
-                    <div class="meta"><strong>Reserva Booking:</strong> 6834.940.333 · em nome de <strong>Larissa Camapum</strong> <span class="sub">(PIN no e-mail de confirmação)</span></div>
-                    <div class="description">Quarto Standard com cama de casal, 2 hóspedes. <strong>Café da manhã incluído.</strong> Palácio histórico no Castello, a 5 min a pé da Piazza San Marco.</div>
-                    <p><strong>💶 A pagar: €510,25</strong> <span class="sub">(já com a taxa municipal de ~€14 embutida)</span></p>
-                    <p>⚠️ <strong>Sem estacionamento</strong> — irrelevante aqui, o carro só é retirado no dia 5.</p>
-                    <p>⚠️ Tarifa <strong>não reembolsável</strong>. Pedem documento com foto <strong>e cartão de crédito</strong> no check-in.</p>
-                    <p>🛎️ O pedido especial registrado avisa chegada entre 11:00 e 12:00 (antes do check-in) — combina com o voo, que pousa 09:55. Deixem as malas e saiam. Também está registrado <strong>aniversário de casamento</strong> 🥂</p>
-                    <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hotel+Casa+Verardo+Castello+4765+Venezia">🗺️ Abrir no Maps</a>
+                <h3>🏨 Hospedagem — Opções</h3>
+                <div class="restaurant-grid">
+                    <div class="restaurant-card">
+                        <h4>Hotel Abbazia 4★</h4>
+                        <div class="meta">⭐ 8.7/10 | €90-140/noite</div>
+                        <div class="meta">📍 Cannaregio 68</div>
+                        <div class="description">Excelente localização próximo gondolas e passeios pedestres. Café bom.</div>
+                        <span class="badge badge-confirmed">✓ Recomendado</span>
+                        <a class="place-link booking" target="_blank" rel="noopener" href="https://www.booking.com/searchresults.html?ss=Hotel+Abbazia+De+Luxe+Venezia">🏨 Ver no Booking</a>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>Airbnb Cannaregio</h4>
+                        <div class="meta">⭐ 4.8+/5 | €80-130/noite</div>
+                        <div class="meta">📍 Bairro Cannaregio</div>
+                        <div class="description">Apartamento local com cozinha. Mais autêntico. Menos roupa suja = +1 dia antes lavar.</div>
+                        <span class="badge badge-option">Opção</span>
+                        <a class="place-link airbnb" target="_blank" rel="noopener" href="https://www.airbnb.com.br/s/Cannaregio--Venezia--It%C3%A1lia/homes">🏠 Ver no Airbnb</a>
+                    </div>
                 </div>
 
                 <h3>🍽️ Restaurantes</h3>
@@ -1346,7 +1350,7 @@
                 <h2>⛰️ Ortisei - Val Gardena (5-8 Outubro)</h2>
 
                 <div class="info-box">
-                    <strong>📍 Base:</strong> Ortisei | <strong>Chegada:</strong> 5 out ~16:00 | <strong>Saída:</strong> 8 out (transfer p/ Alba) | <strong>Hospedagem:</strong> 3 noites (5, 6, 7) | <strong>Tema:</strong> Montanha, teleféricos, Tre Cime épica
+                    <strong>📍 Base:</strong> Ortisei | <strong>Chegada:</strong> 5 out 14:30 | <strong>Saída:</strong> 8 out (transfer p/ Alba) | <strong>Hospedagem:</strong> 3 noites (5, 6, 7) | <strong>Tema:</strong> Montanha, teleféricos, Tre Cime épica
                 </div>
 
                 <h3>🗺️ Pontos de Interesse — Dolomitas</h3>
@@ -1354,190 +1358,20 @@
                 <div class="route-map" id="map-ortisei"></div>
                 <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ortisei+Val+Gardena">🗺️ Abrir no Google Maps</a>
 
-
-                <h3>🚗 vs 🚡 — o que é de carro e o que é de teleférico</h3>
-                <div class="info-box">
-                    Resumo rápido: <strong>o carro faz os deslocamentos longos (dias 5, 6 e 8)</strong> e
-                    <strong>o dia 7 é inteiro de teleférico, com o carro parado em Ortisei</strong>.
-                </div>
-                <div style="overflow-x:auto;">
-                <table>
-                    <tr><th>Dia</th><th>🚗 De carro</th><th>🚡 De teleférico / a pé</th></tr>
-                    <tr>
-                        <td><strong>5/out</strong><br><span class="sub">chegada</span></td>
-                        <td>Aeroporto de Veneza → Ortisei (~270 km)</td>
-                        <td><span class="sub">Opcional: funicular Resciesa no fim da tarde</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>6/out</strong><br><span class="sub">Tre Cime</span></td>
-                        <td><strong>O dia mais rodado: ~300 km.</strong> Ortisei → Tre Cime → Passo Falzarego → Ortisei. Inclui a estrada de pedágio até o Rifugio Auronzo</td>
-                        <td><strong>Lagazuoi</strong> (do Passo Falzarego) + a caminhada no circuito das Tre Cime</td>
-                    </tr>
-                    <tr>
-                        <td><strong>7/out</strong><br><span class="sub">Seceda + Alpe di Siusi</span></td>
-                        <td>❌ <strong>Nenhum. O carro fica parado o dia todo.</strong><br><span class="sub">Única exceção: o retorno Santa Cristina → Ortisei, de ônibus (linha 350) ou táxi</span></td>
-                        <td><strong>Seceda</strong> (sobe) · travessia a pé até o <strong>Rifugio Firenze</strong> · <strong>Col Raiser</strong> (desce) · <strong>Mont Sëuc</strong> (sobe e desce)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>8/out</strong><br><span class="sub">saída</span></td>
-                        <td>Ortisei → Lago di Braies → Trento → Alba (~570 km)</td>
-                        <td>❌ Nenhum</td>
-                    </tr>
-                </table>
-                </div>
-
-                <h3>🎟️ O que reservar antes, onde, e quanto custa</h3>
-
-                <div class="attention-box">
-                    🚨 <strong>São DUAS as reservas obrigatórias das Dolomitas.</strong> Além do Tre Cime, o
-                    <strong>Seceda passou a exigir reserva online com faixa de horário desde 22 de maio de 2026</strong>,
-                    como medida contra o excesso de turistas.<br>
-                    ✅ <strong>O Seceda já está comprado</strong> (7/out, 8:30, pedido 949294). <strong>Falta só o Tre Cime.</strong>
-                </div>
-
-                <div style="overflow-x:auto;">
-                <table>
-                    <tr><th>O quê</th><th>Reserva</th><th>Preço 2026 (por adulto)</th><th>Onde comprar</th></tr>
-                    <tr>
-                        <td><strong>🎫 Estrada do Tre Cime</strong><br><span class="sub">dia 6 · por carro, não por pessoa</span></td>
-                        <td><span class="badge badge-pending">⚠️ OBRIGATÓRIA</span><br><span class="sub">abre 1 mês antes</span></td>
-                        <td><strong>€40</strong> / carro</td>
-                        <td><a href="https://auronzo.info/en/parking-tre-cime-di-lavaredo/" target="_blank" rel="noopener">auronzo.info</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🚡 Seceda</strong><br><span class="sub">dia 7 · Ortisei–Furnes–Seceda</span></td>
-                        <td><span class="badge badge-confirmed">✅ COMPRADO</span><br><span class="sub">8:30 · pedido 949294</span></td>
-                        <td><strong>€46,50</strong> só ida <span class="sub">(tarifa web)</span><br>€74 ida e volta</td>
-                        <td><a href="https://seceda.axess.shop" target="_blank" rel="noopener">seceda.axess.shop</a></td>
-                    </tr>
-                    <tr>
-                        <td>🚡 Col Raiser<br><span class="sub">dia 7 · descida p/ Santa Cristina</span></td>
-                        <td>Não precisa</td>
-                        <td><strong>€20</strong> só ida<br>€30 ida e volta</td>
-                        <td><a href="https://www.colraiser.it/it/" target="_blank" rel="noopener">colraiser.it</a></td>
-                    </tr>
-                    <tr>
-                        <td>🚡 Mont Sëuc<br><span class="sub">dia 7 · Ortisei–Alpe di Siusi</span></td>
-                        <td>Não precisa</td>
-                        <td><strong>~€26–40</strong> ida e volta<br><span class="sub">as fontes divergem — confiram no site</span></td>
-                        <td><a href="https://www.montseuc.it/en/cableway.asp" target="_blank" rel="noopener">montseuc.it</a></td>
-                    </tr>
-                    <tr>
-                        <td>🚠 Lagazuoi<br><span class="sub">dia 6 · Passo Falzarego</span></td>
-                        <td>Não precisa</td>
-                        <td><strong>~€21</strong> só ida<br><span class="sub">valor a confirmar</span></td>
-                        <td><a href="https://lagazuoi.it" target="_blank" rel="noopener">lagazuoi.it</a> · ☎️ +39 0436 867301</td>
-                    </tr>
-                    <tr>
-                        <td>🅿️ Lago di Braies<br><span class="sub">dia 8 · estacionamento P2</span></td>
-                        <td>Não precisa<br><span class="sub">a restrição é só de 1/jul a 15/set</span></td>
-                        <td><strong>~€7</strong> / dia por carro<br><span class="sub">P3 e P4, colados no lago, chegam a ~€10/hora</span></td>
-                        <td>Pago na cancela</td>
-                    </tr>
-                    <tr>
-                        <td>🚞 Resciesa<br><span class="sub">dia 5 · opcional</span></td>
-                        <td>Não precisa</td>
-                        <td>€23 só ida<br><strong>€34</strong> ida e volta</td>
-                        <td><a href="https://www.resciesa.com/en/info.asp" target="_blank" rel="noopener">resciesa.com</a></td>
-                    </tr>
-                </table>
-                </div>
-
-                <h4>💳 Vale a pena a Gardena Card? A conta de vocês diz que não</h4>
-                <div class="option-group">
-                    <p>A <strong><a href="https://www.gardena-card.com/en/prices.asp" target="_blank" rel="noopener">Gardena Card</a></strong> dá uso ilimitado dos <strong>17 teleféricos do Val Gardena</strong> e vale de 6/jun a <strong>11/out/2026</strong> — pega as suas datas.</p>
-                    <p><strong>Preço:</strong> €124 por adulto (3 dias consecutivos) · €160 (6 dias). <strong>Não existe versão de 1 ou 2 dias</strong> — e é isso que decide a conta de vocês, porque o uso é de um dia só.</p>
-                    <p><strong>O problema é que o uso de vocês está concentrado num único dia.</strong> No dia 6 vocês estão no Tre Cime e no Lagazuoi, que <strong>não são do Val Gardena e não entram na carteirinha</strong>. Sobra o dia 7:</p>
-                    <p style="margin-left:16px;">Seceda só ida <strong>€46,50</strong> <span class="sub">(tarifa web confirmada na compra)</span> + Col Raiser descida <strong>€20</strong> + Mont Sëuc ida e volta <strong>€26–40</strong> = <strong>€92,50–106,50 por pessoa</strong></p>
-                    <p>👉 Contra <strong>€124</strong> da carteirinha de 3 dias. <strong>Comprando avulso vocês economizam €17,50–31,50 cada</strong> — €35 a €63 no casal.</p>
-                    <p><strong>Quando ela viraria vantagem:</strong> se fizerem também o <strong>Resciesa no dia 5</strong> (+€34 ida e volta). Aí o avulso vai a €129–143 e a carteirinha empata ou passa à frente.</p>
-                    <p>🚌 <strong>Não confundam com a Val Gardena Mobil Card</strong>, que é outra coisa: transporte público, não teleférico. Tem versão de 1 dia por €20 — mas para a única corrida de ônibus que vocês precisam (Santa Cristina → Ortisei, no dia 7) sai mais caro que o bilhete avulso. E se o Genziana der o <strong>Südtirol Guest Pass</strong>, essa corrida já sai de graça.</p>
-                </div>
-                <div class="attention-box">
-                    🎯 <strong>Mas tem um detalhe que pode decidir sozinho.</strong> No novo sistema do Seceda, <strong>só dois terços dos horários vão para venda online</strong> — o terço restante fica reservado para moradores e <strong>portadores de carteirinhas de mobilidade, incluindo a Gardena Card</strong>.<br>
-                    Ou seja: se os horários de 7 de outubro estiverem esgotados quando vocês forem reservar, <strong>a Gardena Card vira o plano B para conseguir subir</strong>. Vale checar a disponibilidade primeiro e decidir depois.
-                </div>
-
-                <div class="option-group">
-                    <h4>🚌 E o transporte público? Perguntem ao hotel</h4>
-                    <p>Muitos hotéis do Südtirol entregam ao hóspede o <strong>Südtirol Guest Pass</strong>, que dá ônibus e trem regionais de graça durante a estadia. <strong>Perguntem ao Genziana se ele oferece</strong> — resolveria de graça a volta <strong>Santa Cristina → Ortisei</strong> do dia 7, e ainda os deslocamentos dentro do vale.</p>
-                </div>
-
-                <h3>🎟️ O que precisa reservar nas Dolomitas</h3>
-                <p style="color:#666; margin-bottom:10px;">Pesquisado em setembro/2026. São <strong>duas</strong> as reservas obrigatórias: a estrada do Tre Cime e, novidade de 2026, o teleférico do Seceda.</p>
-
-                <div class="attention-box">
-                    🚨 <strong>TRE CIME (6 out): a estrada de pedágio agora só entra com reserva online. Sem reserva, a cancela não abre.</strong><br><br>
-                    O município de Auronzo passou a controlar o acesso ao estacionamento do Rifugio Auronzo por <strong>reserva online obrigatória</strong> — acabou o "chega e paga na cabine". Já houve caso de alpinista que subiu sem reservar e teve que voltar.<br><br>
-                    • <strong>Onde reservar:</strong> portal oficial do município — <a href="https://auronzo.info/en/parking-tre-cime-di-lavaredo/" target="_blank" rel="noopener">auronzo.info</a><br>
-                    • <strong>Custo:</strong> €40/dia por carro · ticket válido por <strong>12 horas</strong> a partir da faixa reservada<br>
-                    • <strong>Precisa da placa do carro</strong> — e dá pra inserir/alterar <strong>até 23:59 do dia anterior</strong>. Como vocês pegam o carro dia 5 e sobem dia 6, reservem antes sem a placa e <strong>preencham a placa na noite do dia 5</strong>, no hotel em Ortisei.<br>
-                    • ⏰ <strong>A reserva só abre 1 mês antes.</strong> Para o dia <strong>6 de outubro</strong>, isso significa por volta de <strong>6 de setembro</strong> — botem alarme no celular.<br><br>
-                    <strong>Se não conseguirem vaga:</strong> ônibus shuttle <strong>444</strong> saindo de Dobbiaco (também com reserva obrigatória) — <strong>opera de 31/mai a 11/out/2026</strong>, portanto cobre o dia 6 — ou subir a pé pela trilha 108A desde Malga Rin Bianco (3,4 km, ~1h30 de subida).<br>
-                    <strong>Em outubro</strong> a estrada passa a ter horário reduzido (na prática ~8h–18h) e pode fechar de vez com a primeira neve — confirmem o status na semana da viagem.
-
-                    <br><br>🔴 <strong>SITUAÇÃO EM 8/SET: o calendário do portal para em 4 de outubro e não avançou de um dia para o outro.</strong><br>
-                    Não é uma janela rolante de 30 dias, como se supôs a princípio — em 8 de setembro, 30 dias à frente seriam 8 de outubro, e o portal mostra menos que isso, travado numa data fixa. Depois do dia 4 o calendário fica <strong>literalmente em branco</strong>, sem sequer os dias esmaecidos.<br><br>
-                    <strong>Duas explicações possíveis, e elas levam a lugares muito diferentes:</strong><br>
-                    <strong>(a)</strong> O calendário é publicado em blocos e ainda não foi estendido — nesse caso o dia 6 aparece em breve e não há problema nenhum.<br>
-                    <strong>(b)</strong> <strong>4 de outubro é o último dia da temporada</strong> do estacionamento ou da obrigatoriedade de reserva. Se for o fim da temporada da estrada, o passeio do dia 6 de carro <strong>não acontece</strong>. Se for só o fim do período de reserva obrigatória, provavelmente se paga no casello e fica até mais simples.<br><br>
-                    ☎️ <strong>Isso não se resolve pelo site — tem que ligar.</strong> <strong>Casello da estrada +39 0435 39109</strong> · <strong>Consorzio Turistico Tre Cime +39 0435 99603</strong>. A Itália está <strong>5h à frente</strong> do Brasil: ligue entre 4h e 12h (horário de Brasília) para pegar o horário comercial de lá.<br>
-                    <strong>Três perguntas:</strong> 1) até que dia a estrada fica aberta em 2026, e estará aberta em 6 de outubro? 2) o calendário vai ser estendido além de 4 de outubro, e quando? 3) se a reserva obrigatória terminar em 4/out, como se acessa depois — paga no casello?<br><br>
-                    🛟 <strong>O plano B já está garantido:</strong> o <strong>shuttle 444</strong> de Dobbiaco opera até <strong>11 de outubro</strong>. Mesmo que a estrada feche para carros particulares, dá para chegar às Tre Cime de ônibus no dia 6.
-                </div>
-
-                <div class="option-group">
-                    <h4>✅ Não precisa de reserva (mas tem pegadinha de horário) — datas 2026 confirmadas</h4>
-                    <p><strong>🚡 Seceda (Ortisei–Furnes–Seceda):</strong> operando de 22/05 a <strong>02/11/2026</strong>. Tranquilo para o dia 7.</p>
-                    <p><strong>🚡 Alpe di Siusi / Mont Sëuc (cabine de Ortisei):</strong> operando de 01/05 a 02/11/2026, das <strong>8:30 às 18:00</strong> (o horário só encurta para 17:00 a partir de 17/10). Tranquilo para o dia 7.</p>
-                    <p><strong>🚠 Lagazuoi (Passo Falzarego):</strong> operando de 30/05 a <strong>18/10/2026</strong>, das 9:00 às 17:00. Pega a viagem por 12 dias de folga — mas <strong>atenção ao último horário de descida</strong> no dia 6.</p>
-                    <p><strong>🚞 Funicular Resciesa:</strong> operando de 16/05 a <strong>11/10/2026</strong>. Também pega a viagem — é a opção de aclimatação da tarde do dia 5.</p>
-                    <p><strong>🏞️ Lago di Braies (dia 8):</strong> a reserva de acesso e o fechamento da estrada valem só de <strong>1/jul a 15/set</strong>. Em <strong>outubro é chegar e pagar o estacionamento no local</strong>, sem reserva e sem restrição de horário. ⚠️ Confirmem se os barquinhos de madeira ainda operam.</p>
-                </div>
-
-                <div class="attention-box">
-                    🚗 <strong>Alpe di Siusi — regra nova em 2026, mas que NÃO afeta vocês.</strong><br>
-                    Quem sobe <strong>de carro</strong> até Compatsch passou a precisar de <strong>reserva online da vaga</strong> (P1 Spitzbühl / P2 Compatsch, ~€30/dia), e a estrada continua <strong>fechada a carros das 9:00 às 17:00</strong>.<br>
-                    Como o plano do dia 7 é subir pela <strong>cabine Mont Sëuc a partir de Ortisei</strong>, nada disso se aplica. Só vira problema se vocês mudarem de ideia e resolverem dirigir até lá em cima — aí precisa reservar antes e chegar antes das 9h.
-                </div>
-
-                <div class="attention-box">
-                    🍩 <strong>Os Krapfen do Rifugio Friedrich August — provavelmente fora das datas.</strong><br>
-                    O rifúgio é famoso pelos <strong>Krapfen recheados de creme de baunilha</strong>, assados na hora e servidos no terraço panorâmico de frente para o Sassolungo. É uma parada clássica de quem caminha o Sentiero Friedrich August.<br><br>
-                    ⚠️ <strong>A temporada de verão de 2026 está listada como 13/jun a 27/set</strong> — ou seja, fecharia <strong>8 dias antes</strong> de vocês chegarem. Algumas fontes falam em "até meados de outubro", então as informações se contradizem. <strong>Vale ligar antes de contar com isso: +39 353 360 5674</strong> (ou info@friedrichaugust.it).<br><br>
-                    📍 <strong>Atenção à localização:</strong> apesar do nome ligado à Alpe di Siusi, o rifúgio fica no <strong>Col Rodella, junto ao Passo Sella</strong>, a 2.300 m — <strong>não dá para chegar nele pelo plano do dia 7</strong>, porque a cabine Mont Sëuc deixa vocês em Compatsch, no extremo oposto do platô. São <strong>30 min de caminhada a partir do Passo Sella</strong> (ou 10 min do topo do teleférico de Campitello).<br><br>
-    ⚠️ <strong>O encaixe do dia 8 deixou de existir.</strong> Ele dependia da rota cênica pelo Passo Sella rumo ao Lago di Carezza — e agora o dia 8 vai para o <strong>Lago di Braies</strong>, no sentido oposto, saindo por Bressanone. Se o rifúgio estiver aberto, as opções que sobram são: <strong>a tarde do dia 7</strong>, no lugar (ou encurtando) o bloco da Alpe di Siusi, ou uma ida rápida no fim da tarde do dia 5 ou 6. De Ortisei ao Passo Sella são ~30 min de carro, mais 30 min de caminhada até o rifúgio.
-                </div>
-
-                <div class="option-group">
-                    <h4>🍰 Plano B para os Krapfen: onde tomar um café de rifúgio nas suas datas</h4>
-                    <p>Se o Friedrich August estiver fechado, estas duas ficam abertas em outubro e entregam a mesma ideia — terraço panorâmico, doce austríaco e vista de montanha:</p>
-                    <p><strong>⭐ Baita Sanon (Alpe di Siusi)</strong> — <strong>aberta de 22/mai a 31/out/2026</strong>, cobre as datas com folga. Terraço amplo <strong>de frente para o Sassolungo e o Sassopiatto</strong>, que é exatamente a vista do Friedrich August. Na carta: <strong>strudel de maçã e Kaiserschmarrn</strong>, além de canederli e Spätzle. 🌐 sanon.it<br>
-                    <span class="sub">📍 Encaixe: é o destino natural do passeio da tarde do dia 7. Fica no lado sul do platô, perto de Saltria — cerca de <strong>1h15 a pé desde o topo da cabine Mont Sëuc</strong>, ou menos usando o ônibus do platô. Ida e volta a pé consome ~2h30, então dá para fazer entre a subida (13:30) e a descida (16:45), mas sem enrolar.</span></p>
-                    <p><strong>Rifugio Firenze / Regensburger Hütte (Seceda)</strong> — aberto de junho até <strong>meados de outubro</strong>, então pega as suas datas por pouco. Fica embaixo das Odle, no circuito clássico do Seceda. <span class="sub">📍 Encaixe: manhã do dia 7, que já é o bloco do Seceda — vira o ponto de parada da trilha em vez de um desvio.</span></p>
-                    <p>🍩 <strong>Só pelos Krapfen:</strong> é doce típico de todo o Südtirol — as padarias e Konditorei do centro de Ortisei fazem. O Genziana fica na Via Rezia, no meio delas.</p>
-                </div>
-
-                <div class="option-group">
-                    <h4>📞 Vale ligar em setembro (não é reserva, é confirmação)</h4>
-                    <p><strong>Rifugio Auronzo</strong> — o almoço do dia 6 já está confirmado, mas o rifúgio e a estrada dependem da neve. Reconfirmem por telefone: <strong>+39 0435 39002</strong>.</p>
-                    <p><strong>Rifúgios da Alpe di Siusi</strong> (almoço do dia 7) — muitos fecham entre o fim da temporada de verão e a de inverno. Não costumam exigir reserva, mas vale checar quais estarão abertos.</p>
-                </div>
-
                 <h3>📅 Dia a Dia</h3>
                 <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar, clique no <strong>horário</strong> para editar, use <strong style="color:#c0392b;">✕</strong> para excluir e <strong style="color:#0e6b35;">➕ Adicionar atividade</strong> para criar uma nova. Tudo fica salvo no navegador.</p>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">5 OUT (Segunda) — CHEGADA ORTISEI</div>
                     <div class="timeline-item">
-                        <span class="timeline-time">16:00</span>
+                        <span class="timeline-time">14:30</span>
                         <div class="timeline-content">
                             <strong>✅ CHECK-IN ORTISEI</strong>
-                            <p>Hotel Genziana, Via Rezia 111 | Cansaço normal do dia dirigindo (retirada do carro no VCE às 11:00)</p>
+                            <p>Hotel Raffl | Cansaço normal do dia dirigindo</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">17:00</span>
+                        <span class="timeline-time">15:30</span>
                         <div class="timeline-content">
                             <strong>🚶 Passeio centro pedestrianizado</strong>
                             <p>Ortisei é linda! Lojas, cafés, charme Alpes</p>
@@ -1565,18 +1399,13 @@
                             <p>🥃 <strong>Grappa ou genepì</strong> num bar alpino</p>
                             <p>✨ <strong>Céu estrelado</strong> — pouca poluição luminosa nas montanhas</p>
                             <p>🚶 Passeio tranquilo pela Rua Rezia (centro) <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via+Rezia+Ortisei">🗺️</a></p>
-                            <p>⚠️ <strong>Antes de dormir:</strong> entrar na reserva do Tre Cime em <a href="https://auronzo.info/en/parking-tre-cime-di-lavaredo/" target="_blank" rel="noopener">auronzo.info</a> e <strong>preencher a placa do carro alugado</strong> — o prazo é 23:59 de hoje. Sem a placa correta, a cancela não abre amanhã.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="timeline-day">
                     <div class="timeline-day-header">6 OUT (Terça) — 🌟 ÉPICA TRE CIME DI LAVAREDO</div>
-                    <div class="attention-box">⚠️ DIA LONGO MAS VALE A PENA — Vistas épicas garantidas | Saída 07:45, retorno ~18:00</div>
-                    <div class="info-box">
-                        ✂️ <strong>O Lago di Carezza saiu do roteiro.</strong> Não cabia neste dia — do Passo Falzarego até lá são ~2h de estrada, e vocês chegariam já no escuro (pôr do sol ~18:50), perdendo justamente a cor, que é o motivo de ir.<br>
-                        👉 A despedida das Dolomitas passou a ser o <strong>Lago di Braies, na manhã do dia 8</strong>.
-                    </div>
+                    <div class="attention-box">⚠️ DIA LONGO MAS VALE A PENA — Vistas épicas garantidas | Saída 07:45, retorno 18:30</div>
                     <div class="timeline-item">
                         <span class="timeline-time">07:30</span>
                         <div class="timeline-content">
@@ -1587,8 +1416,7 @@
                         <span class="timeline-time">07:45</span>
                         <div class="timeline-content">
                             <strong>🚗 SAÍDA Ortisei → Tre Cime</strong>
-                            <p>~87km | ~1h40 até o estacionamento do Rifugio Auronzo (pela Val Pusteria/Dobbiaco, que é mais rápida de manhã que os passos)</p>
-                            <p>🎟️ <strong>Levem a reserva do pedágio</strong> (€40, auronzo.info) — a leitura é pela placa e o ticket vale 12h a partir da faixa reservada. Em outubro a estrada costuma abrir só às 8h.</p>
+                            <p>60km | 1h carro até Auronzo</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1610,14 +1438,14 @@
                         <span class="timeline-time">12:30</span>
                         <div class="timeline-content">
                             <strong>🍝 ALMOÇO Rifugio Auronzo</strong>
-                            <p>Canederli, Spätzle, Strudel | ☎️ <strong>+39 0435 39002</strong> (número do site oficial do rifúgio — o roteiro trazia +39 0436 4263, que é código de Cortina; usem o 0435)</p>
+                            <p>✅ MARQUE +39 0436 4263 | Canederli, Spätzle, Strudel</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-time">13:30</span>
                         <div class="timeline-content">
                             <strong>🚗 DRIVE Auronzo → Passo Falzarego</strong>
-                            <p>~50km | ~1h15 | Via Misurina e Cortina</p>
+                            <p>40km | 1h15 | Via Cortina</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1631,22 +1459,21 @@
                         <span class="timeline-time">15:20</span>
                         <div class="timeline-content">
                             <strong>📸 LAGAZUOI VISTA WOW ⭐⭐⭐</strong>
-                            <p>2.752m | Views 360° | Teleférico de 5 min a partir do Passo Falzarego</p>
-                            <p>⏰ <strong>Funciona das 9:00 às 17:00</strong> — subam até ~15:30 no máximo e contem ~45 min lá em cima. Não é "+10 min": é a melhor vista panorâmica do dia.</p>
+                            <p>2.752m (teleférico +10min opcional) | Views 360°</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-time">16:30</span>
                         <div class="timeline-content">
-                            <strong>🚗 VOLTA Falzarego → Ortisei</strong>
-                            <p>~60km | ~1h20 pelos passos Falzarego → Campolongo → Gardena | Estrada linda no fim de tarde, mas dirijam com calma: o sol se põe ~18:50</p>
+                            <strong>🏞️ LAGO CAREZZA parada</strong>
+                            <p>Cores hipnotizantes (se céu azul)</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">18:00</span>
+                        <span class="timeline-time">18:30</span>
                         <div class="timeline-content">
                             <strong>✅ VOLTA ORTISEI</strong>
-                            <p>Exaustos mas felizes | ~300km de estrada no dia</p>
+                            <p>60km | 1h15 | Exausto mas feliz</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1659,102 +1486,46 @@
                 </div>
 
                 <div class="timeline-day">
-                    <div class="timeline-day-header">7 OUT (Quarta) — ⭐ SECEDA + RIFUGIO FIRENZE + ALPE DI SIUSI</div>
+                    <div class="timeline-day-header">7 OUT (Quarta) — ⭐ SECEDA + ALPE DI SIUSI</div>
                     <div class="timeline-item">
                         <span class="timeline-time">08:30</span>
                         <div class="timeline-content">
                             <strong>⭐ MANHÃ: Seceda (cabine Ortisei–Furnes–Seceda)</strong>
-                            <p>🎫 <strong>✅ COMPRADO</strong> — "Ortisei – Seceda Uphill", 2 adultos, <strong>faixa das 08:30</strong> · €46,50 cada (€93 o casal)</p>
-                            <p><strong>Pedido 949294</strong> · bilhetes <strong>1161/678/291488</strong> e <strong>291489</strong></p>
-                            <p>⚠️ <strong>Não é alterável nem reembolsável</strong> — a data está travada em 7/out. E é <strong>só subida</strong>: a descida é pelo Col Raiser, comprada na hora lá em cima.</p>
-                            <p>⚠️ <strong>Comprem o bilhete SÓ DE SUBIDA ("uphill"), não o "up and downhill".</strong> Vocês não voltam pelo Seceda — descem a pé até o Rifugio Firenze e saem pela gôndola do Col Raiser. O ida e volta custa €74 e o só ida €49: <strong>são €50 jogados fora no casal</strong> se marcarem errado.</p>
                             <p>A vista diferente: crista das Odle a 2.500m | Fácil no topo | ⏳ Confirmar operação (out) | Detalhes na lista de trilhas abaixo</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">13:30</span>
+                        <div class="timeline-content">
+                            <strong>🚡 TARDE: Teleférico Mont Sëuc SOBE</strong>
+                            <p>A PÉ do hotel (5 min!) | Alpe di Siusi entry</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-time">09:00</span>
                         <div class="timeline-content">
-                            <strong>📸 Mirante da crista das Odle (2.518 m)</strong>
-                            <p>A foto icônica do Seceda | ~30 min no topo antes de começar a descer</p>
+                            <strong>🥾 ESCOLHER:</strong>
+                            <p><strong>A)</strong> Trilha Puflatsch circuit: 2.5h, vistas + flores</p>
+                            <p><strong>B)</strong> Passeio relax + Rifugio: 1.5h, café/strudel</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">09:30</span>
+                        <span class="timeline-time">11:30</span>
                         <div class="timeline-content">
-                            <strong>🥾 Descida a pé rumo ao Rifugio Firenze</strong>
-                            <p>Trilha pelo Pieralongia | <strong>~1h–1h15 · −480 m</strong> de desnível, tudo descendo | Caminho aberto, com as Odle o tempo todo à frente</p>
+                            <strong>🍽️ ALMOÇO Rifugio</strong>
+                            <p>Spätzle | Strudel | Vistas montanha</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">10:45</span>
-                        <div class="timeline-content">
-                            <strong>☕ RIFUGIO FIRENZE / Regensburger Hütte (2.040 m) ⭐</strong>
-                            <p>Café da manhã tardio no terraço, bem embaixo das Odle | Strudel, Kaiserschmarrn, canederli</p>
-                            <p>📅 Aberto de junho até <strong>meados de outubro</strong> — pega as suas datas, mas <strong>confirmem a data exata de fechamento</strong> antes de contar com ele.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">11:45</span>
-                        <div class="timeline-content">
-                            <strong>🥾 Firenze → Col Raiser</strong>
-                            <p>~45 min, quase plano | Trecho fácil, de despedida do vale das Odle</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">12:30</span>
-                        <div class="timeline-content">
-                            <strong>🚡 Gôndola Col Raiser → Santa Cristina</strong>
-                            <p>Cabinovia de 8 lugares, desce dos ~2.100 m até <strong>Santa Cristina</strong> (~1.430 m) | <strong>€20 só descida</strong> | ✅ Opera de 22/05 a 01/11/2026 | ☎️ +39 0471 792089</p>
-                            <p>Evita ter que subir de volta os 480 m até o Seceda — é o que torna a travessia da manhã possível.</p>
-                            <p>🎫 <strong>Compra na hora, na bilheteria da estação de montanha</strong> — não precisa reservar.</p>
-                            <p>⚠️ <strong>Antes de começar a descer, confirmem no topo do Seceda que o Col Raiser está operando.</strong> Vento forte fecha gôndola em montanha. Se estiver parado, a volta é subindo os 480 m de novo — melhor descobrir antes de caminhar 1h15 na direção contrária.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">12:50</span>
-                        <div class="timeline-content">
-                            <strong>🚌 Santa Cristina → Ortisei — ônibus linha 350</strong>
-                            <p>⚠️ <strong>Vocês descem em Santa Cristina, não em Ortisei</strong> — o carro fica parado em Ortisei o dia todo. São ~5 km de volta:</p>
-                            <p><strong>🚌 Ônibus linha 350</strong> (Bolzano–Ponte Gardena–Val Gardena) — de <em>Santa Cristina Municipio</em> até <em>Ortisei Piazza S. Antonio</em>. <strong>Passa a cada 30 min e leva só 8 minutos.</strong> Opera de segunda a sábado, das 06:28 às 19:28 — o dia 7 é quarta-feira, então tudo certo. Da estação da gôndola até o ponto são poucos minutos a pé.</p>
-                            <p><strong>🚕 Táxi</strong> — ~€20-25, se perderem o ônibus ou estiverem cansados.</p>
-                            <p><strong>🚶 A pé</strong> — dá para voltar pela promenade do vale (antiga ferrovia), ~5 km planos em ~1h15. Bonito, mas depois da travessia da manhã provavelmente não.</p>
-                            <p>🎟️ <strong>Se o Genziana der o Südtirol Guest Pass, o ônibus é de graça.</strong></p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">13:20</span>
-                        <div class="timeline-content">
-                            <strong>🍽️ Almoço leve em Ortisei</strong>
-                            <p>Rápido — a tarde ainda tem a Alpe di Siusi</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">14:15</span>
-                        <div class="timeline-content">
-                            <strong>🚡 TARDE: Teleférico Mont Sëuc SOBE</strong>
-                            <p>A PÉ do hotel (5 min!) | Entrada da Alpe di Siusi | Aberto até 18:00</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">14:45</span>
-                        <div class="timeline-content">
-                            <strong>🌄 Alpe di Siusi — o platô</strong>
-                            <p>Maior pastagem alpina da Europa | Passeio leve pelo circuito do Bullaccia/Puflatsch (~2h) com o Sassolungo à frente</p>
-                            <p>⚠️ <strong>Depois da manhã no Firenze, a caminhada até a Baita Sanon (1h15 só de ida) não cabe mais.</strong> Ou vocês fazem o Firenze de manhã e ficam perto do topo do Mont Sëuc à tarde, ou trocam o Firenze pela Sanon. Fazer os dois dá ~6h de caminhada em altitude num dia só.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">16:45</span>
+                        <span class="timeline-time">14:30</span>
                         <div class="timeline-content">
                             <strong>🚡 Teleférico DESCE</strong>
-                            <p>Última descida às 18:00 — não deixem para o limite</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">17:30</span>
+                        <span class="timeline-time">15:30</span>
                         <div class="timeline-content">
                             <strong>🧳 PACKING leve</strong>
-                            <p>Amanhã a saída é cedo — o trajeto até Alba é longo</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1766,20 +1537,14 @@
                     </div>
                 </div>
 
-                <h3>🏨 Hospedagem — ✅ RESERVADO</h3>
+                <h3>🏨 Hospedagem</h3>
                 <div class="restaurant-card">
-                    <h4>Hotel Genziana</h4>
-                    <div class="meta">📍 Via Rezia 111 — 39046 Ortisei</div>
-                    <div class="meta">☎️ +39 0471 796246</div>
-                    <div class="meta"><strong>Check-in:</strong> 5/out, seg · 14:00–00:00 | <strong>Check-out:</strong> 8/out, qui · <strong>08:00–10:00</strong></div>
-                    <div class="meta"><strong>Reserva Booking:</strong> 5250.701.539 · em nome de <strong>Larissa Camapum</strong> <span class="sub">(PIN no e-mail de confirmação)</span></div>
-                    <div class="description">Camera Classic Matrimoniale com varanda, 2 hóspedes. <strong>Café da manhã incluído.</strong> Fica na Via Rezia, a rua central e pedestrianizada de Ortisei.</div>
-                    <p><strong>💶 A pagar: €956,35</strong> <span class="sub">(3 diárias, já com a tassa di soggiorno de ~€30 embutida)</span></p>
-                    <p>🧖 <strong>Centro de bem-estar gratuito</strong> (só solário e tratamentos estéticos são à parte) — bom para as pernas depois do Tre Cime.</p>
-                    <p>⚠️ Tarifa <strong>não reembolsável</strong>. Check-in tardio tem custo extra de <strong>€50</strong> — avisem o hotel do horário previsto de chegada (~16:00).</p>
-                    <p>⚠️ <strong>Confirmar estacionamento:</strong> vocês chegam de carro no dia 5 e ficam 3 noites. A reserva não menciona vaga — vale ligar e garantir (a Via Rezia é área pedestrianizada).</p>
-                    <p>⏰ <strong>Atenção ao check-out:</strong> a janela vai só até <strong>10:00</strong>, e o dia 8 já prevê saída às 08:00 rumo a Alba. Sem folga para dormir até tarde.</p>
-                    <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hotel+Genziana+Via+Rezia+111+Ortisei">🗺️ Abrir no Maps</a>
+                    <h4>Hotel Raffl 4★ — ⭐ RECOMENDADO</h4>
+                    <div class="meta">⭐ 8.5/10 | €120-180/noite</div>
+                    <div class="meta">📍 Centro Ortisei, Val Gardena</div>
+                    <div class="description">✅ Teleféricos a pé | Centro pedestrianizado | Refeições autênticas. Dono super atencioso.</div>
+                    <span class="badge badge-confirmed">✓ TOP CHOICE</span>
+                    <a class="place-link booking" target="_blank" rel="noopener" href="https://www.booking.com/searchresults.html?ss=Hotel+Raffl+Ortisei+Val+Gardena">🏨 Ver no Booking</a>
                 </div>
 
                 <h3>🎯 Atrações & Teleféricos</h3>
@@ -1859,9 +1624,9 @@
 
                 <div class="attention-box">
                     🍂 <strong>OUTUBRO — leia antes de planejar:</strong><br>
-                    • ✅ <strong>Teleféricos: boa notícia — todos os que vocês vão usar estão abertos nas datas.</strong> Seceda e Mont Sëuc vão até 02/11/2026, Lagazuoi até 18/10 e Resciesa até 11/10. Datas confirmadas nos operadores (ver seção de reservas acima).<br>
+                    • <strong>Teleféricos/cabines</strong> (Seceda, Mont Sëuc, Resciesa) costumam operar até ~meados de outubro — as datas exatas de 2026 saem perto da viagem. <strong>Confirmar antes</strong> (vocês vão dias 5-8/out, no limite da temporada).<br>
                     • <strong>Refúgios (rifugi)</strong> em geral fecham fim de set / início de out — pode não haver almoço na montanha. Levem lanche/água.<br>
-                    • <strong>Estrada de pedágio do Tre Cime</strong> (até Rifugio Auronzo) e o próprio refúgio fecham com a primeira neve — risco real em out. E lembrem: <strong>agora exige reserva online</strong>.<br>
+                    • <strong>Estrada de pedágio do Tre Cime</strong> (até Rifugio Auronzo) e o próprio refúgio fecham com a primeira neve — risco real em out.<br>
                     • <strong>Neve/gelo acima de ~2.300 m</strong> é possível; manhãs frias (pode dar -2 a 5°C no alto). Levem camadas, luva, gorro.<br>
                     • <strong>Dias mais curtos:</strong> sol ~07:15–18:30. Comecem cedo.<br>
                     • <strong>O lado bom 🍁:</strong> larícios dourados (cor de outono espetacular), muito menos gente e luz linda para fotos.
@@ -1871,8 +1636,8 @@
                     <strong>🗺️ Mapeamento sugerido (2 dias inteiros + 2 meios-dias):</strong><br>
                     <strong>5/out (meia-tarde, chegada):</strong> aclimatação leve — funicular Resciesa OU centro de Ortisei.<br>
                     <strong>6/out (dia inteiro):</strong> Tre Cime (giro) + parada histórica no Lagazuoi/Falzarego — <em>se</em> estrada/refúgios abertos; senão plano B = Seceda + Adolf Munkel.<br>
-                    <strong>7/out (dia inteiro):</strong> Seceda de manhã, descendo a pé até o Rifugio Firenze e saindo pela gôndola do Col Raiser + Alpe di Siusi à tarde.<br>
-                    <strong>8/out (só a primeira manhã):</strong> Lago di Braies antes de descer para Alba — o transfer é longo (~570 km no total) e a saída tem que ser às 08:00, então não sobra tempo para Vallunga.
+                    <strong>7/out (dia inteiro):</strong> Seceda (a vista diferente) de manhã + Alpe di Siusi à tarde.<br>
+                    <strong>8/out (meia-manhã, antes de Alba):</strong> Vallunga — vale plano e dourado, caminhada tranquila.
                 </div>
 
                 <div class="restaurant-grid">
@@ -2037,7 +1802,7 @@
                 <h2>🍷 Langhe/Alba (8-12 Outubro)</h2>
 
                 <div class="info-box">
-                    <strong>📍 Base:</strong> Alba | <strong>Chegada:</strong> 8 out (~16:30, tarde) | <strong>Saída:</strong> 12 out ~09:00 (voo 13:00 em Milão) | <strong>Hospedagem:</strong> 4 noites (8, 9, 10, 11) | <strong>Tema:</strong> Vinho, trufas, gastronomia Piemontese
+                    <strong>📍 Base:</strong> Alba | <strong>Chegada:</strong> 8 out (noite) | <strong>Saída:</strong> 12 out ~09:00 (voo 13:00 em Milão) | <strong>Hospedagem:</strong> 4 noites (8, 9, 10, 11) | <strong>Tema:</strong> Vinho, trufas, gastronomia Piemontese
                 </div>
 
                 <h3>🗺️ Pontos de Interesse — Langhe</h3>
@@ -2049,109 +1814,44 @@
                 <p style="color:#666; font-size:0.92em;">💡 Arraste pela alça <strong style="color:#c1992e;">⠿</strong> para reordenar, clique no <strong>horário</strong> para editar, use <strong style="color:#c0392b;">✕</strong> para excluir e <strong style="color:#0e6b35;">➕ Adicionar atividade</strong> para criar uma nova. Tudo fica salvo no navegador.</p>
 
                 <div class="timeline-day">
-                    <div class="timeline-day-header">8 OUT (Quinta) — DESPEDIDA DAS DOLOMITAS + TRANSFER ALBA</div>
-
-                    <div class="attention-box">
-                        🚨 <strong>Este dia estava com a conta errada e não fechava.</strong> O roteiro dizia "Ortisei → Alba, ~200km, ~3h", com saída às 18:00 e check-in às 21:00.<br>
-                        A distância real é de <strong>~450 km e ~4h30 de direção pura</strong> (Ortisei → Bolzano → A22 → Verona → A4 → Milão → A21/A33 → Alba). Saindo às 18:00, vocês chegariam a Alba perto de <strong>23h</strong>, e o jantar de chegada às 21:30 seria impossível.<br>
-                        👉 Refizemos o dia com <strong>saída de manhã</strong>. Dá tempo do Lago di Braies e ainda se chega a Alba com a tarde inteira.
-                    </div>
-
-                    <div class="info-box">
-                        🔄 <strong>Lago di Braies entrou no lugar do Lago di Carezza.</strong> Braies fica no sentido oposto (nordeste, na Val Pusteria), mas a volta para a autoestrada passa por Bressanone, que já está no caminho de Alba — então a troca custa só <strong>~25 min a mais de direção</strong> que a versão com Carezza. Valeu a pena.
-                    </div>
-
+                    <div class="timeline-day-header">8 OUT (Quinta) — MANHÃ LIVRE NO VAL GARDENA + TRANSFER ALBA</div>
                     <div class="timeline-item">
-                        <span class="timeline-time">07:30</span>
+                        <span class="timeline-time">09:30</span>
                         <div class="timeline-content">
-                            <strong>☕ Café + check-out</strong>
-                            <p>Malas no carro | A recepção do Genziana atende o check-out das 08:00 às 10:00 — avisem na véspera que vocês saem cedo</p>
+                            <strong>🧭 Manhã/tarde livre no Val Gardena — sugestões</strong>
+                            <p>Última parte nas Dolomitas antes de descer para as Langhe:</p>
+                            <p>🚡 <strong>Seceda</strong> — teleférico p/ a vista icônica das Odle/Geisler <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Seceda+Ortisei">🗺️</a></p>
+                            <p>🥾 <strong>Vallunga (Selva)</strong> — vale plano, caminhada fácil e tranquila <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vallunga+Selva+di+Val+Gardena">🗺️</a></p>
+                            <p>🏘️ <strong>Centro de Ortisei</strong> + lojas de escultura em madeira <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ortisei+centro">🗺️</a></p>
+                            <p>🍽️ Almoço tranquilo antes de pegar a estrada</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">08:00</span>
+                        <span class="timeline-time">18:00</span>
                         <div class="timeline-content">
-                            <strong>🚗 Ortisei → Lago di Braies</strong>
-                            <p>~91km | ~1h20 | Descer o Val Gardena → A22 até Bressanone → SS49 pela Val Pusteria → Braies</p>
+                            <strong>🚗 Saída Ortisei → Alba</strong>
+                            <p>~200km | ~3h drive</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">09:20</span>
-                        <div class="timeline-content">
-                            <strong>🏞️ LAGO DI BRAIES — despedida das Dolomitas ⭐⭐⭐</strong>
-                            <p>O lago mais fotografado dos Alpes, com o Croda del Becco ao fundo | <strong>Volta completa a pé: 3,5 km, ~1h</strong>, plana e fácil — ou só o píer dos barquinhos, em 20 min</p>
-                            <p>✅ <strong>Em outubro NÃO precisa de reserva.</strong> A restrição de acesso — estrada fechada a carros das 9h às 16h e vaga reservada obrigatória — vale só de <strong>1/jul a 15/set</strong>. Vocês chegam três semanas depois: é chegar e pagar no local.</p>
-                            <p>🅿️ <strong>Estacionem no P2 (municipal), ~€7 o dia inteiro</strong>, a 800 m do lago — 10 min de caminhada. Os estacionamentos colados no lago (P3 e P4) são privados e chegam a <strong>~€10 por hora</strong>; no pico chegaram a virar manchete. Para uma parada de 1h30, o P2 resolve por uma fração.<br>
-                            <span class="sub">Os valores publicados costumam se referir à alta temporada; fora dela vocês pagam direto na cancela, então confiram a tabela no local.</span></p>
-                            <p>🍂 Outubro joga a favor: larícios dourados, pouca gente e a água ainda espelhando. ⚠️ <strong>Confirmem se os barquinhos de madeira ainda operam</strong> — costumam parar no fim da temporada.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">10:45</span>
-                        <div class="timeline-content">
-                            <strong>🚗 SAÍDA rumo a Alba</strong>
-                            <p>Braies → Bressanone (~63km, ~1h pela Val Pusteria) → A22 sul → Verona → A4 oeste → Milão → A21/A33 → Alba</p>
-                            <p>~480km a partir daqui | ~4h40 de direção | ⛽ Tanque cheio antes de pegar a A22</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">13:00</span>
-                        <div class="timeline-content">
-                            <strong>🍽️ ALMOÇO EM TRENTO ⭐</strong>
-                            <p>Saindo de Braies às 10:45, às 13:00 vocês estão <strong>exatamente na altura de Trento</strong>. Saída "Trento Centro", ~10 min até o centro histórico.</p>
-                            <p>⏰ <strong>Cheguem até 13:30.</strong> Cozinha italiana de almoço serve das 12:00 às 14:30 — depois disso a cozinha fecha, não só o salão.</p>
-                            <p>🅿️ <strong>ZTL:</strong> não entrem dirigindo no centro histórico. Estacionem numa <strong>garagem sinalizada na circunvalação</strong> e façam o resto a pé — são poucos minutos. Multa de ZTL chega meses depois, no Brasil.</p>
-                            <p>📅 <strong>É quinta-feira.</strong> Muita osteria trentina fecha um dia da semana — <strong>liguem na véspera</strong> para a escolhida.</p>
-                            <p><span class="sub">Se estiverem atrasados, o autogrill da A22 (Paganella) resolve em 30 min sem sair da estrada.</span></p>
-                        </div>
-                    </div>
-                    <div class="info-box">
-                        <strong>🍽️ Onde comer em Trento — lugares de trentino, não de turista</strong><br>
-                        Todos no centro ou muito perto, e nenhum deles vive de gente de passagem.<br><br>
-
-                        <strong>⭐ Osteria Il Cappello</strong> — Piazzetta Bruno Lunelli, 5<br>
-                        <span class="sub">A aposta mais segura. Cardápio curto que muda conforme o que os produtores locais entregam — é o oposto do menu turístico plastificado em quatro idiomas. Pequena, então vale reservar.</span><br><br>
-
-                        <strong>Forsterbräu</strong> — Via Oss-Mazzurana, 38<br>
-                        <span class="sub">Cervejaria histórica, barulhenta e cheia de gente da cidade no almoço. Comida trentina e tirolesa honesta, servida rápido. A melhor opção se o tempo estiver curto — e a mais fácil de conseguir mesa sem reserva.</span><br><br>
-
-                        <strong>Rosa d'Oro</strong><br>
-                        <span class="sub">Canederli e gulasch à moda tirolesa, porções generosas, preço justo. Clássico despretensioso.</span><br><br>
-
-                        <strong>Osteria a Le Due Spade</strong> — Via Don Arcangelo Rizzi, 11<br>
-                        <span class="sub">Existe desde o Concílio de Trento e é reconhecida pelo Guia Michelin. Cozinha trentina séria — mas é a mais cara e a mais demorada da lista. Só se quiserem transformar o almoço no evento do dia.</span>
-                    </div>
-
-                    <div class="info-box">
-                        <strong>🥘 O que pedir — pratos que só existem por ali</strong><br><br>
-                        <strong>Strangolapreti</strong> — bolinhos de pão velho e espinafre, com manteiga derretida e sálvia. Praticamente não saem do Trentino. Se estiverem no cardápio, peçam.<br><br>
-                        <strong>Carne salada e fasoi</strong> — <em>o</em> prato de Trento. Carne bovina curada em salmoura com especiarias, fatiada bem fina, com feijão. Nada a ver com o que vocês comeram nas Dolomitas.<br><br>
-                        <strong>Canederli</strong> — os mesmos knödel do Südtirol, mas aqui costumam vir em caldo de carne.<br><br>
-                        <strong>Polenta di Storo</strong> — polenta amarela de milho de Storo, mais saborosa que a comum, com funghi, luganega (linguiça local) ou queijo derretido.<br><br>
-                        <strong>Tortel di patate</strong> — do Val di Non: batata ralada frita na hora, servida com salumi e queijo. Comida de feira, no melhor sentido.<br><br>
-                        <strong>🍷 Para beber:</strong> <strong>Teroldego Rotaliano</strong> (o tinto da casa, do vale ali ao lado), <strong>Nosiola</strong> (branco nativo) ou um <strong>Trentodoc</strong> — o espumante método clássico de Trento, que é onde nasce a Ferrari. E se virem <strong>Marzemino</strong> na carta, peçam: é o vinho que Mozart cita no <em>Don Giovanni</em>.
-                    </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-time">17:00</span>
+                        <span class="timeline-time">21:00</span>
                         <div class="timeline-content">
                             <strong>✅ Check-in Alba</strong>
-                            <p>Airbnb na Piazza Michele Ferrero 1 | Check-in a partir das 16:00 — combinar a entrada com o Alberto (+39 328 442 7862)</p>
-                            <p><span class="sub">Chegada ~17:45 com o almoço em Trento; ~17:00 se cortarem para o autogrill.</span></p>
+                            <p>Hotel Langhe ou Foresteria</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">20:00</span>
+                        <span class="timeline-time">21:30</span>
                         <div class="timeline-content">
                             <strong>🍷 Jantar de chegada — Petricore Enoteca (Alba)</strong>
                             <p>Vinho natural | Local, sem ser turístico | Alt.: Fuoco&Farina</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-time">22:00</span>
+                        <span class="timeline-time">23:00</span>
                         <div class="timeline-content">
-                            <strong>🌙 Noite em Alba — sugestões</strong>
-                            <p>🍷 <strong>Digestivo</strong> num wine bar do centro</p>
+                            <strong>🌙 Noite em Alba — sugestões (chegada tardia)</strong>
+                            <p>🍷 <strong>Digestivo</strong> num wine bar do centro (se ainda acordados)</p>
                             <p>🏛️ <strong>Voltinha na Piazza Risorgimento / Duomo</strong> iluminados <a class="inline-map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Piazza+Risorgimento+Alba+Italia">🗺️</a></p>
                             <p>😴 Ou só descansar — amanhã começa o cluster de vinhos</p>
                         </div>
@@ -2164,7 +1864,7 @@
                         <span class="timeline-time">10:30</span>
                         <div class="timeline-content">
                             <strong>🍷 Piercarlo Culasso (Barbaresco/Faset)</strong>
-                            <p>✅ <strong>CONFIRMADO</strong> — visita + tasting <strong>em inglês</strong> | Contato: <strong>Michela</strong> | ~5 min de La Ciau | (GAJA fora — fechados)</p>
+                            <p>Visita + tasting | ~5 min de La Ciau | (GAJA fora — fechados)</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -2284,23 +1984,14 @@
                         <span class="timeline-time">08:30</span>
                         <div class="timeline-content">
                             <strong>✅ Check-out + SAÍDA hotel</strong>
-                            <p>Café antes de sair | Devolução do carro agendada 11:00 em Malpensa</p>
+                            <p>Café antes de sair | Devolução do carro em Malpensa</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-time">09:00</span>
                         <div class="timeline-content">
                             <strong>🚗 Drive Alba → Milão Malpensa (MXP)</strong>
-                            <p>~150km | ~2h por A6/A26 | ⛽ <strong>Abasteça no caminho</strong> (posto antes de Somma Lombardo) — a Ecovia exige devolver no <strong>mesmo nível de combustível</strong> da retirada</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">11:00</span>
-                        <div class="timeline-content">
-                            <strong>🔑 Devolução do carro — Ecovia (fora do aeroporto)</strong>
-                            <p><strong>Endereço:</strong> Via Cipriano Facchinetti, 51 — Somma Lombardo (VA) <em>(das 08:00 às 22:59)</em><br>
-                            ☎️ Ligue ao chegar: <strong>+39 331 639 7220</strong><br>
-                            Depois um funcionário leva vocês de shuttle até o setor de embarque. Reserve ~30 min pro traslado — não é devolução no terminal.</p>
+                            <p>~150km | ~2h | Chegar ~11:00 para check-in</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -2319,20 +2010,14 @@
                     </div>
                 </div>
 
-                <h3>🏨 Hospedagem — ✅ RESERVADO</h3>
+                <h3>🏨 Hospedagem</h3>
                 <div class="restaurant-card">
-                    <h4>Airbnb — "Alba Center with AC, Parking and Elevator"</h4>
-                    <div class="meta">📍 Piazza Michele Ferrero, 1 — Alba, Piemonte 12051</div>
-                    <div class="meta">🧑 Anfitrião: <strong>Alberto</strong> (coanfitriã: Hospiti) · ☎️ <strong>+39 328 442 7862</strong></div>
-                    <div class="meta"><strong>Check-in:</strong> 8/out, qui · <strong>16:00</strong> | <strong>Check-out:</strong> 12/out, seg · <strong>10:00</strong></div>
-                    <div class="meta"><strong>Código de confirmação:</strong> HMEZ4REDXB · 2 hóspedes (João Pedro e Larissa)</div>
-                    <div class="description">Apartamento no centro de Alba, na praça principal. Ar-condicionado, elevador e <strong>estacionamento</strong> — o que resolve o maior problema de ficar no centro com carro alugado.</div>
-                    <p>🅿️ <strong>Estacionamento incluído</strong> — 4 noites de vaga no centro de Alba, economia real no orçamento.</p>
-                    <p>🍳 Tem cozinha: dá para fazer o café da manhã (aqui não vem incluso, diferente de Veneza e Ortisei).</p>
-                    <p>⚠️ <strong>Combinar o check-in com o Alberto antes de viajar</strong> — o Airbnb diz "entre em contato com o anfitrião para saber como fazer o check-in". Vocês chegam de estrada às ~16:30, exatamente na abertura.</p>
-                    <p>⚠️ <strong>ZTL:</strong> a Piazza Michele Ferrero é centro histórico de Alba. Perguntem ao anfitrião <strong>como entrar de carro sem tomar multa</strong> e como acessar a vaga.</p>
-                    <p>✅ Cancelamento grátis até 16:00 de 7/out.</p>
-                    <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Piazza+Michele+Ferrero+1+Alba+Italia">🗺️ Abrir no Maps</a>
+                    <h4>Hotel Langhe 4★ — ⭐ RECOMENDADO</h4>
+                    <div class="meta">⭐ 8.5/10 | €110-170/noite</div>
+                    <div class="meta">📍 Alba, Langhe</div>
+                    <div class="description">✅ Dono Nico muito atencioso | Centro histórico | Café excelente.</div>
+                    <span class="badge badge-confirmed">✓ TOP CHOICE</span>
+                    <a class="place-link booking" target="_blank" rel="noopener" href="https://www.booking.com/searchresults.html?ss=Hotel+Langhe+Alba+Italia">🏨 Ver no Booking</a>
                 </div>
 
                 <h3>🍷 Cantinas Vinho — STATUS</h3>
@@ -2340,9 +2025,8 @@
                     <div class="option-group">
                         <h4>Piercarlo Culasso (Barbaresco/Faset)</h4>
                         <div class="meta">📅 Dia 9 · 10h30 | ~5 min de La Ciau</div>
-                        <div class="meta">🗣️ Visita <strong>em inglês</strong> | Contato: <strong>Michela</strong></div>
                         <p>Visita + tasting | Pequeno produtor | Cluster Barbaresco/Treiso</p>
-                        <span class="badge badge-confirmed">✅ DIA 9 · CONFIRMADO</span>
+                        <span class="badge badge-critical">DIA 9 · PRINCIPAL</span>
                         <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Piercarlo+Culasso+Barbaresco">🗺️ Maps</a>
                     </div>
                     <div class="option-group">
@@ -2372,10 +2056,9 @@
                     </div>
                     <div class="option-group">
                         <h4>Giulia Negri (degustação)</h4>
-                        <div class="meta">📅 Dia 11 · tarde | Mesma propriedade da Tartufaia</div>
+                        <div class="meta">📅 Dia 11 · tarde | ⏳ Confirmar mesmo dia da Tartufaia</div>
                         <p>Degustação na mesma propriedade da caça à trufa | La Morra</p>
-                        <p>💶 <strong>Parte do valor já foi paga</strong> — levar o saldo no dia (confirmar se aceitam cartão ou se é só dinheiro).</p>
-                        <span class="badge badge-confirmed">✅ DIA 11 · RESERVADO</span>
+                        <span class="badge badge-pending">DIA 11 · A CONFIRMAR</span>
                         <a class="place-link site" target="_blank" rel="noopener" href="https://www.giulianegri.com/">🌐 Site oficial</a>
                         <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Giulia+Negri+winery+La+Morra">🗺️ Maps</a>
                     </div>
@@ -2712,158 +2395,6 @@
                 </div>
             </div>
 
-
-            <!-- RESERVAS -->
-            <div id="reservas" class="tab-panel">
-                <h2>📄 Reservas & Documentos</h2>
-
-                <div class="info-box">
-                    Tudo que já está pago ou confirmado, num lugar só, com os números que o balcão pede.
-                    Funciona no celular e <strong>não precisa dos PDFs</strong> — está tudo transcrito aqui.
-                </div>
-
-                <div class="attention-box">
-                    🔒 <strong>Este site é público.</strong> Qualquer pessoa com o link vê esta página, e o Google
-                    pode indexá-la. Por isso os <strong>PIN codes das reservas do Booking não aparecem aqui</strong> —
-                    confirmação + PIN juntos permitem abrir, alterar ou cancelar a reserva no site do Booking.
-                    Os PINs estão no e-mail de confirmação e no app do Booking, que é onde devem ficar.
-                </div>
-
-                <h3>✈️ Voos</h3>
-                <div class="restaurant-grid">
-                    <div class="restaurant-card">
-                        <h4>Ida — São Paulo → Veneza</h4>
-                        <div class="meta"><strong>UX0058</strong> · 2/out · 13:50 Guarulhos (GRU) → 05:00 Madri</div>
-                        <div class="meta"><strong>UX1081</strong> · 3/out · 07:30 Madri → 09:55 Veneza (VCE)</div>
-                        <div class="meta">Air Europa · check-in online abre 48h antes (30/set)</div>
-                        <span class="badge badge-confirmed">✅ comprado</span>
-                    </div>
-                    <div class="restaurant-card">
-                        <h4>Volta — Milão → São Paulo</h4>
-                        <div class="meta"><strong>LA8073</strong> · 12/out · 13:00 Malpensa (MXP) → 20:00 Guarulhos (GRU)</div>
-                        <div class="meta">Latam · voo direto · Boeing 777 · 12h</div>
-                        <div class="meta">Check-in online abre 48h antes (10/out)</div>
-                        <span class="badge badge-confirmed">✅ comprado</span>
-                    </div>
-                </div>
-
-                <h3>🚗 Carro</h3>
-                <div class="restaurant-card">
-                    <h4>Ecovia Rent a Car — via Rentcars</h4>
-                    <div class="meta"><strong>Voucher:</strong> ECO-26295958 · <strong>Rentcars:</strong> LA2H487</div>
-                    <div class="meta"><strong>Condutor:</strong> João Coutinho <span class="sub">(único autorizado — não há condutor adicional)</span></div>
-                    <div class="meta"><strong>Veículo:</strong> Fiat 500 ou similar · Mini · manual · 2 portas · 1 mala · km livre</div>
-                    <div class="meta"><strong>Retirada:</strong> 5/out 11:00 · Aeroporto de Veneza (VCE), Multipiano Park 1, 3º andar · ☎️ +39 041 269 8405</div>
-                    <div class="meta"><strong>Devolução:</strong> 12/out 11:00 · Via Cipriano Facchinetti 51, Somma Lombardo (MXP) · ☎️ +39 331 639 7220</div>
-                    <div class="meta"><strong>Valor:</strong> €242,76 — €151,26 pagos online, <strong>€91,50 no balcão</strong></div>
-                    <div class="meta"><strong>Caução:</strong> €750 em cartão de crédito internacional físico</div>
-                    <p>📋 <strong>Levar impresso:</strong> voucher · CNH física original (digital não é aceita) · PID · passaporte · cartão de crédito internacional</p>
-                    <p>🛡️ Proteções incluídas com franquia de até €1.760 (veículo/terceiros) e €1.500 (roubo) — ver a aba Prático.</p>
-                    <span class="badge badge-confirmed">✅ reservado</span>
-                </div>
-
-                <h3>🏨 Hospedagem</h3>
-                <div class="restaurant-grid">
-                    <div class="restaurant-card">
-                        <h4>Veneza · Hotel Casa Verardo</h4>
-                        <div class="meta">📍 Campo Ss. Filippo e Giacomo, Castello 4765 — 30122 Veneza</div>
-                        <div class="meta">☎️ +39 041 528 6138</div>
-                        <div class="meta"><strong>Reserva Booking:</strong> 6834.940.333 <span class="sub">(PIN no e-mail)</span></div>
-                        <div class="meta"><strong>Em nome de:</strong> Larissa Camapum</div>
-                        <div class="meta">Check-in 3/out 15:00–00:00 · Check-out 5/out 07:00–11:00 · 2 noites</div>
-                        <div class="meta"><strong>€510,25</strong> — pago no hotel, café incluído, taxa municipal embutida</div>
-                        <p>⚠️ Não reembolsável · pedem documento com foto e cartão no check-in · sem estacionamento</p>
-                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hotel+Casa+Verardo+Castello+4765+Venezia">🗺️ Maps</a>
-                    </div>
-                    <div class="restaurant-card">
-                        <h4>Ortisei · Hotel Genziana</h4>
-                        <div class="meta">📍 Via Rezia 111 — 39046 Ortisei</div>
-                        <div class="meta">☎️ +39 0471 796246</div>
-                        <div class="meta"><strong>Reserva Booking:</strong> 5250.701.539 <span class="sub">(PIN no e-mail)</span></div>
-                        <div class="meta"><strong>Em nome de:</strong> Larissa Camapum</div>
-                        <div class="meta">Check-in 5/out 14:00–00:00 · Check-out 8/out 08:00–10:00 · 3 noites</div>
-                        <div class="meta"><strong>€956,35</strong> — pago no hotel, café incluído, tassa di soggiorno embutida</div>
-                        <p>🧖 Spa gratuito · ⚠️ check-in tardio custa €50 · estacionamento a confirmar</p>
-                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hotel+Genziana+Via+Rezia+111+Ortisei">🗺️ Maps</a>
-                    </div>
-                    <div class="restaurant-card">
-                        <h4>Alba · Airbnb "Alba Center"</h4>
-                        <div class="meta">📍 Piazza Michele Ferrero, 1 — Alba, Piemonte 12051</div>
-                        <div class="meta">🧑 Alberto (coanfitriã: Hospiti) · ☎️ +39 328 442 7862</div>
-                        <div class="meta"><strong>Confirmação:</strong> HMEZ4REDXB</div>
-                        <div class="meta"><strong>Em nome de:</strong> João Pedro Sabino Coutinho e Larissa Camapum de Souza</div>
-                        <div class="meta">Check-in 8/out 16:00 · Check-out 12/out 10:00 · 4 noites</div>
-                        <div class="meta"><strong>Valor:</strong> a confirmar <span class="sub">(cobrado pelo Airbnb na reserva)</span></div>
-                        <p>🅿️ Estacionamento incluído · 🍳 cozinha · ⚠️ combinar check-in e acesso à ZTL com o Alberto</p>
-                        <a class="place-link maps" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Piazza+Michele+Ferrero+1+Alba+Italia">🗺️ Maps</a>
-                    </div>
-                </div>
-
-                <h3>🍷 Cantinas & Passeios</h3>
-                <table>
-                    <tr><th>O quê</th><th>Quando</th><th>Detalhes</th><th>Status</th></tr>
-                    <tr>
-                        <td><strong>🎫 Estrada do Tre Cime</strong></td>
-                        <td>6/out</td>
-                        <td>Reserva online obrigatória em auronzo.info · €40 · ticket de 12h · exige placa do carro</td>
-                        <td><span class="badge badge-pending">⚠️ reservar ~6/set</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🍝 Rifugio Auronzo</strong> <span class="sub">almoço</span></td>
-                        <td>6/out · 12:30</td>
-                        <td>☎️ +39 0435 39002 · reconfirmar em setembro (fecha com a neve)</td>
-                        <td><span class="badge badge-confirmed">✅ reservado</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🍷 Piercarlo Culasso</strong></td>
-                        <td>9/out · 10:30</td>
-                        <td>Barbaresco/Faset · visita + tasting <strong>em inglês</strong> · contato: Michela</td>
-                        <td><span class="badge badge-confirmed">✅ confirmado</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🍷 Conterno Fantino</strong></td>
-                        <td>10/out · 10:30</td>
-                        <td>Barolo · €35 por pessoa</td>
-                        <td><span class="badge badge-confirmed">✅ confirmado</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🌰 La Tartufaia — caça à trufa</strong></td>
-                        <td>11/out · 09:30</td>
-                        <td>Propriedade Giulia Negri, La Morra · taxa do guia costuma ser só em dinheiro</td>
-                        <td><span class="badge badge-confirmed">✅ confirmado</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🍷 Giulia Negri — degustação</strong></td>
-                        <td>11/out · tarde</td>
-                        <td>Mesma propriedade · <strong>parte do valor já paga</strong>, levar o saldo</td>
-                        <td><span class="badge badge-confirmed">✅ reservado</span></td>
-                    </tr>
-                </table>
-
-                <h3>🍽️ Restaurantes com mesa reservada</h3>
-                <table>
-                    <tr><th>Onde</th><th>Quando</th><th>Contato</th></tr>
-                    <tr><td><strong>Antiche Carampane</strong> · Veneza</td><td>4/out · 19:30</td><td>+39 041 524 0165</td></tr>
-                    <tr><td><strong>La Ciau del Tornavento</strong> · Treiso</td><td>9/out · 13:00</td><td>+39 0173 638 333</td></tr>
-                    <tr><td><strong>Guido da Costigliole</strong> · Relais San Maurizio</td><td>9/out · 20:00</td><td>Santo Stefano Belbo (CN)</td></tr>
-                </table>
-
-                <h3>☎️ Telefones de emergência</h3>
-                <div class="option-group">
-                    <p><strong>Emergência geral na Itália (polícia, ambulância, bombeiros):</strong> 112 — gratuito</p>
-                    <p><strong>Rentcars do exterior:</strong> +55 41 4042 1479 · chat online 24h no app</p>
-                    <p><strong>Booking.com do exterior:</strong> +44 20 3320 2609</p>
-                    <p><strong>Airbnb:</strong> atendimento 24h pelo app</p>
-                    <p><strong>Ecovia Veneza:</strong> +39 041 269 8405 · <strong>Ecovia Malpensa:</strong> +39 331 639 7220</p>
-                </div>
-
-                <div class="info-box">
-                    📎 <strong>Os PDFs originais</strong> (voucher do carro e as três reservas) ficam no e-mail e nos
-                    apps do Booking, Airbnb e Rentcars. Guardem também uma cópia offline no celular — os apps
-                    precisam de internet, e esta página não substitui o voucher impresso que a Ecovia pede no balcão.
-                </div>
-            </div>
-
             <!-- INFORMAÇÕES PRÁTICAS -->
             <div id="pratico" class="tab-panel">
                 <h2>ℹ️ Informações Práticas</h2>
@@ -2885,37 +2416,26 @@
                     <h4>Euro (€)</h4>
                     <p><strong>Câmbio:</strong> 1 EUR ≈ R$ 5,85 (referência — confira de novo perto da viagem, flutua)</p>
                     <p><strong>Dinheiro:</strong> Leve ~€200-300 cash | Resto no cartão débito internacional (Nomad) — ver orçamento completo abaixo 👇</p>
-                    <p><strong>💳 Cartão de crédito internacional físico:</strong> obrigatório para a caução de €750 do carro (o Nomad não serve pra isso)</p>
                     <p><strong>⚠️ Alguns rifúgios montanha e a taxa do guia da trufa = só cash!</strong></p>
                 </div>
 
                 <h3>💰 Orçamento da Viagem — Quanto Levar</h3>
                 <div class="info-box">
-                    Atualizado com os <strong>valores reais das três reservas de hospedagem</strong>. O resto continua sendo estimativa de pesquisa 2025/2026. <strong>Não inclui voos</strong> (já comprados) nem o Airbnb de Alba, cujo valor ainda falta. Câmbio de referência: 1 EUR ≈ R$ 5,85.
-                </div>
-
-                <div class="attention-box">
-                    💳 <strong>Respondendo direto: quase tudo é no cartão.</strong><br>
-                    Os dois hotéis do Booking (<strong>€1.466,60 somados</strong>) são <strong>pagos na propriedade, em euros</strong> — não foram debitados no Brasil. Isso mudou a cara do orçamento: o grosso do dinheiro sai <strong>durante</strong> a viagem, no cartão, e não antes.<br>
-                    O <strong>dinheiro físico</strong> continua sendo só para o que não aceita cartão: guia da trufa, rifúgios de montanha, parquímetros, gorjetas e mercados. Subi a sugestão de €200-300 para <strong>€250-400</strong>, porque agora vocês passam 4 noites em apartamento (mercado, padaria, feira) em vez de hotel.
+                    Valores baseados em pesquisa de preços reais 2025/2026 (não são cotações fechadas). <strong>Não inclui voos</strong> (já comprados). Câmbio de referência: 1 EUR ≈ R$ 5,85.
                 </div>
 
                 <div class="summary-grid">
                     <div class="summary-card">
-                        <span class="number">€4.350-5.700</span>
-                        <span class="label">Total estimado (sem voos e sem o Airbnb de Alba)</span>
+                        <span class="number">€4.300-6.200</span>
+                        <span class="label">Total estimado (sem voos)</span>
                     </div>
                     <div class="summary-card">
-                        <span class="number">€250-400</span>
+                        <span class="number">€200-300</span>
                         <span class="label">Dinheiro físico sugerido</span>
                     </div>
                     <div class="summary-card">
-                        <span class="number">€3.850-5.050</span>
-                        <span class="label">No cartão, durante a viagem</span>
-                    </div>
-                    <div class="summary-card">
-                        <span class="number">€750</span>
-                        <span class="label">Caução do carro — bloqueada em cartão de crédito (devolvida depois)</span>
+                        <span class="number">€2.500-3.750</span>
+                        <span class="label">No cartão Nomad (durante a viagem)</span>
                     </div>
                 </div>
 
@@ -2927,34 +2447,19 @@
                         <th>Nota</th>
                     </tr>
                     <tr>
-                        <td><strong>🏠 Airbnb Alba</strong><br>4 noites (8–12 out) · Piazza Michele Ferrero 1</td>
-                        <td><strong>valor a confirmar</strong></td>
-                        <td><span class="badge badge-confirmed">✅ reservado</span> <span class="sub">o Airbnb cobra no cartão na reserva — confirmar o valor debitado</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🎫 Estrada do Tre Cime</strong><br>pago online no ato da reserva (~6 set)</td>
-                        <td>€40</td>
-                        <td><span class="badge badge-pending">⚠️ a reservar</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🚡 Teleférico Seceda</strong><br>2 adultos · só subida · 7/out 8:30 · pedido 949294</td>
-                        <td>€93,00</td>
-                        <td><span class="badge badge-confirmed">✅ já pago</span></td>
+                        <td><strong>Hospedagem</strong><br>9 noites: 2 Veneza + 3 Dolomitas + 4 Alba</td>
+                        <td>€1.150–1.500</td>
+                        <td>Reserve logo — preço sobe perto da data</td>
                     </tr>
                     <tr>
                         <td><strong>Seguro viagem Schengen</strong><br>30 mil € de cobertura, 2 pessoas</td>
                         <td>€45–60</td>
-                        <td><span class="badge badge-confirmed">✅ contratado</span></td>
+                        <td>Cobertura mínima obrigatória</td>
                     </tr>
                     <tr>
                         <td><strong>eSIM / dados</strong></td>
                         <td>€25–35</td>
                         <td>Airalo, Holafly ou similar</td>
-                    </tr>
-                    <tr>
-                        <td><strong>🚗 Aluguel do carro — parte paga online</strong><br>Ecovia via Rentcars (voucher ECO-26295958)</td>
-                        <td>€151,26</td>
-                        <td><span class="badge badge-confirmed">✅ já pago</span></td>
                     </tr>
                 </table>
 
@@ -2966,19 +2471,9 @@
                         <th>Status</th>
                     </tr>
                     <tr>
-                        <td><strong>🏨 Hotel Casa Verardo (Veneza)</strong><br><span class="sub">2 noites, 3–5 out · café incluído · taxa municipal já embutida</span></td>
-                        <td><strong>€510,25</strong></td>
-                        <td><span class="badge badge-confirmed">✅ valor fechado</span> <span class="sub">cartão</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>🏨 Hotel Genziana (Ortisei)</strong><br><span class="sub">3 noites, 5–8 out · café incluído · tassa di soggiorno já embutida</span></td>
-                        <td><strong>€956,35</strong></td>
-                        <td><span class="badge badge-confirmed">✅ valor fechado</span> <span class="sub">cartão</span></td>
-                    </tr>
-                    <tr>
-                        <td>🚗 Aluguel de carro — saldo a pagar no balcão<br><span class="sub">Ecovia, 7 dias (VCE 5 out → MXP 12 out) · total €242,76, sendo €151,26 já pagos online</span></td>
-                        <td>€91,50</td>
-                        <td><span class="badge badge-confirmed">✅ confirmado</span> <span class="sub">cartão</span></td>
+                        <td>🚗 Aluguel de carro (10 dias, Mestre → Malpensa, seguro completo)</td>
+                        <td>€500–720</td>
+                        <td><span class="badge badge-option">estimado</span></td>
                     </tr>
                     <tr>
                         <td>⛽ Combustível (~750km no roteiro)</td>
@@ -2991,8 +2486,18 @@
                         <td><span class="badge badge-option">estimado</span></td>
                     </tr>
                     <tr>
-                        <td>🅿️ Estacionamento nos centros<br><span class="sub">caiu: o Airbnb de Alba já inclui vaga, e em Veneza não há carro</span></td>
-                        <td>€20–35</td>
+                        <td>🅿️ Estacionamento nos centros</td>
+                        <td>€40–60</td>
+                        <td><span class="badge badge-option">estimado</span></td>
+                    </tr>
+                    <tr>
+                        <td>🎫 Pedágio Tre Cime (Rifugio Auronzo)</td>
+                        <td>€40</td>
+                        <td><span class="badge badge-confirmed">reserva obrigatória</span></td>
+                    </tr>
+                    <tr>
+                        <td>🚡 Teleférico Seceda (2 adultos, ida/volta)</td>
+                        <td>€95–105</td>
                         <td><span class="badge badge-option">estimado</span></td>
                     </tr>
                     <tr>
@@ -3006,9 +2511,9 @@
                         <td><span class="badge badge-pending">opcional</span></td>
                     </tr>
                     <tr>
-                        <td>🍷 Cantina Piercarlo Culasso (2 pessoas)<br><span class="sub">visita confirmada; o valor da degustação não foi informado no e-mail</span></td>
+                        <td>🍷 Cantina Piercarlo Culasso (2 pessoas)</td>
                         <td>€60–130</td>
-                        <td><span class="badge badge-confirmed">✅ reservado</span> <span class="sub">valor estimado</span></td>
+                        <td><span class="badge badge-option">estimado</span></td>
                     </tr>
                     <tr>
                         <td>🍷 Cantina Conterno Fantino (2 pessoas)</td>
@@ -3016,9 +2521,9 @@
                         <td><span class="badge badge-confirmed">✅ confirmado (€35/pessoa)</span></td>
                     </tr>
                     <tr>
-                        <td>🌰 Caça à trufa + degustação Giulia Negri<br><span style="color:#666; font-size:0.9em;">valor total do passeio — parte já foi paga na reserva, então o desembolso no dia é menor</span></td>
+                        <td>🌰 Caça à trufa + degustação Giulia Negri</td>
                         <td>€200–350</td>
-                        <td><span class="badge badge-confirmed">✅ reservado · parte paga</span></td>
+                        <td><span class="badge badge-pending">⚠️ confirmar valor</span></td>
                     </tr>
                     <tr>
                         <td>🏛️ Ingressos Veneza (gôndola, vaporetto, basílica, museu)</td>
@@ -3026,7 +2531,7 @@
                         <td><span class="badge badge-option">estimado</span></td>
                     </tr>
                     <tr>
-                        <td>🍽️ Refeições (10 dias, 2 pessoas)<br><span class="sub">café da manhã incluído em Veneza e Ortisei (5 manhãs); em Alba o Airbnb tem cozinha — dá para resolver no mercado</span></td>
+                        <td>🍽️ Refeições (10 dias, 2 pessoas, café incluso no hotel)</td>
                         <td>€1.300–1.850</td>
                         <td><span class="badge badge-option">estimado</span></td>
                     </tr>
@@ -3037,8 +2542,8 @@
                     </tr>
                     <tr>
                         <td><strong>Subtotal "durante a viagem"</strong></td>
-                        <td><strong>€3.705–4.645</strong></td>
-                        <td><span class="sub">os dois hotéis (€1.466,60) se pagam lá; o Seceda saiu daqui — já foi pago online</span></td>
+                        <td><strong>€2.780–3.950</strong></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>🛍️ Compras (vinho em Alba, vidro de Murano, madeira Val Gardena)</td>
@@ -3047,26 +2552,22 @@
                     </tr>
                     <tr>
                         <td><strong>Total "durante a viagem" com compras</strong></td>
-                        <td><strong>€4.005–5.345</strong></td>
+                        <td><strong>€3.080–4.650</strong></td>
                         <td></td>
                     </tr>
                 </table>
 
                 <div class="attention-box">
-                    ⚠️ <strong>O que ainda mexe no número:</strong> <strong>(1)</strong> <strong>o valor do Airbnb de Alba</strong> — é a única linha grande que falta, e o comprovante enviado não traz o preço; <strong>(2)</strong> o valor total da caça à trufa com a Giulia Negri — já reservada e com parte paga, mas o total continua estimado; <strong>(3)</strong> a franquia do carro: contratar franquia zero no balcão da Ecovia (~€70-140 na semana) ou um seguro de reembolso à parte — a reserva atual tem franquia de até €1.760.<br>
-                    ✅ <strong>Já resolvido:</strong> as 9 noites reservadas e com dois dos três valores fechados, seguro Schengen contratado, cartão de crédito internacional garantido para a caução, carro reservado.
+                    ⚠️ Dois pontos em aberto que valem confirmar antes de fechar o número: <strong>(1)</strong> o preço exato da caça à trufa com a Giulia Negri — não achei publicado, é a maior incerteza do orçamento; <strong>(2)</strong> se os 3 hotéis já estão reservados/pagos.
                 </div>
 
                 <h4>💳 Dinheiro Físico vs. Cartão Nomad</h4>
                 <div class="info-box">
                     Como o cartão é <strong>débito internacional Nomad</strong> (boa cotação, aceito em quase tudo na Itália), a lógica é: <strong>cartão para quase tudo, cash só pro que exige</strong>.
                 </div>
-                <div class="attention-box">
-                    💳 <strong>Exceção importante: o carro.</strong> A caução de <strong>€750</strong> da Ecovia só é aceita em <strong>cartão de crédito internacional físico</strong> em nome do João — o Nomad não serve pra isso. <span class="badge badge-confirmed">✅ cartão garantido</span> Só não esqueça de deixar <strong>€750 de limite livre</strong> no dia 5 de outubro: o valor fica bloqueado até a devolução em Malpensa.
-                </div>
                 <div class="restaurant-grid">
                     <div class="option-group">
-                        <h4>🪙 Dinheiro físico: €250–400 (~R$ 1.460–2.340)</h4>
+                        <h4>🪙 Dinheiro físico: €200–300 (~R$ 1.170–1.755)</h4>
                         <p>Não é por dia — é o total da viagem. Cobre:</p>
                         <ul>
                             <li><strong>Taxa do guia da caça à trufa</strong> — frequentemente só em dinheiro, no dia</li>
@@ -3078,63 +2579,17 @@
                         <p>💡 Se precisar reforçar, saque num caixa eletrônico local com o próprio Nomad — geralmente sai mais barato que trocar reais em casa de câmbio no Brasil.</p>
                     </div>
                     <div class="option-group">
-                        <h4>💳 Cartão Nomad: o restante (~€3.850–5.050)</h4>
-                        <p><strong>Os dois hotéis são a maior fatia:</strong> Casa Verardo €510,25 (no check-out, dia 5) e Genziana €956,35 (no check-out, dia 8). Garantam saldo carregado nessas duas datas — são os dois maiores débitos únicos da viagem.</p>
-                        <p>Depois deles: restaurantes, postos de gasolina, pedágios (as cabines aceitam cartão), teleféricos, ingressos, cantinas, o saldo do carro no balcão e as compras nas enotecas.</p>
+                        <h4>💳 Cartão Nomad: o restante (~€2.500–3.750)</h4>
+                        <p>Hotéis (se não prepagos), praticamente todos os restaurantes, postos de gasolina, pedágios (a maioria aceita cartão nas cabines), teleféricos, ingressos, cantinas e compras nas enotecas oficiais.</p>
                     </div>
                 </div>
 
                 <h3>🚗 Aluguel Carro & Dirigir</h3>
-
-                <div class="info-box">
-                    ✅ <strong>Carro reservado e pago (parcial).</strong> Locadora <strong>Ecovia Rent a Car</strong>, contratado via <strong>Rentcars</strong>.
-                    Voucher <strong>ECO-26295958</strong> · Código da solicitação Rentcars <strong>LA2H487</strong> · Condutor: <strong>João Coutinho</strong>.
-                </div>
-
-                <div class="restaurant-grid">
-                    <div class="option-group">
-                        <h4>📍 Retirada — 5 out 2026, 11:00</h4>
-                        <p><strong>Aeroporto de Veneza · Marco Polo (VCE)</strong></p>
-                        <p>Viale Galileo Galilei, 30/1 — Tessera (VE)<br><strong>Balcão dentro do aeroporto: Multipiano Park 1, 3º andar</strong></p>
-                        <p>☎️ Loja: <strong>+39 041 269 8405</strong></p>
-                        <p>⏱️ <strong>Tolerância de 29 minutos.</strong> Passou disso vira no-show: reserva cancelada + multa de 20% do valor total. E também <strong>não é possível retirar antes</strong> do horário agendado.</p>
-                    </div>
-                    <div class="option-group">
-                        <h4>🔑 Devolução — 12 out 2026, 11:00</h4>
-                        <p><strong>Aeroporto de Milão · Malpensa (MXP)</strong> — atendimento <strong>fora do terminal</strong></p>
-                        <p><strong>Das 08:00 às 22:59:</strong> Via Cipriano Facchinetti, 51 — Somma Lombardo (VA)<br><strong>Das 23:00 às 07:59:</strong> Via Cipriano Facchinetti, 45 — Somma Lombardo (no <em>Kameha Parking</em>)</p>
-                        <p>☎️ Ligue ao chegar: <strong>+39 331 639 7220</strong></p>
-                        <p>🚐 Depois da entrega, um funcionário leva vocês de shuttle até o embarque. <strong>Conte ~30 min extras</strong> — o voo LA8073 sai 13:00.</p>
-                        <p>⛽ <strong>Devolver com o mesmo nível de combustível</strong> da retirada (fotografe o painel na saída).</p>
-                    </div>
-                </div>
-
                 <div class="option-group">
-                    <h4>🚙 O carro contratado</h4>
-                    <p><strong>Fiat 500 (ou similar) — categoria Mini</strong> · câmbio <strong>manual</strong> · 2 portas · 4 passageiros · ar-condicionado · <strong>quilometragem livre</strong></p>
-                    <p><strong>Capacidade de bagagem: 1 mala.</strong></p>
-                    <p>💡 Nenhum serviço adicional foi contratado (sem GPS, sem cadeirinha, sem condutor extra) — só o João pode dirigir.</p>
-                </div>
-
-                <div class="attention-box">
-                    🧳 <strong>Atenção ao porta-malas.</strong> O Fiat 500 comporta oficialmente <strong>1 mala</strong>. Para 2 pessoas / 10 dias, com casacos de montanha e ainda espaço para vinho comprado nas Langhe, isso é apertado.
-                    Vale <strong>pedir upgrade para uma categoria Economy/Compact no balcão</strong> (custo baixo pago no local) ou já ajustar a mala: 1 grande + 1 de mão que caiba no banco de trás.
-                </div>
-
-                <div class="attention-box">
-                    💳 <strong>Caução de €750 — cartão já garantido ✅, mas leia antes de embarcar.</strong><br>
-                    A Ecovia bloqueia <strong>a partir de €750</strong> num <strong>cartão de crédito internacional FÍSICO, em nome do condutor</strong> (nome e número impressos em relevo). O voucher diz textualmente que <strong>não são aceitos cartões pré-pagos, virtuais, por aproximação nem, em geral, emitidos por bancos digitais</strong>.<br>
-                    ⚠️ <strong>O cartão Nomad (débito/pré-pago de banco digital) muito provavelmente NÃO serve para a caução</strong> — ele continua ótimo para os gastos da viagem, mas quem tem que aparecer no balcão da Ecovia é o <strong>cartão de crédito internacional tradicional</strong>.<br>
-                    ✅ O cartão já está garantido. Faltam duas coisas simples antes de embarcar: <strong>avisar o banco das datas da viagem</strong> (pra compra internacional alta não cair em antifraude) e <strong>deixar pelo menos €750 (~R$ 4.400) de limite livre</strong> no dia 5 de outubro — o valor fica bloqueado a viagem inteira e só é liberado depois da devolução em Malpensa.
-                </div>
-
-                <div class="option-group">
-                    <h4>📄 Documentos obrigatórios na retirada</h4>
-                    <p>✔️ <strong>CNH física original e válida</strong> — o voucher é explícito: <strong>CNH Digital não é aceita</strong>, nem cópia, foto ou impressão.</p>
-                    <p>✔️ <strong>PID</strong> (Permissão Internacional para Dirigir) — <strong>obrigatória na Itália</strong>; sem ela a locadora pode impedir a retirada ou cobrar taxa.</p>
-                    <p>✔️ <strong>Passaporte válido.</strong></p>
-                    <p>✔️ <strong>Cartão de crédito internacional físico</strong> do condutor (caução).</p>
-                    <p>✔️ <strong>Voucher impresso</strong> — a Rentcars pede que o documento seja impresso e entregue no balcão.</p>
+                    <h4>Aluguel</h4>
+                    <p><strong>Pega:</strong> Mestre (perto Veneza) | 5 out — considere também retirar no Aeroporto de Veneza (VCE): balcão 24h, mais opções de marca grande, custo parecido</p>
+                    <p><strong>Devolve:</strong> Milão Malpensa (MXP) | 12 out ~11:00</p>
+                    <p><strong>Documentos:</strong> RG original + CNH + Passaporte + <strong>PID (Permissão Internacional para Dirigir)</strong></p>
                     <span class="badge badge-confirmed">✅ PID já providenciada</span>
                 </div>
                 <div class="option-group">
@@ -3145,8 +2600,7 @@
                     <p><strong>💡 GPS offline = essencial (Google Maps download antes!)</strong></p>
                 </div>
 
-                <h4>🏢 Locadoras — referência (reserva já fechada com a Ecovia)</h4>
-                <p style="color:#666; margin-bottom:10px;">Mantido aqui só como referência caso precise trocar/complementar. A <strong>Ecovia</strong> é uma operadora italiana local (não é marca internacional) — por isso vale seguir à risca a disciplina de vistoria e devolução descrita abaixo.</p>
+                <h4>🏢 Locadoras recomendadas (confiabilidade > preço)</h4>
                 <div class="restaurant-grid">
                     <div class="option-group">
                         <h4>⭐ Hertz</h4>
@@ -3174,39 +2628,18 @@
                     🚫 <strong>Evite Goldcar, Firefly, Interrent e Keddy</strong> mesmo se aparecerem mais baratas em comparadores. Goldcar foi <strong>multada em €2 milhões pela AGCM</strong> (autoridade de concorrência italiana) por práticas abusivas. As outras têm reclamações recorrentes de cobrança por arranhão mínimo (até com vídeo provando o contrário), carro entregue com pneu careca/sem óleo, fila longa na retirada e taxas escondidas no contrato. Preço bom demais geralmente vira prejuízo na devolução.
                 </div>
 
-                <h4>🛡️ Seguro do carro — o que a reserva já cobre (e o que NÃO cobre)</h4>
+                <h4>🛡️ Seguro do carro — como não pagar mico</h4>
                 <div class="option-group">
-                    <h4>✅ Já incluído no voucher</h4>
-                    <p><strong>Proteção do Veículo</strong> (danos por colisão/acidente), <strong>Proteção Contra Roubo</strong> e <strong>Proteção Contra Terceiros</strong> (danos materiais e pessoais a terceiros).</p>
-                </div>
-                <div class="attention-box">
-                    ⚠️ <strong>Não é franquia zero.</strong> As proteções incluídas têm <strong>limite de franquia</strong>:<br>
-                    • Proteção do Veículo e Contra Terceiros: <strong>até €1.760,00</strong><br>
-                    • Proteção Contra Roubo: <strong>até €1.500,00</strong><br>
-                    Ou seja: em caso de dano, esse é o valor que pode ser debitado — e a caução de €750 já fica bloqueada no cartão desde a retirada.
+                    <h4>No balcão</h4>
+                    <p>Sempre leve o <strong>seguro completo / franquia zero</strong> (CDW + roubo) da própria locadora — não dirija com cobertura básica só pra economizar €10-15/dia, é onde mora o prejuízo real em caso de dano.</p>
                 </div>
                 <div class="option-group">
-                    <h4>Como zerar esse risco (escolha uma)</h4>
-                    <p><strong>a)</strong> Comprar a <strong>super cobertura / franquia zero da própria Ecovia no balcão</strong> — mais caro (~€10-20/dia), mas resolve na hora e sem burocracia de reembolso.</p>
-                    <p><strong>b)</strong> Contratar antes um seguro de <strong>reembolso de franquia</strong> (RentalCover, iCarhireinsurance) — sai bem mais barato, mas você paga primeiro e é reembolsado depois, com laudo/BO.</p>
-                    <p>💡 Para 7 dias de estradas de montanha e vilarejos apertados nas Langhe, uma das duas vale a pena.</p>
+                    <h4>Complementar (opcional, recomendado)</h4>
+                    <p>Contrate à parte um seguro de <strong>reembolso de franquia</strong> — RentalCover ou iCarhireinsurance — geralmente mais barato que a "super cobertura" vendida no balcão, e reembolsa se cobrarem a franquia por dano real.</p>
                 </div>
                 <div class="option-group">
-                    <h4>❌ O que nenhuma proteção cobre</h4>
-                    <p>Pneus, vidros e pára-brisa, rádio/CD, estofamento, acessórios, riscos, mau uso, vandalismo, excesso de carga e uso em <strong>estradas não permitidas / sem condições</strong> (atenção nas trilhas de terra das Dolomitas!). Tudo isso é responsabilidade do locatário.</p>
-                </div>
-                <div class="option-group">
-                    <h4>Na retirada e na devolução</h4>
-                    <p><strong>Filme o carro inteiro</strong> (rodando ao redor, close em cada arranhão/risco existente, rodas e pára-brisa) <strong>antes de sair do pátio</strong> — e repita na devolução. É sua defesa se tentarem cobrar por algo que já estava lá.</p>
-                    <p>📸 Fotografe também o <strong>painel com o nível de combustível e o hodômetro</strong>, nos dois momentos.</p>
-                    <p>🚨 Em caso de acidente: ligar <strong>imediatamente para a assistência da Ecovia</strong> antes de qualquer coisa, e <strong>registrar Boletim de Ocorrência</strong> — sem BO a proteção não é aplicada.</p>
-                </div>
-                <div class="option-group">
-                    <h4>☎️ Contatos úteis</h4>
-                    <p><strong>Loja Ecovia Veneza (VCE):</strong> +39 041 269 8405</p>
-                    <p><strong>Ecovia Malpensa (devolução):</strong> +39 331 639 7220</p>
-                    <p><strong>Rentcars — do exterior:</strong> +55 (41) 4042 1479 | <strong>Chat online 24h</strong> no app/site</p>
-                    <p><strong>Rentcars — Brasil:</strong> 4000 1994 (capitais) · 0800 940 1994 (demais) — seg-sex 07:00-22:00, sáb/dom 10:00-20:00 (horário de Brasília)</p>
+                    <h4>Na retirada</h4>
+                    <p><strong>Filme o carro inteiro</strong> (rodando ao redor, close em cada arranhão/risco existente) <strong>antes de sair do pátio</strong> — é sua defesa se tentarem cobrar por algo que já estava lá.</p>
                 </div>
 
                 <h3>📱 Comunicação</h3>
@@ -3239,231 +2672,11 @@
 
                 <h3>✨ Dicas Finais</h3>
                 <ul>
-                    <li><strong>Fotos:</strong> Tre Cime amanhecer/anoitecer = MELHOR | Lago di Braies de manhã cedo, antes do sol bater forte na água</li>
+                    <li><strong>Fotos:</strong> Tre Cime amanhecer/anoitecer = MELHOR | Lago Carezza late afternoon</li>
                     <li><strong>Postos gasolina:</strong> Abrem 08:30-12:00 + 15:30-19:30 (fechado dom tarde)</li>
                     <li><strong>Seguro Schengen:</strong> €30k obrigatório (~€8/dia)</li>
                     <li><strong>Feria del Tartufo:</strong> Alba 11-18 outubro — PODEM PEGAR ABERTURA 12 out manhã!</li>
                 </ul>
-
-
-
-                <h3>🔗 Links diretos para reservar — sem intermediários</h3>
-                <div class="info-box">
-                    Todos os endereços abaixo são <strong>do próprio operador</strong>: o município, a empresa do
-                    teleférico, o museu. Nada de revendedor. Sites de terceiros cobram taxa e, pior, às vezes
-                    repetem regras de alta temporada como se valessem o ano inteiro.
-                </div>
-
-                <h4>🚨 As duas reservas obrigatórias</h4>
-                <div class="restaurant-grid">
-                    <div class="option-group">
-                        <h4>🎫 Estrada do Tre Cime — dia 6</h4>
-                        <p><strong>€40 por carro</strong> · ticket de 12h · exige placa</p>
-                        <p>Portal do <strong>Comune di Auronzo di Cadore</strong>:</p>
-                        <p><a class="place-link site" target="_blank" rel="noopener" href="https://pass.auronzo.info">pass.auronzo.info — portal de reserva</a></p>
-                        <p><a class="place-link site" target="_blank" rel="noopener" href="https://auronzo.info/en/parking-tre-cime-di-lavaredo/">auronzo.info — informações</a></p>
-                        <p>⏰ A janela abre <strong>~30 dias antes</strong>, um dia de cada vez.</p>
-                        <p>☎️ Casello +39 0435 39109 · Consorzio +39 0435 99603</p>
-                    </div>
-                    <div class="option-group">
-                        <h4>🚡 Seceda — dia 7</h4>
-                        <p><strong>€49 só ida</strong> · faixa das <strong>08:30</strong></p>
-                        <p>Loja oficial da <strong>Seceda Cableways AG</strong>:</p>
-                        <p><a class="place-link site" target="_blank" rel="noopener" href="https://seceda.axess.shop">seceda.axess.shop — reservar</a></p>
-                        <p>⚠️ Escolham <strong>"uphill" (só subida)</strong>, não "up and downhill" — a descida é pelo Col Raiser. Errar aqui custa €50 no casal.</p>
-                    </div>
-                </div>
-
-                <h4>🎟️ Veneza — comprar agora (horário marcado)</h4>
-                <div class="restaurant-grid">
-                    <div class="option-group">
-                        <h4>⛪ Basílica de São Marcos</h4>
-                        <p>Bilheteria oficial da Basílica:</p>
-                        <p><a class="place-link site" target="_blank" rel="noopener" href="https://tickets.basilicasanmarco.it">tickets.basilicasanmarco.it</a></p>
-                        <p>⚠️ Domingo (4/out) só das <strong>14:00 às 16:45</strong>.</p>
-                    </div>
-                    <div class="option-group">
-                        <h4>🏛️ Palazzo Ducale</h4>
-                        <p>Fundação dos Museus Cívicos de Veneza:</p>
-                        <p><a class="place-link site" target="_blank" rel="noopener" href="https://palazzoducale.visitmuve.it/">palazzoducale.visitmuve.it</a></p>
-                        <p>Abre 09:00 todos os dias.</p>
-                    </div>
-                </div>
-
-                <div class="attention-box">
-                    💡 <strong>Aqui sim existe um combo que vale a pena.</strong> O ingresso
-                    <strong>"I Musei di Piazza San Marco"</strong> é obrigatório para entrar no Palazzo Ducale e já
-                    inclui, no mesmo bilhete, o <strong>Museu Correr</strong>, o Museu Arqueológico Nacional e as
-                    Salas Monumentais da Biblioteca Marciana.<br>
-                    <strong>€30 comprando online</strong> (contra €35 na bilheteria) — e o roteiro de vocês já prevê o
-                    Correr como opção no fim da tarde do dia 4. Ou seja: <strong>dois dos passeios do dia saem num
-                    ingresso só, e comprar online ainda economiza €5 por pessoa.</strong>
-                </div>
-
-                <h4>🚡 Teleféricos — não exigem reserva, mas os sites são estes</h4>
-                <div class="option-group">
-                    <p><strong>Mont Sëuc</strong> (Ortisei–Alpe di Siusi, dia 7) — <a href="https://www.montseuc.it/en/cableway.asp" target="_blank" rel="noopener">montseuc.it</a></p>
-                    <p><strong>Col Raiser</strong> (descida do dia 7) — <a href="https://www.colraiser.it/en/" target="_blank" rel="noopener">colraiser.it</a> · ☎️ +39 0471 792089 · <strong>€20 só ida · €30 ida e volta</strong> · opera de 22/05 a 01/11/2026 · descida de 13 min, 545 m de desnível<br>
-                    <span class="sub">💡 <strong>Não precisa comprar antes.</strong> A bilheteria fica na própria <strong>estação de montanha</strong>, onde vocês chegam a pé vindos do Rifugio Firenze — no mesmo prédio do restaurante com terraço panorâmico. Comprem o "solo discesa" na hora. Se quiserem garantir mesmo assim, bilhetes avulsos dos principais impianti também saem pela loja online My Dolomiti Superski.</span></p>
-                    <p><strong>Lagazuoi</strong> (Passo Falzarego, dia 6) — <a href="https://lagazuoi.it" target="_blank" rel="noopener">lagazuoi.it</a> · ☎️ +39 0436 867301</p>
-                    <p><strong>Resciesa</strong> (Ortisei, opcional dia 5) — <a href="https://www.resciesa.com/en/info.asp" target="_blank" rel="noopener">resciesa.com</a></p>
-                    <p><strong>Gardena Card</strong> (se decidirem pela carteirinha) — <a href="https://www.gardena-card.com/en/prices.asp" target="_blank" rel="noopener">gardena-card.com</a></p>
-                </div>
-
-                <h4>🅿️ Lago di Braies — conferido de novo, nas fontes oficiais</h4>
-                <div class="option-group">
-                    <p>Verificamos os <strong>dois portais oficiais</strong> e ambos dizem a mesma coisa: a reserva
-                    obrigatória e o fechamento da estrada valem <strong>de 1º de julho a 15 de setembro</strong>.
-                    Fora desse período, nas palavras do próprio site do vale, dá para
-                    <em>"chegar direto aos estacionamentos e ao lago sem reserva"</em>.</p>
-                    <p><strong>Vocês vão em 8 de outubro</strong> — três semanas depois da janela fechar. Não precisa reservar.</p>
-                    <p>Portais oficiais, para conferirem por conta própria:</p>
-                    <p><a class="place-link site" target="_blank" rel="noopener" href="https://www.prags.bz/en">prags.bz — P1, P2 e P5 (municipais)</a></p>
-                    <p><a class="place-link site" target="_blank" rel="noopener" href="https://pragsparking.com">pragsparking.com — P4 (privado)</a></p>
-                    <p>⚠️ <strong>Cuidado com o que se lê por aí:</strong> muita página de terceiros mostra "reserva
-                    obrigatória" em destaque sem dizer que a regra só vale no verão. Se vocês virem algo diferente
-                    disso nos links acima, me mandem — pode ter havido mudança de regra depois desta consulta.</p>
-                </div>
-
-                <h4>☎️ Contatos diretos — o que se resolve por telefone</h4>
-                <div class="option-group">
-                    <p><strong>Rifugio Auronzo</strong> (almoço dia 6 + status da estrada) — +39 0435 39002</p>
-                    <p><strong>Rifugio Firenze</strong> (dia 7) — <a href="https://www.rifugiofirenze.com/en/" target="_blank" rel="noopener">rifugiofirenze.com</a></p>
-                    <p><strong>Rifugio Friedrich August</strong> (abre em outubro?) — +39 353 360 5674</p>
-                    <p><strong>Baita Sanon</strong> (Alpe di Siusi) — <a href="https://www.sanon.it/" target="_blank" rel="noopener">sanon.it</a></p>
-                    <p><strong>Hotel Genziana</strong> (estacionamento + Guest Pass) — +39 0471 796246</p>
-                    <p><strong>Hotel Casa Verardo</strong> — +39 041 528 6138</p>
-                    <p><strong>Alberto, anfitrião do Airbnb</strong> (check-in + ZTL) — +39 328 442 7862</p>
-                    <p><strong>Ecovia</strong> — Veneza +39 041 269 8405 · Malpensa +39 331 639 7220</p>
-                    <p><strong>Antiche Carampane</strong> — +39 041 524 0165 · <strong>La Ciau del Tornavento</strong> — +39 0173 638 333</p>
-                </div>
-
-                <h3>📅 Agenda de Reservas — o que falta e quando fazer</h3>
-                <div class="info-box">
-                    Ordenado por <strong>quando você precisa agir</strong>, não por quando acontece. A coluna
-                    <strong>📅 Agendar</strong> abre o Google Agenda já preenchido — é só salvar na conta
-                    <strong>jotapesc23@gmail.com</strong>.
-                </div>
-
-                <div class="attention-box">
-                    ⏰ <strong>A regra dos 30 dias vale para uma coisa só: o Tre Cime.</strong> O portal de Auronzo
-                    libera a reserva da estrada apenas <strong>1 mês antes</strong> da data da visita. Como vocês sobem
-                    no <strong>dia 6 de outubro</strong>, a janela abre por volta de <strong>6 de setembro</strong> —
-                    e é o único item da viagem que não dá para adiantar. Todo o resto ou já está fechado, ou pode ser
-                    resolvido a qualquer momento daqui até a viagem.
-                </div>
-
-                <div style="overflow-x:auto;">
-                <table>
-                    <tr>
-                        <th>O que</th>
-                        <th>Quando acontece</th>
-                        <th>Quando resolver</th>
-                        <th>Status</th>
-                        <th>Agenda</th>
-                    </tr>
-                    <tr>
-                        <td>🚨 <strong>Estrada de pedágio do Tre Cime</strong><br><span class='sub'>Reserva online obrigatória — sem ela a cancela não abre</span></td>
-                        <td>6/out · dia inteiro</td>
-                        <td><strong>6 de setembro</strong><br><span class='sub'>a janela abre só 1 mês antes</span></td>
-                        <td><span class='badge badge-pending'>🔴 LIGAR AGORA</span><br><span class='sub'>calendário travado em 4/out</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=RESERVAR%20estrada%20do%20Tre%20Cime%20-%20janela%20de%2030%20dias%20abre%20hoje&dates=20260906T110000Z/20260906T113000Z&details=Reserva%20ONLINE%20OBRIGATORIA%20da%20estrada%20de%20pedagio%20ate%20o%20Rifugio%20Auronzo%20%28Tre%20Cime%20di%20Lavaredo%29%2C%20para%20a%20visita%20do%20dia%206/out/2026.%20Sem%20reserva%20a%20cancela%20nao%20abre.%0A%0APORTAL%3A%20https%3A//auronzo.info/en/parking-tre-cime-di-lavaredo/%0ACUSTO%3A%2040%20EUR/dia%20por%20carro%20-%20ticket%20valido%20por%2012%20horas%0AA%20janela%20abre%20apenas%201%20mes%20antes%20da%20data%20da%20visita.%20Se%20hoje%20ainda%20nao%20abrir%2C%20tente%20amanha.%0A%0APLACA%3A%20pode%20deixar%20em%20branco%20agora%20e%20preencher%20ate%2023%3A59%20do%20dia%205/out.%0A%0ASE%20ESGOTAR%3A%20shuttle%20444%20de%20Dobbiaco%20%28tambem%20com%20reserva%29%20ou%20trilha%20108A%20a%20pe%20desde%20Malga%20Rin%20Bianco%20%283%2C4%20km%2C%20~1h30%29.&location=auronzo.info">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>🚗 <strong>Placa do carro na reserva do Tre Cime</strong><br><span class='sub'>O carro só é retirado no dia 5 — a placa entra depois</span></td>
-                        <td>6/out · dia inteiro</td>
-                        <td><strong>5 de outubro, até 23:59</strong><br><span class='sub'>na noite da chegada em Ortisei</span></td>
-                        <td><span class='badge badge-pending'>⚠️ prazo fatal</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Preencher%20a%20placa%20do%20carro%20na%20reserva%20do%20Tre%20Cime%20%28prazo%2023%3A59%29&dates=20261005T180000Z/20261005T181500Z&details=Entrar%20na%20reserva%20em%20https%3A//auronzo.info/en/parking-tre-cime-di-lavaredo/%20e%20preencher%20a%20PLACA%20do%20Fiat%20500%20alugado%20hoje%20no%20aeroporto%20de%20Veneza.%0A%0APRAZO%3A%2023%3A59%20de%20hoje%20%285/out%29.%20A%20leitura%20na%20cancela%20e%20feita%20pela%20placa%20-%20se%20estiver%20errada%20ou%20em%20branco%2C%20nao%20sobe%20amanha.&location=Ortisei%2C%20Val%20Gardena">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>📞 <strong>Rifugio Auronzo — reconfirmar</strong><br><span class='sub'>Almoço do dia 6 + se a estrada segue aberta (neve)</span></td>
-                        <td>6/out · 12:30</td>
-                        <td><strong>14 de setembro</strong><br><span class='sub'>+39 0435 39002</span></td>
-                        <td><span class='badge badge-confirmed'>✅ reservado</span> <span class='sub'>reconfirmar</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reconfirmar%20Rifugio%20Auronzo%20%2B%20status%20da%20estrada%20do%20Tre%20Cime&dates=20260914T130000Z/20260914T131500Z&details=Ligar%20para%20o%20Rifugio%20Auronzo%3A%20%2B39%200435%2039002%0A%0A1%29%20Reconfirmar%20o%20almoco%20do%20dia%206/out%20%282%20pessoas%29%0A2%29%20Perguntar%20se%20o%20refugio%20e%20a%20estrada%20de%20pedagio%20seguem%20abertos%20em%20outubro%20-%20fecham%20com%20a%20primeira%20neve%0A3%29%20Confirmar%20o%20horario%20de%20funcionamento%20da%20estrada%20%28em%20outubro%20costuma%20ser%20~8h-18h%29%0A%0ASe%20estiver%20fechado%2C%20o%20plano%20B%20do%20roteiro%20e%20Seceda%20%2B%20trilha%20Adolf%20Munkel.&location=%2B39%200435%2039002">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>🍽️ <strong>Reservar o almoço em Trento (dia 8)</strong><br><span class='sub'>Osteria Il Cappello é pequena; e muita osteria fecha um dia da semana</span></td>
-                        <td>8/out · ~13:00</td>
-                        <td><strong>Véspera ou poucos dias antes</strong></td>
-                        <td><span class="badge badge-pending">⚠️ ligar</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reservar%20almoco%20em%20Trento%20-%20dia%208%20de%20outubro&dates=20261005T120000Z/20261005T121500Z&details=Parada%20de%20almoco%20no%20transfer%20Ortisei%20-%20Alba%2C%20chegando%20em%20Trento%20por%20volta%20das%2013h.%0A%0AOPCOES%20(nesta%20ordem)%3A%0A1)%20Osteria%20Il%20Cappello%20-%20Piazzetta%20Bruno%20Lunelli%2C%205%20-%20pequena%2C%20cardapio%20curto%20de%20produtores%20locais%0A2)%20Forsterbrau%20-%20Via%20Oss-Mazzurana%2C%2038%20-%20cervejaria%20historica%2C%20rapida%2C%20facil%20sem%20reserva%0A3)%20Rosa%20d%27Oro%20-%20canederli%20e%20gulasch%0A%0APERGUNTAR%3A%20se%20abrem%20na%20quinta-feira%20para%20almoco%20e%20se%20servem%20ate%20que%20horas.%0A%0AEstacionar%20em%20garagem%20na%20circunvalacao%20-%20NAO%20entrar%20de%20carro%20na%20ZTL%20do%20centro.&location=Trento%2C%20Italia">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>🏠 <strong>Combinar o check-in do Airbnb com o Alberto</strong><br><span class='sub'>Como entrar, onde é a vaga e como acessar sem cair na ZTL de Alba</span></td>
-                        <td>8/out · 16:00</td>
-                        <td><strong>Início de outubro</strong><br><span class='sub'>+39 328 442 7862</span></td>
-                        <td><span class="badge badge-pending">⚠️ combinar</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Combinar%20check-in%20do%20Airbnb%20de%20Alba%20com%20o%20Alberto&dates=20261001T130000Z/20261001T131500Z&details=Falar%20com%20o%20anfitriao%20Alberto%3A%20%2B39%20328%20442%207862%20(coanfitria%3A%20Hospiti).%0A%0ACodigo%20da%20reserva%3A%20HMEZ4REDXB%0AEndereco%3A%20Piazza%20Michele%20Ferrero%2C%201%20-%20Alba%0ACheck-in%208%2Fout%20as%2016%3A00%2C%20checkout%2012%2Fout%20as%2010%3A00%0A%0APERGUNTAR%3A%0A1)%20Como%20e%20feito%20o%20check-in%20(o%20Airbnb%20diz%20para%20combinar%20com%20o%20anfitriao)%0A2)%20Onde%20fica%20a%20vaga%20de%20estacionamento%20incluida%0A3)%20Como%20chegar%20de%20carro%20sem%20tomar%20multa%20de%20ZTL%20-%20a%20Piazza%20Michele%20Ferrero%20e%20centro%20historico&location=Alba%2C%20Piemonte">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>🅿️ <strong>Confirmar estacionamento do Hotel Genziana</strong><br><span class='sub'>3 noites com carro numa rua pedestrianizada</span></td>
-                        <td>5–8/out</td>
-                        <td><strong>Setembro</strong><br><span class='sub'>+39 0471 796246</span></td>
-                        <td><span class="badge badge-pending">⚠️ confirmar</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Confirmar%20estacionamento%20do%20Hotel%20Genziana%20(Ortisei)&dates=20260915T130000Z/20260915T131500Z&details=Ligar%20para%20o%20Hotel%20Genziana%3A%20%2B39%200471%20796246%0AReserva%20Booking%205250.701.539%20-%20em%20nome%20de%20Larissa%20Camapum%20(PIN%20no%20e-mail)%0A%0APERGUNTAR%3A%0A1)%20Tem%20estacionamento%20para%20hospedes%3F%20Custa%20quanto%3F%20A%20Via%20Rezia%20e%20pedestrianizada%20e%20voces%20chegam%20de%20carro%20no%20dia%205%0A2)%20Avisar%20o%20horario%20previsto%20de%20chegada%20(~16h)%20-%20check-in%20tardio%20custa%2050%20EUR%20extra%0A3)%20Confirmar%20que%20a%20tassa%20di%20soggiorno%20ja%20esta%20inclusa%20nos%20956%2C35%20EUR&location=%2B39%200471%20796246">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>🎫 <strong>Ingressos de Veneza</strong><br><span class='sub'>Basílica de São Marcos, Palazzo Ducale, gôndola</span></td>
-                        <td>3 e 4/out</td>
-                        <td><strong>Início de setembro</strong><br><span class='sub'>hora marcada esgota</span></td>
-                        <td><span class='badge badge-pending'>⚠️ a comprar</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Comprar%20ingressos%20de%20Veneza%20%28Basilica%20de%20Sao%20Marcos%2C%20Palazzo%20Ducale%2C%20gondola%29&dates=20260901T130000Z/20260901T133000Z&details=Comprar%20com%20hora%20marcada%2C%20que%20e%20onde%20esgota%3A%0A-%20Basilica%20de%20Sao%20Marcos%20%28skip-the-line%20com%20horario%29%0A-%20Palazzo%20Ducale%0A-%20Gondola%20%28opcional%20reservar%3B%20tambem%20da%20para%20negociar%20no%20cais%29%0A%0AOrcado%20no%20roteiro%20em%20200-260%20EUR%20para%202%20pessoas.%0ADias%203%20e%204%20de%20outubro%20em%20Veneza.&location=Veneza">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>🛡️ <strong>Franquia do carro — decidir</strong><br><span class='sub'>Franquia zero no balcão OU seguro de reembolso à parte</span></td>
-                        <td>5/out · retirada</td>
-                        <td><strong>20 de setembro</strong><br><span class='sub'>o seguro à parte contrata-se antes</span></td>
-                        <td><span class='badge badge-pending'>⚠️ decisão em aberto</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Decidir%20a%20franquia%20do%20carro%3A%20zero%20no%20balcao%20ou%20seguro%20de%20reembolso&dates=20260920T130000Z/20260920T133000Z&details=A%20reserva%20da%20Ecovia%20ja%20inclui%20protecao%20de%20veiculo%2C%20roubo%20e%20terceiros%20-%20mas%20COM%20franquia%20de%20ate%201.760%20EUR%20%28veiculo/terceiros%29%20e%201.500%20EUR%20%28roubo%29.%0A%0AOpcao%20A%3A%20comprar%20franquia%20zero%20no%20balcao%20da%20Ecovia%20%28~10-20%20EUR/dia%29.%20Resolve%20na%20hora.%0AOpcao%20B%3A%20contratar%20antes%20um%20seguro%20de%20reembolso%20de%20franquia%20%28RentalCover%2C%20iCarhireinsurance%29.%20Mais%20barato%2C%20mas%20paga%20primeiro%20e%20e%20reembolsado%20depois%2C%20com%20laudo/BO.%0A%0AA%20opcao%20B%20precisa%20ser%20contratada%20ANTES%20da%20viagem%20-%20por%20isso%20o%20lembrete.&location=">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>💳 <strong>Avisar o banco + limite do cartão</strong><br><span class='sub'>Caução de €750 bloqueada na retirada</span></td>
-                        <td>5/out · retirada</td>
-                        <td><strong>28 de setembro</strong></td>
-                        <td><span class='badge badge-confirmed'>✅ cartão ok</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Avisar%20o%20banco%20da%20viagem%20%2B%20garantir%20750%20EUR%20de%20limite%20livre%20%28caucao%20do%20carro%29&dates=20260928T130000Z/20260928T131500Z&details=1%29%20Avisar%20o%20banco%20das%20datas%20da%20viagem%20%282%20a%2012%20de%20outubro%2C%20Italia%29%20para%20a%20caucao%20alta%20nao%20cair%20em%20antifraude%0A2%29%20Garantir%20pelo%20menos%20750%20EUR%20%28~R%24%204.400%29%20de%20limite%20LIVRE%20no%20cartao%20de%20credito%20internacional%20fisico%20no%20dia%205/out%0A%0AO%20valor%20fica%20bloqueado%20a%20viagem%20inteira%20e%20so%20e%20liberado%20depois%20da%20devolucao%20em%20Malpensa%2C%20dia%2012.%0AO%20cartao%20Nomad%20NAO%20serve%20para%20a%20caucao.&location=">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>✈️ <strong>Check-in do voo de ida</strong><br><span class='sub'>UX0058 · GRU → Madri → Veneza</span></td>
-                        <td>2/out · 13:50</td>
-                        <td><strong>30 de setembro</strong><br><span class='sub'>abre 48h antes</span></td>
-                        <td><span class='badge badge-confirmed'>✅ voo comprado</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in%20online%20do%20voo%20de%20ida%20%28UX0058%20GRU-Madri-Veneza%29&dates=20260930T170000Z/20260930T171500Z&details=Check-in%20online%20Air%20Europa%20-%20abre%2048h%20antes%20da%20partida.%0A%0AUX0058%3A%202/out%2013%3A50%20Sao%20Paulo%20%28GRU%29%20-%3E%2005%3A00%20Madri%0AUX1081%3A%203/out%2007%3A30%20Madri%20-%3E%2009%3A55%20Veneza%20%28VCE%29%0A%0AEscolher%20assentos%20e%20conferir%20a%20franquia%20de%20bagagem.&location=">📅 Agendar</a></td>
-                    </tr>
-                    <tr>
-                        <td>✈️ <strong>Check-in do voo de volta</strong><br><span class='sub'>LA8073 · Malpensa → Guarulhos</span></td>
-                        <td>12/out · 13:00</td>
-                        <td><strong>10 de outubro</strong><br><span class='sub'>abre 48h antes</span></td>
-                        <td><span class='badge badge-confirmed'>✅ voo comprado</span></td>
-                        <td><a class="place-link site" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in%20online%20do%20voo%20de%20volta%20%28LA8073%20Malpensa-Guarulhos%29&dates=20261010T110000Z/20261010T111500Z&details=Check-in%20online%20Latam%20-%20abre%2048h%20antes%20da%20partida.%0A%0ALA8073%3A%2012/out%2013%3A00%20Milao%20Malpensa%20%28MXP%29%20-%3E%2020%3A00%20Sao%20Paulo%20%28GRU%29%2C%20voo%20direto.%0A%0ALembrar%20que%20a%20devolucao%20do%20carro%20e%20as%2011%3A00%20FORA%20do%20aeroporto%20%28Somma%20Lombardo%29%2C%20com%20shuttle%20ate%20o%20embarque%20-%20reserve%20~30%20min%20extras.&location=">📅 Agendar</a></td>
-                    </tr>
-                </table>
-                </div>
-
-                <div class="option-group">
-                    <h4>✅ Já fechado — nada a fazer</h4>
-                    <p><strong>Voos</strong> (ida UX0058/UX1081 e volta LA8073) · <strong>Carro</strong> (Ecovia via
-                    Rentcars, voucher ECO-26295958) · <strong>Hospedagem</strong> — Casa Verardo em Veneza
-                    (6834.940.333), Genziana em Ortisei (5250.701.539) e Airbnb em Alba (HMEZ4REDXB) ·
-                    <strong>Seguro Schengen</strong> · <strong>PID</strong> · <strong>Antiche Carampane</strong> (4/out) ·
-                    <strong>La Ciau del Tornavento</strong> (9/out) · <strong>Guido da Costigliole</strong> (9/out) ·
-                    <strong>Conterno Fantino</strong> (10/out) · <strong>La Tartufaia</strong> (11/out) ·
-                    <strong>Giulia Negri</strong> (11/out) · <strong>Piercarlo Culasso</strong> (9/out, em inglês).</p>
-                    <p>🎉 <strong>Com a Piercarlo Culasso confirmada, todas as reservas de restaurante e cantina da viagem estão fechadas.</strong></p>
-                </div>
-
-                <div class="option-group">
-                    <h4>🤷 Não precisa reservar</h4>
-                    <p><strong>Teleféricos</strong> Seceda, Mont Sëuc, Lagazuoi e Resciesa — todos operando nas datas
-                    de vocês, é só comprar na bilheteria.</p>
-                    <p><strong>Lago di Braies</strong> (dia 8) — a reserva de acesso vale só de <strong>1/jul a 15/set</strong>.
-                    Em outubro é chegar e pagar o estacionamento no local, sem reserva e sem restrição de horário. Usem o <strong>P2, ~€7/dia</strong>, a 800 m do lago.</p>
-                    <p><strong>Osteria al Timon</strong> (3/out, Veneza) — a casa não trabalha com reserva.</p>
-                    <p><strong>Petricore Enoteca</strong> (8/out, Alba) — enoteca pequena; não exige reserva, mas
-                    como vocês chegam em plena Feira do Tartufo, vale ligar no mesmo dia para garantir a mesa.</p>
-                </div>
 
                 <h3>✅ Checklist Crítico — Reservas</h3>
                 <p style="color:#666; margin-bottom:10px;">Marque conforme for confirmando. Fica salvo no seu navegador. ✅</p>
@@ -3471,41 +2684,99 @@
                     <li><input type="checkbox" id="ck-carampane" data-persist="ck-carampane" checked><label for="ck-carampane"><span class="tag conf">✓ CONFIRMADO:</span> Antiche Carampane (Veneza, 4 out)</label></li>
                     <li><input type="checkbox" id="ck-ciau" data-persist="ck-ciau" checked><label for="ck-ciau"><span class="tag conf">✓ CONFIRMADO:</span> La Ciau del Tornavento (Treiso, 9 out 13:00)</label></li>
                     <li><input type="checkbox" id="ck-rifugio" data-persist="ck-rifugio" checked><label for="ck-rifugio"><span class="tag conf">✓ CONFIRMADO:</span> Rifugio Auronzo almoço (6 out)</label></li>
-                    <li><input type="checkbox" id="ck-piercarlo" data-persist="ck-piercarlo" checked><label for="ck-piercarlo"><span class="tag conf">✓ CONFIRMADO:</span> Piercarlo Culasso (cantina, 9 out 10:30) — em inglês, com a Michela | GAJA fora (fechados)</label></li>
+                    <li><input type="checkbox" id="ck-piercarlo" data-persist="ck-piercarlo"><label for="ck-piercarlo"><span class="tag wait">⏳ AGUARDANDO:</span> Piercarlo Culasso (cantina, 9 out 10:30) — GAJA fora (fechados)</label></li>
                     <li><input type="checkbox" id="ck-guido" data-persist="ck-guido" checked><label for="ck-guido"><span class="tag conf">✓ CONFIRMADO:</span> Guido da Costigliole — Relais San Maurizio (jantar, 9 out 20:00)</label></li>
                     <li><input type="checkbox" id="ck-conterno" data-persist="ck-conterno" checked><label for="ck-conterno"><span class="tag conf">✓ CONFIRMADO:</span> Conterno Fantino (Barolo, 10 out 10:30 · €35/pessoa)</label></li>
                     <li><input type="checkbox" id="ck-tartufaia" data-persist="ck-tartufaia" checked><label for="ck-tartufaia"><span class="tag conf">✓ CONFIRMADO:</span> La Tartufaia — caça à trufa (11 out 9:30)</label></li>
-                    <li><input type="checkbox" id="ck-carro" data-persist="ck-carro" checked><label for="ck-carro"><span class="tag conf">✓ CONFIRMADO:</span> Carro Ecovia/Rentcars — VCE 5 out 11:00 → MXP 12 out 11:00 (voucher ECO-26295958)</label></li>
-                    <li><input type="checkbox" id="ck-giulia" data-persist="ck-giulia" checked><label for="ck-giulia"><span class="tag conf">✓ CONFIRMADO:</span> Giulia Negri — degustação (11 out, tarde) · parte do valor já paga</label></li>
-                    <li><input type="checkbox" id="ck-hospedagem" data-persist="ck-hospedagem" checked><label for="ck-hospedagem"><span class="tag conf">✓ CONFIRMADO:</span> Hospedagem — 9 noites (Veneza · Ortisei · Alba)</label></li>
-                    <li><input type="checkbox" id="ck-seceda" data-persist="ck-seceda" checked><label for="ck-seceda"><span class="tag conf">✓ CONFIRMADO:</span> Teleférico Seceda — 7 out 8:30, só subida, 2 adultos (pedido 949294 · €93)</label></li>
-                    <li><input type="checkbox" id="ck-trecime" data-persist="ck-trecime"><label for="ck-trecime"><span class="tag wait">⏳ ABRE ~6 SET:</span> <strong>Estrada de pedágio do Tre Cime (6 out)</strong> — reserva online obrigatória em auronzo.info, €40. A janela abre só 1 mês antes. <strong>Sem isso não sobe.</strong></label></li>
-                    <li><input type="checkbox" id="ck-trecime-placa" data-persist="ck-trecime-placa"><label for="ck-trecime-placa">Preencher a <strong>placa do carro alugado</strong> na reserva do Tre Cime — até 23:59 de 5/out (noite da chegada em Ortisei)</label></li>
                 </ul>
+
+            </div>
+
+            <!-- MALA -->
+            <div id="mala" class="tab-panel">
+                <h2>🎒 Mala — O Que Não Esquecer</h2>
+                <p style="color:#666;">Checklist completo pra fazer a mala. Marque conforme for separando — fica salvo no seu navegador. Os itens com <span class="badge badge-option">🖨️ imprimir</span> são documentos que valem uma cópia física.</p>
+
+                <button class="print-btn" onclick="window.print()">🖨️ Imprimir esta lista</button>
                 <div class="info-box">
-                    📎 <strong>Falta só anexar aqui os dados das reservas de hotel</strong> (nome, endereço, telefone, horário de check-in e código de cada reserva) — assim que os arquivos chegarem, entram na aba de cada cidade.
+                    Não tenho acesso aos seus arquivos reais (seguro, reservas, e-mails de confirmação) — eles estão no seu e-mail/apps. O botão acima imprime esta lista como lembrete; imprima os PDFs de cada documento separadamente pelo app/e-mail correspondente.
                 </div>
 
-                <h3>📋 Checklist Final — Antes de Viajar</h3>
-                <p style="color:#666; margin-bottom:10px;">Vá marcando enquanto prepara as malas. Fica salvo no seu navegador. ✅</p>
+                <h3>📄 Documentos & Dinheiro</h3>
                 <ul class="checklist">
-                    <li><input type="checkbox" id="ck-maps" data-persist="ck-maps"><label for="ck-maps">Google Maps download offline (Itália inteira)</label></li>
-                    <li><input type="checkbox" id="ck-passaporte" data-persist="ck-passaporte"><label for="ck-passaporte">Passaporte + visto (Brasil = 90 dias visa-free)</label></li>
-                    <li><input type="checkbox" id="ck-cnh" data-persist="ck-cnh"><label for="ck-cnh">CNH <strong>física original</strong> (a digital NÃO é aceita pela locadora)</label></li>
-                    <li><input type="checkbox" id="ck-pid" data-persist="ck-pid" checked><label for="ck-pid">PID — Permissão Internacional para Dirigir</label></li>
-                    <li><input type="checkbox" id="ck-voucher" data-persist="ck-voucher"><label for="ck-voucher"><strong>Voucher do carro impresso</strong> — ECO-26295958 (entregar no balcão da Ecovia)</label></li>
-                    <li><input type="checkbox" id="ck-cartaocredito" data-persist="ck-cartaocredito" checked><label for="ck-cartaocredito"><strong>Cartão de crédito internacional físico</strong> com limite livre ≥ €750 (caução do carro) — <em>falta só avisar o banco das datas da viagem</em></label></li>
-                    <li><input type="checkbox" id="ck-seguro" data-persist="ck-seguro" checked><label for="ck-seguro">Seguro Schengen (€30k) — ✅ contratado (levar a apólice salva no celular)</label></li>
-                    <li><input type="checkbox" id="ck-roupas" data-persist="ck-roupas"><label for="ck-roupas">Roupas quentes (casaco, meias)</label></li>
-                    <li><input type="checkbox" id="ck-sol" data-persist="ck-sol"><label for="ck-sol">Bloqueador solar + óculos (Alpes = UV intenso)</label></li>
-                    <li><input type="checkbox" id="ck-remedios" data-persist="ck-remedios"><label for="ck-remedios">Remédios básicos</label></li>
+                    <li><input type="checkbox" id="ck-m-passaporte" data-persist="ck-m-passaporte"><label for="ck-m-passaporte">Passaporte (validade 6+ meses)</label></li>
+                    <li><input type="checkbox" id="ck-m-cnh" data-persist="ck-m-cnh"><label for="ck-m-cnh">CNH</label></li>
+                    <li><input type="checkbox" id="ck-m-pid" data-persist="ck-m-pid"><label for="ck-m-pid">PID — Permissão Internacional para Dirigir</label></li>
+                    <li><input type="checkbox" id="ck-m-seguro" data-persist="ck-m-seguro"><label for="ck-m-seguro">Comprovante do seguro viagem Schengen <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-hoteis" data-persist="ck-m-hoteis"><label for="ck-m-hoteis">Reservas de hotéis (Veneza, Ortisei, Alba) <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-conf-ciau" data-persist="ck-m-conf-ciau"><label for="ck-m-conf-ciau">Confirmação — La Ciau del Tornavento <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-conf-guido" data-persist="ck-m-conf-guido"><label for="ck-m-conf-guido">Confirmação — Guido da Costigliole <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-conf-conterno" data-persist="ck-m-conf-conterno"><label for="ck-m-conf-conterno">Confirmação — Conterno Fantino <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-conf-trufa" data-persist="ck-m-conf-trufa"><label for="ck-m-conf-trufa">Confirmação — La Tartufaia (caça à trufa) <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-nomad" data-persist="ck-m-nomad"><label for="ck-m-nomad">Cartão Nomad</label></li>
+                    <li><input type="checkbox" id="ck-m-cash" data-persist="ck-m-cash"><label for="ck-m-cash">Dinheiro físico (€200-300)</label></li>
+                    <li><input type="checkbox" id="ck-m-maps" data-persist="ck-m-maps"><label for="ck-m-maps">Google Maps offline (Itália inteira) baixado</label></li>
+                    <li><input type="checkbox" id="ck-m-backup-docs" data-persist="ck-m-backup-docs"><label for="ck-m-backup-docs">Foto/scan de todos os documentos salva no celular + nuvem</label></li>
+                </ul>
+
+                <h3>📷 Eletrônicos</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-dji" data-persist="ck-m-dji"><label for="ck-m-dji">Câmera DJI</label></li>
+                    <li><input type="checkbox" id="ck-m-dji-carreg" data-persist="ck-m-dji-carreg"><label for="ck-m-dji-carreg">Carregador da DJI + bateria extra</label></li>
+                    <li><input type="checkbox" id="ck-m-cartao-memoria" data-persist="ck-m-cartao-memoria"><label for="ck-m-cartao-memoria">Cartão de memória extra</label></li>
+                    <li><input type="checkbox" id="ck-m-carregador-cel" data-persist="ck-m-carregador-cel"><label for="ck-m-carregador-cel">Carregador de celular</label></li>
+                    <li><input type="checkbox" id="ck-m-powerbank" data-persist="ck-m-powerbank"><label for="ck-m-powerbank">Power bank</label></li>
+                    <li><input type="checkbox" id="ck-m-adaptador" data-persist="ck-m-adaptador"><label for="ck-m-adaptador">Adaptador de tomada (plugue tipo F/C)</label></li>
+                    <li><input type="checkbox" id="ck-m-esim" data-persist="ck-m-esim"><label for="ck-m-esim">eSIM instalado/ativado antes de embarcar</label></li>
+                    <li><input type="checkbox" id="ck-m-fones" data-persist="ck-m-fones"><label for="ck-m-fones">Fones de ouvido</label></li>
+                </ul>
+
+                <h3>🧥 Roupas</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-casaco" data-persist="ck-m-casaco"><label for="ck-m-casaco">Casaco corta-vento/impermeável</label></li>
+                    <li><input type="checkbox" id="ck-m-guardachuva" data-persist="ck-m-guardachuva"><label for="ck-m-guardachuva">Guarda-chuva compacto</label></li>
+                    <li><input type="checkbox" id="ck-m-termica" data-persist="ck-m-termica"><label for="ck-m-termica">Camadas térmicas (base layer) — Dolomitas</label></li>
+                    <li><input type="checkbox" id="ck-m-botas" data-persist="ck-m-botas"><label for="ck-m-botas">Botas de trilha impermeáveis</label></li>
+                    <li><input type="checkbox" id="ck-m-meias" data-persist="ck-m-meias"><label for="ck-m-meias">Meias de trilha extras</label></li>
+                    <li><input type="checkbox" id="ck-m-gorro" data-persist="ck-m-gorro"><label for="ck-m-gorro">Gorro e luvas leves</label></li>
+                    <li><input type="checkbox" id="ck-m-tenis" data-persist="ck-m-tenis"><label for="ck-m-tenis">Tênis confortável (Veneza — muita pedra/escada)</label></li>
+                    <li><input type="checkbox" id="ck-m-arrumada" data-persist="ck-m-arrumada"><label for="ck-m-arrumada">Roupa mais arrumada (jantares La Ciau e Guido da Costigliole)</label></li>
+                    <li><input type="checkbox" id="ck-m-suja" data-persist="ck-m-suja"><label for="ck-m-suja">Roupa/calçado que pode sujar (dia da caça à trufa — mata/lama)</label></li>
+                    <li><input type="checkbox" id="ck-m-pijama" data-persist="ck-m-pijama"><label for="ck-m-pijama">Pijama</label></li>
+                    <li><input type="checkbox" id="ck-m-sunga" data-persist="ck-m-sunga"><label for="ck-m-sunga">Sunga / roupa de banho</label></li>
+                    <li><input type="checkbox" id="ck-m-oculos" data-persist="ck-m-oculos"><label for="ck-m-oculos">Óculos de sol</label></li>
+                </ul>
+
+                <h3>🧴 Saúde & Higiene Pessoal</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-remedios-continuo" data-persist="ck-m-remedios-continuo"><label for="ck-m-remedios-continuo">Remédios de uso contínuo (com receita)</label></li>
+                    <li><input type="checkbox" id="ck-m-remedios-basicos" data-persist="ck-m-remedios-basicos"><label for="ck-m-remedios-basicos">Analgésico, antialérgico, remédio pra enjoo</label></li>
+                    <li><input type="checkbox" id="ck-m-protetor" data-persist="ck-m-protetor"><label for="ck-m-protetor">Protetor solar</label></li>
+                    <li><input type="checkbox" id="ck-m-labial" data-persist="ck-m-labial"><label for="ck-m-labial">Protetor labial</label></li>
+                    <li><input type="checkbox" id="ck-m-hidratante" data-persist="ck-m-hidratante"><label for="ck-m-hidratante">Creme hidratante facial (ar seco de altitude)</label></li>
+                    <li><input type="checkbox" id="ck-m-escova-dente" data-persist="ck-m-escova-dente"><label for="ck-m-escova-dente">Escova e pasta de dente</label></li>
+                    <li><input type="checkbox" id="ck-m-shampoo" data-persist="ck-m-shampoo"><label for="ck-m-shampoo">Shampoo e condicionador (frasco de viagem)</label></li>
+                    <li><input type="checkbox" id="ck-m-desodorante" data-persist="ck-m-desodorante"><label for="ck-m-desodorante">Desodorante</label></li>
+                    <li><input type="checkbox" id="ck-m-kit-higiene" data-persist="ck-m-kit-higiene"><label for="ck-m-kit-higiene">Kit de higiene pessoal (lâmina, cortador de unha, etc.)</label></li>
+                </ul>
+
+                <h3>🥾 Trilhas (Dolomitas)</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-mochila" data-persist="ck-m-mochila"><label for="ck-m-mochila">Mochila de trilha (Quechua)</label></li>
+                    <li><input type="checkbox" id="ck-m-garrafa-agua" data-persist="ck-m-garrafa-agua"><label for="ck-m-garrafa-agua">Garrafa de água reutilizável</label></li>
+                </ul>
+
+                <h3>🍷 Compras de Vinho (Alba)</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-mala-extra" data-persist="ck-m-mala-extra"><label for="ck-m-mala-extra">Bolsa/mala extra vazia ou dobrável (pra trazer as garrafas)</label></li>
+                    <li><input type="checkbox" id="ck-m-balanca" data-persist="ck-m-balanca"><label for="ck-m-balanca">Balança de mala portátil</label></li>
                 </ul>
             </div>
         </div>
 
         <footer>
             <p>🇮🇹 Roteiro Itália 2026 — João Pedro Coutinho</p>
-            <p style="margin-top: 10px;">Última atualização: Agosto 2026 — reserva do carro (Ecovia/Rentcars) confirmada | HTML interativo com abas | Previsão do tempo ao vivo | Checklists salvos no navegador</p>
+            <p style="margin-top: 10px;">Última atualização: Junho 2026 | HTML interativo com abas | Previsão do tempo ao vivo | Checklists salvos no navegador</p>
             <p style="margin-top: 10px; font-size: 0.9em; color: #999;">Preferência: Opções ao invés de roteiro travado | Flexibilidade = melhor experiência</p>
         </footer>
     </div>
@@ -3529,7 +2800,7 @@
         /* ===== MAPAS DAS ROTAS (Leaflet + OpenStreetMap, sem chave) ===== */
         const ROUTES = {
             'map-veneza': { points: [
-                ['🏨 Hotel Casa Verardo · Castello', 45.43592, 12.34193],
+                ['🏨 Hospedagem · Cannaregio', 45.4445, 12.3265],
                 ['⛪ Basílica San Marco', 45.4345, 12.3397],
                 ['🏛️ Palazzo Ducale', 45.4337, 12.3401],
                 ['🌉 Ponte di Rialto', 45.4380, 12.3358],
@@ -3538,9 +2809,6 @@
                 ['🍴 Osteria al Timon', 45.4447, 12.3270]
             ]},
             'map-ortisei': { points: [
-                ['🏨 Hotel Genziana · Via Rezia 111', 46.5740, 11.6745],
-                ['☕ Rifugio Firenze (Regensburger Hütte)', 46.6008, 11.7563],
-                ['🚡 Col Raiser (Santa Cristina)', 46.5661, 11.7238],
                 ['🏔️ Ortisei (centro)', 46.5766, 11.6713],
                 ['⭐ Seceda (crista Odle)', 46.6068, 11.7250],
                 ['🚡 Alpe di Siusi (Mont Sëuc)', 46.5408, 11.6190],
@@ -3550,11 +2818,10 @@
                 ['📸 Tre Cime · Rifugio Auronzo', 46.6132, 12.2952],
                 ['🪖 Passo Falzarego / Lagazuoi', 46.5197, 12.0097],
                 ['⚔️ Cinque Torri', 46.5230, 12.0470],
-                ['🏞️ Lago di Braies (dia 8)', 46.6947, 12.0855],
+                ['🏞️ Lago di Carezza', 46.4090, 11.5765],
                 ['🛣️ Passo Gardena', 46.5466, 11.8127]
             ]},
             'map-langhe': { points: [
-                ['🏨 Airbnb · Piazza Michele Ferrero 1', 44.7003, 8.0357],
                 ['🍷 Alba (base)', 44.7009, 8.0353],
                 ['🍝 La Ciau del Tornavento (Treiso)', 44.6880, 8.0470],
                 ['🍇 Barbaresco', 44.7230, 8.0840],
@@ -3956,16 +3223,16 @@
             ['vinho piemontese', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Uva_Nebbiolo.jpg/960px-Uva_Nebbiolo.jpg'],
             ['truffle hunting', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Tuber_magnatum.jpg/960px-Tuber_magnatum.jpg'],
             ['cantinas barolo', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bottiglia_di_Barolo_Selezione_Ufficiale_dell%27Enoteca_Regionale_del_Barolo.jpg/960px-Bottiglia_di_Barolo_Selezione_Ufficiale_dell%27Enoteca_Regionale_del_Barolo.jpg'],
-            ['casa verardo', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Santa_Maria_degli_Scalzi_%28Venice%29.jpg/960px-Santa_Maria_degli_Scalzi_%28Venice%29.jpg'],
+            ['hotel abbazia', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Santa_Maria_degli_Scalzi_%28Venice%29.jpg/960px-Santa_Maria_degli_Scalzi_%28Venice%29.jpg'],
             ['alpe di siusi', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mont_de_Seuc_Fabian_2012_017_01.JPG/960px-Mont_de_Seuc_Fabian_2012_017_01.JPG'],
             ['passo gardena', 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/20130702_03_Passo_Gardena_%289230184794%29.jpg/960px-20130702_03_Passo_Gardena_%289230184794%29.jpg'],
             ['more e macine', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Vitello_tonnato_%287169906567%29.jpg/960px-Vitello_tonnato_%287169906567%29.jpg'],
             ['adolf munkel', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Odle_di_Funes.jpg/960px-Odle_di_Funes.jpg'],
             ['cinque torri', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cortina_%2850162425826%29.jpg/960px-Cortina_%2850162425826%29.jpg'],
-            ['airbnb alba', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/View_of_Langhe_from_La_Morra.JPG/960px-View_of_Langhe_from_La_Morra.JPG'],
+            ['hotel langhe', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/View_of_Langhe_from_La_Morra.JPG/960px-View_of_Langhe_from_La_Morra.JPG'],
             ['giulia negri', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/La_Morra_seen_from_south.JPG/960px-La_Morra_seen_from_south.JPG'],
             ['comida local', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Taglioni_side.png/960px-Taglioni_side.png'],
-            ['hotel genziana', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Val_Gardena_dall%27alto.JPG/960px-Val_Gardena_dall%27alto.JPG'],
+            ['hotel raffl', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Val_Gardena_dall%27alto.JPG/960px-Val_Gardena_dall%27alto.JPG'],
             ['cantinella', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/R_Bistro_-_Nov_2012_-_01.jpg/960px-R_Bistro_-_Nov_2012_-_01.jpg'],
             ['aromatario', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Neive_Panorama.JPG/960px-Neive_Panorama.JPG'],
             ['tartufaia', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Tuber_magnatum.jpg/960px-Tuber_magnatum.jpg'],
