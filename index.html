@@ -827,6 +827,29 @@
                 grid-template-columns: 1fr;
             }
         }
+        .print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 4px 0 20px;
+            padding: 12px 22px;
+            background: #0e6b35;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+            font-family: inherit;
+        }
+        .print-btn:hover { background: #157a3c; }
+        @media print {
+            header, .nav-tabs, .print-btn, .route-map, .place-link, .inline-map,
+            .drag-handle, .item-delete, .add-activity-btn, select.status-select,
+            .city-filter, #weather-grid, .weather-note { display: none !important; }
+            body { background: #fff; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; }
+        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -849,6 +872,7 @@
             <button class="nav-btn" onclick="openTab(event, 'frases')">🗣️ Frases</button>
             <button class="nav-btn" onclick="openTab(event, 'reservas')">📄 Reservas</button>
             <button class="nav-btn" onclick="openTab(event, 'pratico')">ℹ️ Prático</button>
+            <button class="nav-btn" onclick="openTab(event, 'mala')">🎒 Mala</button>
         </div>
 
         <div class="content">
@@ -3519,6 +3543,88 @@
                     <li><input type="checkbox" id="ck-remedios" data-persist="ck-remedios"><label for="ck-remedios">Remédios básicos</label></li>
                 </ul>
             </div>
+
+            <!-- MALA -->
+            <div id="mala" class="tab-panel">
+                <h2>🎒 Mala — O Que Não Esquecer</h2>
+                <p style="color:#666;">Checklist completo pra fazer a mala. Marque conforme for separando — fica salvo no seu navegador. Os itens com <span class="badge badge-option">🖨️ imprimir</span> são documentos que valem uma cópia física.</p>
+
+                <button class="print-btn" onclick="window.print()">🖨️ Imprimir esta lista</button>
+                <div class="info-box">
+                    Não tenho acesso aos seus arquivos reais (seguro, reservas, e-mails de confirmação) — eles estão no seu e-mail/apps. O botão acima imprime esta lista como lembrete; imprima os PDFs de cada documento separadamente pelo app/e-mail correspondente.
+                </div>
+
+                <h3>📄 Documentos & Dinheiro</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-passaporte" data-persist="ck-m-passaporte"><label for="ck-m-passaporte">Passaporte (validade 6+ meses)</label></li>
+                    <li><input type="checkbox" id="ck-m-cnh" data-persist="ck-m-cnh"><label for="ck-m-cnh">CNH</label></li>
+                    <li><input type="checkbox" id="ck-m-pid" data-persist="ck-m-pid"><label for="ck-m-pid">PID — Permissão Internacional para Dirigir</label></li>
+                    <li><input type="checkbox" id="ck-m-seguro" data-persist="ck-m-seguro"><label for="ck-m-seguro">Comprovante do seguro viagem Schengen <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-hoteis" data-persist="ck-m-hoteis"><label for="ck-m-hoteis">Reservas de hotéis (Veneza, Ortisei, Alba) <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-conf-ciau" data-persist="ck-m-conf-ciau"><label for="ck-m-conf-ciau">Confirmação — La Ciau del Tornavento <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-conf-guido" data-persist="ck-m-conf-guido"><label for="ck-m-conf-guido">Confirmação — Guido da Costigliole <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-conf-conterno" data-persist="ck-m-conf-conterno"><label for="ck-m-conf-conterno">Confirmação — Conterno Fantino <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-conf-trufa" data-persist="ck-m-conf-trufa"><label for="ck-m-conf-trufa">Confirmação — La Tartufaia (caça à trufa) <span class="badge badge-option">🖨️ imprimir</span></label></li>
+                    <li><input type="checkbox" id="ck-m-nomad" data-persist="ck-m-nomad"><label for="ck-m-nomad">Cartão Nomad</label></li>
+                    <li><input type="checkbox" id="ck-m-cash" data-persist="ck-m-cash"><label for="ck-m-cash">Dinheiro físico (€200-300)</label></li>
+                    <li><input type="checkbox" id="ck-m-maps" data-persist="ck-m-maps"><label for="ck-m-maps">Google Maps offline (Itália inteira) baixado</label></li>
+                    <li><input type="checkbox" id="ck-m-backup-docs" data-persist="ck-m-backup-docs"><label for="ck-m-backup-docs">Foto/scan de todos os documentos salva no celular + nuvem</label></li>
+                </ul>
+
+                <h3>📷 Eletrônicos</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-dji" data-persist="ck-m-dji"><label for="ck-m-dji">Câmera DJI</label></li>
+                    <li><input type="checkbox" id="ck-m-dji-carreg" data-persist="ck-m-dji-carreg"><label for="ck-m-dji-carreg">Carregador da DJI + bateria extra</label></li>
+                    <li><input type="checkbox" id="ck-m-cartao-memoria" data-persist="ck-m-cartao-memoria"><label for="ck-m-cartao-memoria">Cartão de memória extra</label></li>
+                    <li><input type="checkbox" id="ck-m-carregador-cel" data-persist="ck-m-carregador-cel"><label for="ck-m-carregador-cel">Carregador de celular</label></li>
+                    <li><input type="checkbox" id="ck-m-powerbank" data-persist="ck-m-powerbank"><label for="ck-m-powerbank">Power bank</label></li>
+                    <li><input type="checkbox" id="ck-m-adaptador" data-persist="ck-m-adaptador"><label for="ck-m-adaptador">Adaptador de tomada (plugue tipo F/C)</label></li>
+                    <li><input type="checkbox" id="ck-m-esim" data-persist="ck-m-esim"><label for="ck-m-esim">eSIM instalado/ativado antes de embarcar</label></li>
+                    <li><input type="checkbox" id="ck-m-fones" data-persist="ck-m-fones"><label for="ck-m-fones">Fones de ouvido</label></li>
+                </ul>
+
+                <h3>🧥 Roupas</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-casaco" data-persist="ck-m-casaco"><label for="ck-m-casaco">Casaco corta-vento/impermeável</label></li>
+                    <li><input type="checkbox" id="ck-m-guardachuva" data-persist="ck-m-guardachuva"><label for="ck-m-guardachuva">Guarda-chuva compacto</label></li>
+                    <li><input type="checkbox" id="ck-m-termica" data-persist="ck-m-termica"><label for="ck-m-termica">Camadas térmicas (base layer) — Dolomitas</label></li>
+                    <li><input type="checkbox" id="ck-m-botas" data-persist="ck-m-botas"><label for="ck-m-botas">Botas de trilha impermeáveis</label></li>
+                    <li><input type="checkbox" id="ck-m-meias" data-persist="ck-m-meias"><label for="ck-m-meias">Meias de trilha extras</label></li>
+                    <li><input type="checkbox" id="ck-m-gorro" data-persist="ck-m-gorro"><label for="ck-m-gorro">Gorro e luvas leves</label></li>
+                    <li><input type="checkbox" id="ck-m-tenis" data-persist="ck-m-tenis"><label for="ck-m-tenis">Tênis confortável (Veneza — muita pedra/escada)</label></li>
+                    <li><input type="checkbox" id="ck-m-arrumada" data-persist="ck-m-arrumada"><label for="ck-m-arrumada">Roupa mais arrumada (jantares La Ciau e Guido da Costigliole)</label></li>
+                    <li><input type="checkbox" id="ck-m-suja" data-persist="ck-m-suja"><label for="ck-m-suja">Roupa/calçado que pode sujar (dia da caça à trufa — mata/lama)</label></li>
+                    <li><input type="checkbox" id="ck-m-pijama" data-persist="ck-m-pijama"><label for="ck-m-pijama">Pijama</label></li>
+                    <li><input type="checkbox" id="ck-m-sunga" data-persist="ck-m-sunga"><label for="ck-m-sunga">Sunga / roupa de banho</label></li>
+                    <li><input type="checkbox" id="ck-m-oculos" data-persist="ck-m-oculos"><label for="ck-m-oculos">Óculos de sol</label></li>
+                </ul>
+
+                <h3>🧴 Saúde & Higiene Pessoal</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-remedios-continuo" data-persist="ck-m-remedios-continuo"><label for="ck-m-remedios-continuo">Remédios de uso contínuo (com receita)</label></li>
+                    <li><input type="checkbox" id="ck-m-remedios-basicos" data-persist="ck-m-remedios-basicos"><label for="ck-m-remedios-basicos">Analgésico, antialérgico, remédio pra enjoo</label></li>
+                    <li><input type="checkbox" id="ck-m-protetor" data-persist="ck-m-protetor"><label for="ck-m-protetor">Protetor solar</label></li>
+                    <li><input type="checkbox" id="ck-m-labial" data-persist="ck-m-labial"><label for="ck-m-labial">Protetor labial</label></li>
+                    <li><input type="checkbox" id="ck-m-hidratante" data-persist="ck-m-hidratante"><label for="ck-m-hidratante">Creme hidratante facial (ar seco de altitude)</label></li>
+                    <li><input type="checkbox" id="ck-m-escova-dente" data-persist="ck-m-escova-dente"><label for="ck-m-escova-dente">Escova e pasta de dente</label></li>
+                    <li><input type="checkbox" id="ck-m-shampoo" data-persist="ck-m-shampoo"><label for="ck-m-shampoo">Shampoo e condicionador (frasco de viagem)</label></li>
+                    <li><input type="checkbox" id="ck-m-desodorante" data-persist="ck-m-desodorante"><label for="ck-m-desodorante">Desodorante</label></li>
+                    <li><input type="checkbox" id="ck-m-kit-higiene" data-persist="ck-m-kit-higiene"><label for="ck-m-kit-higiene">Kit de higiene pessoal (lâmina, cortador de unha, etc.)</label></li>
+                </ul>
+
+                <h3>🥾 Trilhas (Dolomitas)</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-mochila" data-persist="ck-m-mochila"><label for="ck-m-mochila">Mochila de trilha (Quechua)</label></li>
+                    <li><input type="checkbox" id="ck-m-garrafa-agua" data-persist="ck-m-garrafa-agua"><label for="ck-m-garrafa-agua">Garrafa de água reutilizável</label></li>
+                </ul>
+
+                <h3>🍷 Compras de Vinho (Alba)</h3>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="ck-m-mala-extra" data-persist="ck-m-mala-extra"><label for="ck-m-mala-extra">Bolsa/mala extra vazia ou dobrável (pra trazer as garrafas)</label></li>
+                    <li><input type="checkbox" id="ck-m-balanca" data-persist="ck-m-balanca"><label for="ck-m-balanca">Balança de mala portátil</label></li>
+                </ul>
+            </div>
+
         </div>
 
         <footer>
